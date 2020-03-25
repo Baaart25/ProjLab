@@ -17,10 +17,11 @@ A teszt végét a `SkeletonTester.endTest()`-el kell jelezni. Ezek elmulasztása
  A tesztek működése közben a `SkeletonTester` automatikusan megjeleníti a hívott függvény nevét és az ismert
 paramétereket. Ehhez viszont szükség van a teszt során használt objektumok névvel beregisztrálásához a rendszerbe.
 A regisztrálást a `SkeletonTester.addNamedReference(obj,"obj neve")`. A tesztelés során a meghívott függvényeket a 
-`SkeletonTester.SkeletonTester.call` függvénnyel tudjuk. Ennek első paramétere mindíg az a példány aminek tagfüggvényének
-hívását jeleztük. A hívott fv. többi paraméterét a `call` fv.nek kell megadni, az eredeti sorrendben. A kapott 
-az addig beregisztrált NamedReferencek alapján írja ki. A hívás végét a `SkeletonTest.creturn()`-nel jelezzük. Erre a
-kimenet fancy megejelnítéséhez van szükség.  
+`SkeletonTester.SkeletonTester.call` függvénnyel tudjuk. Ennek első paramétere mindíg az a példány aminek 
+tagfüggvényének hívását jeleztük. A hívott fv. többi paraméterét a `call` fv.nek kell megadni, az eredeti sorrendben.
+A kapott az addig beregisztrált NamedReferencek alapján írja ki. A hívás végét a `SkeletonTest.creturn()`-nel jelezzük. 
+Erre a kimenet fancy megejelnítéséhez van szükség.
+  
 Példa:
 ```JAVA
 public void setCurrentTile(IceTile newTile) {
