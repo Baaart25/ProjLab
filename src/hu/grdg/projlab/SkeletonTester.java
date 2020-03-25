@@ -50,6 +50,11 @@ public class SkeletonTester {
         return readNumber();
     }
 
+    public static String askString(String message) {
+        System.out.print(message);
+        return scanner.nextLine();
+    }
+
     public static int readNumber() {
         return scanner.nextInt();
     }
