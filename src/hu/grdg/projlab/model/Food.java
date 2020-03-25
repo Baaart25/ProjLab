@@ -7,5 +7,6 @@ public class Food extends Item{
 
     public void eat() {
         //////////
+        /////////
     }
 }
