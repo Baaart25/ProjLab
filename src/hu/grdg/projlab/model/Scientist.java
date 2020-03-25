@@ -1,6 +1,6 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.Skeleton;
+import hu.grdg.projlab.SkeletonTester;
 
 /**
  * A player type that can neighbour tiles for their capacities
@@ -8,8 +8,8 @@ import hu.grdg.projlab.Skeleton;
 public class Scientist extends Player{
     @Override
     public void specialAbility() {
-        Skeleton.call(this);
+        SkeletonTester.call(this);
         currentTile.buildIgloo();
-        Skeleton.creturn();
+        SkeletonTester.creturn();
     }
 }
