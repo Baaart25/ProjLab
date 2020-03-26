@@ -1,12 +1,12 @@
 package hu.grdg.projlab;
 
-import hu.grdg.projlab.model.Scientist;
-import hu.grdg.projlab.model.UnstableIceTile;
+import hu.grdg.projlab.model.*;
 
 public class Skeleton {
     public static void main(String[] args) {
         //Register tests below
         SkeletonTester.registerTest("PlayerStepOnUnstableIceTile", Skeleton::playerStepOnUnsatbleIceTile);
+        SkeletonTester.registerTest("ScanLimitHoleTile", Skeleton::scanLimitHoleTile);
 
 
 
@@ -39,4 +39,29 @@ public class Skeleton {
 
         SkeletonTester.endTest();
     }
+
+    /**
+     * Scientist scan a HoleTile
+     * @author Dorina
+     */
+    private static void scanLimitHoleTile(){
+        SkeletonTester.beginTest("ScanLimitHoleTile");
+
+        Scientist sc = new Scientist();
+        SkeletonTester.addNamedReference(sc, "sc");
+        IceTile tile = new IceTile();
+        SkeletonTester.addNamedReference(tile, "tile");
+        HoleTile hole = new HoleTile();
+        SkeletonTester.addNamedReference(hole, "hole");
+
+        tile.setNeighbour(hole, Direction.EAST);
+
+        sc.setCurrentTile(tile);
+
+        sc.specialAbility();
+
+
+        SkeletonTester.endTest();
+    }
+
 }
