@@ -13,7 +13,7 @@ public class Scientist extends Player{
         Tile t = currentTile.getNeighbour(Direction.EAST);
         SkeletonTester.addNamedReference(t, "t");
         int limit = t.scanLimit();
-        SkeletonTester.addNamedReference(limit, "limit");
+
         SkeletonTester.creturn();
     }
 }
