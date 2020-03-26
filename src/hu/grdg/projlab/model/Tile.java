@@ -36,7 +36,8 @@ public abstract class Tile {
 
     public Tile getNeighbour(Direction d){
         SkeletonTester.call(this, d);
-        SkeletonTester.creturn();
+
+        SkeletonTester.creturn(neighbours.get(d));
         return neighbours.get(d);
 
     }

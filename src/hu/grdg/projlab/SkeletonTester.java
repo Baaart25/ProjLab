@@ -136,6 +136,14 @@ public class SkeletonTester {
         currentInstance.fnLevel--;
     }
 
+    public static void creturn(Object retVal) {
+        checkInstance();
+        currentInstance.fnLevel++;
+        printf("%sreturn %s", padding(), objectInfo(retVal));
+        currentInstance.fnLevel--;
+        currentInstance.fnLevel--;
+    }
+
     private static void checkInstance() {
         if(currentInstance == null)
             throw new IllegalStateException("Instance is null");
