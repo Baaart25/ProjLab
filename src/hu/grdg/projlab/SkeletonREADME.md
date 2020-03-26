@@ -20,7 +20,8 @@ A regisztrálást a `SkeletonTester.addNamedReference(obj,"obj neve")`. A teszte
 `SkeletonTester.SkeletonTester.call` függvénnyel tudjuk. Ennek első paramétere mindíg az a példány aminek 
 tagfüggvényének hívását jeleztük. A hívott fv. többi paraméterét a `call` fv.nek kell megadni, az eredeti sorrendben.
 A kapott az addig beregisztrált NamedReferencek alapján írja ki. A hívás végét a `SkeletonTest.creturn()`-nel jelezzük. 
-Erre a kimenet fancy megejelnítéséhez van szükség.
+Erre a kimenet fancy megejelnítéséhez van szükség. Ha a fv. nem void visszatérésű, a visszatérési érték (vagy 
+tetszőleges szöveg) jelezhető a `SkeletonTest.creturn(Object)`-nek megadott paraméterként.
   
 Példa:
 ```JAVA
@@ -31,6 +32,15 @@ public void setCurrentTile(IceTile newTile) {
 
        SkeletonTester.creturn();
    }
+```
+Vagy return value-val:
+```Java
+ public Tile getNeighbour(Direction d){
+        SkeletonTester.call(this, d);
+
+        SkeletonTester.creturn(neighbours.get(d));
+        return neighbours.get(d);
+    }
 ```
   
 ### 2. Segédfüggvények
