@@ -43,4 +43,35 @@ public abstract class Item {
      * @author Geri
      */
     public abstract boolean useItem();
+
+    /**
+     * Sets if he item is frozen or not
+     * @param isFrozen Is frozen or not
+     * @author Barrow099
+     */
+    public void setIsFrozen(boolean isFrozen) {
+        SkeletonTester.call(this, isFrozen);
+        this.isFrozen = isFrozen;
+        SkeletonTester.creturn();
+    }
+
+    /**
+     * The player tries to pick up the item
+     * If the item is frozen, the player cant do that so we return false
+     * However if the player can pick it up, we set the owner to them and return true
+     * @param p The player
+     * @return True if success, else false
+     * @author Barrow099
+     */
+    public boolean pickedUp(Player p) {
+        SkeletonTester.call(this, p);
+        if(isFrozen) {
+            SkeletonTester.creturn(false);
+            return false;
+        }else {
+            owner = p;
+            SkeletonTester.creturn(true);
+            return true;
+        }
+    }
 }

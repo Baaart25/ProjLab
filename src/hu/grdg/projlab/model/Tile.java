@@ -107,4 +107,44 @@ public abstract class Tile {
         }
         SkeletonTester.creturn();
     }
+
+    /**
+     * Sets the number of snow layers on this tile
+     * @param snowLayers The number of snow layers
+     * @author Barrow099
+     */
+    public void setSnowLayers(int snowLayers) {
+        SkeletonTester.call(this,snowLayers);
+        this.snowLayers = snowLayers;
+        SkeletonTester.creturn();
+    }
+
+    /**
+     * The parameter Player is trying to pick up the item from the tile
+     * If there is at least one snow layer on us, this will fail
+     * @param p The player
+     */
+    public boolean pickupItem(Player p) {
+        SkeletonTester.call(this, p);
+
+        //We have snow on us
+        if(snowLayers > 0){
+            SkeletonTester.creturn(false);
+            return false;
+        }
+
+        //We dont have an item :(
+        if(frozenItem == null) {
+            SkeletonTester.creturn(false);
+            return false;
+        }
+
+        if(frozenItem.pickedUp(p)) {
+            SkeletonTester.creturn(true);
+            return true;
+        }else {
+            SkeletonTester.creturn(false);
+            return false;
+        }
+    }
 }

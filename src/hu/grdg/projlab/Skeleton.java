@@ -19,9 +19,36 @@ public class Skeleton {
         SkeletonTester.registerTest("RemoveSnowWithShovel",Skeleton::removeSnowWithShovel);
         SkeletonTester.registerTest("EatFood", Skeleton::eatFood);
         SkeletonTester.registerTest("PlayerSurviveInDivingSuit", Skeleton::playerSurviveInDivingSuit);
+        SkeletonTester.registerTest("PickUpItem", Skeleton::playerPickUpItem);
 
         //Run testing
         SkeletonTester.start();
+    }
+
+    /**
+     * Demonstrates a player item pickup
+     * @author Barrow099
+     */
+    private static void playerPickUpItem() {
+        SkeletonTester.beginTest("PlayerPickUpItem");
+
+        IceTile currentTile = new IceTile();
+        int snowLayers = SkeletonTester.askNumber("IceTile snowLayers: ");
+        SkeletonTester.addNamedReference(currentTile, "currentTile");
+        currentTile.setSnowLayers(snowLayers);
+
+        Shovel item = new Shovel();
+        SkeletonTester.addNamedReference(item, "item");
+        boolean isFrozen = SkeletonTester.askYesNo("Item isFrozen");
+        currentTile.setFrozenItem(item);
+        item.setIsFrozen(isFrozen);
+
+        Eskimo e = new Eskimo();
+        SkeletonTester.addNamedReference(e,"e");
+
+        currentTile.pickupItem(e);
+
+        SkeletonTester.endTest();
     }
 
     /**
