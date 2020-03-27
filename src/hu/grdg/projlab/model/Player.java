@@ -114,4 +114,28 @@ public abstract class Player {
             return true;
         }
     }
+
+    /**
+     * Sets the player's isInWater status
+     * @param isInWater The new value
+     * @author Barrow099
+     */
+    public void setIsInWater(boolean isInWater) {
+        SkeletonTester.call(this, isInWater);
+        this.isInWater = isInWater;
+        SkeletonTester.creturn();
+    }
+
+    /**
+     * Enable the player to step out of a Hole if called.
+     * This is done by setting the isInWater property to false
+     * @return If the player was in water
+     */
+    public boolean surviveWater() {
+        SkeletonTester.call(this);
+        SkeletonTester.creturn(isInWater);
+        boolean wasInWater = isInWater;
+        isInWater = false;
+        return wasInWater;
+    }
 }

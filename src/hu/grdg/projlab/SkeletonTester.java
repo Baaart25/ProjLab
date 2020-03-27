@@ -148,5 +148,19 @@ public class SkeletonTester {
         if(currentInstance == null)
             throw new IllegalStateException("Instance is null");
     }
+
+    public static boolean askYesNo(String message) {
+        System.out.print(message);
+        System.out.print("[Y/N]: ");
+        do {
+            String line = scanner.nextLine();
+            if(line.toLowerCase().equals("y")) {
+                return true;
+            }else if(line.toLowerCase().equals("n")) {
+                return false;
+            }
+        }while (true);
+
+    }
     //</editor-fold>
 }
