@@ -17,7 +17,7 @@ public class Skeleton {
         SkeletonTester.registerTest("SnowStorm", Skeleton::snowStorm);
         SkeletonTester.registerTest("BuildIgloo", Skeleton::buildIgloo);
         SkeletonTester.registerTest("RemoveSnowWithShovel",Skeleton::removeSnowWithShovel);
-
+        SkeletonTester.registerTest("EatFood", Skeleton::EatFood);
         //Run testing
         SkeletonTester.start();
     }
@@ -254,6 +254,16 @@ public class Skeleton {
         sh.setOwner(owner);
         sh.useItem();
 
+
+        SkeletonTester.endTest();
+    }
+    private static void EatFood(){
+        SkeletonTester.beginTest("EatFood");
+
+        Food f = new Food();
+        Eskimo e = new Eskimo();
+        f.setOwner(e);
+        f.useItem();
 
         SkeletonTester.endTest();
     }
