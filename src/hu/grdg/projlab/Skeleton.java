@@ -18,8 +18,33 @@ public class Skeleton {
         SkeletonTester.registerTest("BuildIgloo", Skeleton::buildIgloo);
         SkeletonTester.registerTest("RemoveSnowWithShovel",Skeleton::removeSnowWithShovel);
         SkeletonTester.registerTest("EatFood", Skeleton::eatFood);
+        SkeletonTester.registerTest("PlayerSurviveInDivingSuit", Skeleton::playerSurviveInDivingSuit);
+
         //Run testing
         SkeletonTester.start();
+    }
+
+    /**
+     * When a player is in water, they can use a DivingSuit item to
+     * move out of the hole.
+     * @author Barrow099
+     */
+    private static void playerSurviveInDivingSuit() {
+        SkeletonTester.beginTest("PlayerSurviveInDivingSuit");
+
+        Scientist p = new Scientist();
+        SkeletonTester.addNamedReference(p, "p");
+
+        boolean isInWater = SkeletonTester.askYesNo("Player isInWater");
+        p.setIsInWater(isInWater);
+
+        DivingSuit d = new DivingSuit();
+        SkeletonTester.addNamedReference(d, "d");
+        d.setOwner(p);
+
+        d.useItem();
+
+        SkeletonTester.endTest();
     }
 
     /**
