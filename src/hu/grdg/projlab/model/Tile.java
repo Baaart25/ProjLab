@@ -32,6 +32,16 @@ public abstract class Tile {
         SkeletonTester.creturn();
     }
 
+    /**
+     * Returns the players list
+     * @return players list
+     */
+    public ArrayList<Player> getPlayers(){
+        SkeletonTester.call(this);
+        SkeletonTester.creturn(players);
+        return players;
+    }
+
     public abstract boolean removeSnowLayer(int n);
     public boolean buildIgloo() {
         SkeletonTester.call(this);

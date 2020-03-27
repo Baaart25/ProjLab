@@ -18,6 +18,7 @@ public class Skeleton {
         SkeletonTester.registerTest("BuildIgloo", Skeleton::BuildIgloo);
         SkeletonTester.registerTest("RemoveSnowWithShovel",Skeleton::RemoveSnowWithShovel);
         SkeletonTester.registerTest("EatFood", Skeleton::EatFood);
+        SkeletonTester.registerTest("SavePlayerWithRope",Skeleton::savePlayerWithRope);
 
 
         //Run testing
@@ -266,6 +267,35 @@ public class Skeleton {
         Eskimo e = new Eskimo();
         f.setOwner(e);
         f.useItem();
+
+        SkeletonTester.endTest();
+    }
+
+    /**
+     * A player saves another player from a HoleTile with a Rope
+     * @author Boti
+     */
+    private static void savePlayerWithRope(){
+        SkeletonTester.beginTest("savePlayerWithRope");
+
+        Rope r = new Rope();
+        SkeletonTester.addNamedReference(r,"r");
+        Scientist owner = new Scientist();
+        SkeletonTester.addNamedReference(owner,"owner");
+        IceTile currentTile = new IceTile();
+        SkeletonTester.addNamedReference(currentTile,"currentTile");
+        HoleTile tile = new HoleTile();
+        SkeletonTester.addNamedReference(tile,"tile");
+        Scientist player = new Scientist();
+        SkeletonTester.addNamedReference(player,"player");
+
+        r.setOwner(owner);
+        owner.setCurrentTile(currentTile);
+        currentTile.setNeighbour(tile,Direction.EAST);
+        tile.setNeighbour(currentTile,Direction.WEST);
+        tile.acceptPlayer(player);
+
+        r.useItem();
 
         SkeletonTester.endTest();
     }

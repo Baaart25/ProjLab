@@ -60,7 +60,9 @@ public abstract class Player {
         return false;
     }
 
-
+    /**
+     * sets the isInWater boolean variable to true;
+     */
     public void fallInWater() {
         SkeletonTester.call(this);
 
@@ -69,6 +71,36 @@ public abstract class Player {
         SkeletonTester.creturn();
     }
 
+    /**
+     *
+     * @param tile the tile to step
+     * @return if the player is on holetile
+     */
+    public boolean savedFromWater(Tile tile){
+        if(isInWater){
+            move(tile);
+        }
+    }
+    /**
+     * saves players from the neighbouring tiles
+     * @return boolean the succesfulnes of saving players
+     */
+    public boolean savingPlayers(){
+        SkeletonTester.call(this);
+
+        boolean res = false;
+        Tile tile = currentTile.getNeighbour(Direction.EAST);
+        ArrayList<Player> p = tile.getPlayers();
+        for (Player player : p) {
+            if(player.savedFromWater(currentTile))
+                res = true;
+        }
+
+
+        SkeletonTester.creturn(res);
+        return res;
+
+    }
     /**
      * Sets the game controller reference of the player
      * @param controller The game controller instance
