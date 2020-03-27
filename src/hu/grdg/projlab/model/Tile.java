@@ -3,6 +3,7 @@ package hu.grdg.projlab.model;
 import hu.grdg.projlab.Skeleton;
 import hu.grdg.projlab.SkeletonTester;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -11,8 +12,12 @@ import java.util.HashMap;
 public abstract class Tile {
     private HashMap<Direction, Tile> neighbours;
     private Item frozenItem = null;
+    private int snowLayers;
+    private ArrayList<Player> players;
+    private boolean hasIgloo;
 
     public Tile(){
+        players = new ArrayList<>();
         neighbours=new HashMap<>();
     }
 
@@ -23,6 +28,7 @@ public abstract class Tile {
     public void acceptPlayer(Player player) {
         SkeletonTester.call(this, player);
         player.setCurrentTile(this);
+        players.add(player);
         SkeletonTester.creturn();
     }
 
@@ -68,5 +74,30 @@ public abstract class Tile {
         SkeletonTester.call(this);
         SkeletonTester.creturn(frozenItem);
         return frozenItem;
+    }
+
+    /**
+     *
+     * @param n Add n snowlayers to the tile
+     * @author Dorina
+     */
+    public void addSnowLayer(int n) {
+        SkeletonTester.call(this);
+        snowLayers += n;
+        SkeletonTester.creturn();
+    }
+
+    /**
+     * Damage all the players on the tile
+     * @author Dorina
+     */
+    public void stormDamage() {
+        SkeletonTester.call(this);
+        if(!hasIgloo){
+            for (Player p: players) {
+                p.damage(1);
+            }
+        }
+        SkeletonTester.creturn();
     }
 }

@@ -2,6 +2,8 @@ package hu.grdg.projlab;
 
 import hu.grdg.projlab.model.*;
 
+import java.util.ArrayList;
+
 public class Skeleton {
     public static void main(String[] args) {
         //Register tests below
@@ -10,6 +12,7 @@ public class Skeleton {
         SkeletonTester.registerTest("ScanLimitIceTile", Skeleton::scanLimitIceTile);
         SkeletonTester.registerTest("ScanLimitUnstableIceTile", Skeleton::scanLimitUnstableIceTile);
         SkeletonTester.registerTest("UnfreezeItem", Skeleton::unfreezeItem);
+        SkeletonTester.registerTest("SnowStorm", Skeleton::snowStorm);
 
 
         //Run testing
@@ -136,6 +139,28 @@ public class Skeleton {
         sc.setCurrentTile(tile);
 
         sc.specialAbility();
+
+        SkeletonTester.endTest();
+    }
+
+    private static void snowStorm(){
+        SkeletonTester.beginTest("SnowStorm");
+
+        SnowStorm storm = new SnowStorm();
+        SkeletonTester.addNamedReference(storm, "storm");
+
+        Level lvl = new Level();
+        SkeletonTester.addNamedReference(lvl, "lvl");
+
+        Eskimo e = new Eskimo();
+        SkeletonTester.addNamedReference(e,"e");
+
+        lvl.genTiles(1,1);
+        ArrayList<Tile> tiles = lvl.getTiles();
+        Tile tile = tiles.get(0);
+        SkeletonTester.addNamedReference(tile, "tile");
+        tile.acceptPlayer(e);
+        storm.doEvent(lvl);
 
         SkeletonTester.endTest();
     }

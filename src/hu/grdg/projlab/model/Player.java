@@ -1,5 +1,6 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.Skeleton;
 import hu.grdg.projlab.SkeletonTester;
 
 /**
@@ -7,6 +8,7 @@ import hu.grdg.projlab.SkeletonTester;
  */
 public abstract class Player {
     protected Tile currentTile;
+    private int currentTemp;
 
     public abstract void specialAbility();
 
@@ -45,5 +47,19 @@ public abstract class Player {
 
         SkeletonTester.creturn(false);
         return false;
+    }
+
+    /**
+     *
+     * @param i Decrease the player's temperature with i
+     * @author Dorina
+     */
+    public void damage(int i) {
+        SkeletonTester.call(this, i);
+        currentTemp-=i;
+        if(currentTemp == 0){
+
+        }
+        SkeletonTester.creturn();
     }
 }
