@@ -257,6 +257,11 @@ public class Skeleton {
 
         SkeletonTester.endTest();
     }
+
+    /**
+     * Consumes food from player inventory
+     * @author Geri
+     */
     private static void eatFood(){
         SkeletonTester.beginTest("EatFood");
 
