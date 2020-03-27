@@ -58,7 +58,7 @@ public abstract class Player {
         SkeletonTester.call(this, i);
         currentTemp-=i;
         if(currentTemp == 0){
-
+            die();
         }
         SkeletonTester.creturn();
     }
