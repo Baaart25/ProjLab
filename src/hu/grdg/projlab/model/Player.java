@@ -7,6 +7,8 @@ import hu.grdg.projlab.SkeletonTester;
  */
 public abstract class Player {
     protected Tile currentTile;
+    protected boolean isInWater;
+    protected Controller controller;
 
     public abstract void specialAbility();
 
@@ -16,7 +18,7 @@ public abstract class Player {
      */
     public void die() {
         SkeletonTester.call(this);
-
+        controller.endGame(false);
         SkeletonTester.creturn();
     }
 
@@ -45,5 +47,20 @@ public abstract class Player {
 
         SkeletonTester.creturn(false);
         return false;
+    }
+
+
+    public void fallInWater() {
+        SkeletonTester.call(this);
+
+        isInWater=true;
+
+        SkeletonTester.creturn();
+    }
+
+    public void setController(Controller controller){
+        SkeletonTester.call(this,controller);
+        this.controller = controller;
+        SkeletonTester.creturn();
     }
 }

@@ -10,6 +10,7 @@ public class Skeleton {
         SkeletonTester.registerTest("ScanLimitIceTile", Skeleton::scanLimitIceTile);
         SkeletonTester.registerTest("ScanLimitUnstableIceTile", Skeleton::scanLimitUnstableIceTile);
         SkeletonTester.registerTest("UnfreezeItem", Skeleton::unfreezeItem);
+        SkeletonTester.registerTest("DieByDrown",Skeleton::DieByDrown);
 
 
         //Run testing
@@ -140,4 +141,24 @@ public class Skeleton {
         SkeletonTester.endTest();
     }
 
+    /**
+     * Az eszkimo belefullad a vízbe
+     * @author Boti
+     */
+    private static void DieByDrown(){
+        SkeletonTester.beginTest("DieByDrown");
+
+        HoleTile h = new HoleTile();
+        SkeletonTester.addNamedReference(h,"h");
+        Eskimo e = new Eskimo();
+        SkeletonTester.addNamedReference(e,"e");
+        Controller c = new Controller();
+        SkeletonTester.addNamedReference(c, "c");
+
+        h.acceptPlayer(e);
+        e.setController(c);
+        e.die();
+
+        SkeletonTester.endTest();
+    }
 }

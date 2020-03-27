@@ -14,4 +14,14 @@ public class HoleTile extends Tile{
         SkeletonTester.creturn(0);
         return 0;
     }
+
+    @Override
+    public void acceptPlayer(Player player) {
+        SkeletonTester.call(this, player);
+
+        player.setCurrentTile(this);
+        player.fallInWater();
+
+        SkeletonTester.creturn();
+    }
 }
