@@ -20,14 +20,25 @@ public class UnstableIceTile extends IceTile{
      */
     private int playerCount;
 
+
     /**
      * Creates a new Unstable Ice Tile
-     * It asks the user for the limit and current player count
+     * The player limit is needed, the current player count
+     * will be set to 0
+     * @param limit Maximum number of players
+     */
+    public UnstableIceTile(int limit) {
+        this(limit, 0);
+    }
+
+    /**
+     * Creates a new Unstable Ice Tile
+     * The player limit and current player count is needed
      * @author Barrow099
      */
-    public UnstableIceTile() {
-        this.limit = SkeletonTester.askNumber("UnstableIceTile limit:");
-        this.playerCount = SkeletonTester.askNumber("UnstableIceTile player count:");
+    public UnstableIceTile(int limit, int playerCount) {
+        this.limit = limit;
+        this.playerCount = playerCount;
     }
 
     /**
