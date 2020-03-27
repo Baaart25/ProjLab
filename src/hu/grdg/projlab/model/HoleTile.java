@@ -8,6 +8,11 @@ import hu.grdg.projlab.SkeletonTester;
  * Igloo building is not possible in this tile
  */
 public class HoleTile extends Tile{
+    /**
+     * Scan the limit of the HoleTile
+     * @return return the limit which is 0
+     * @author Dorina
+     */
     @Override
     public int scanLimit() {
         SkeletonTester.call(this, null);
