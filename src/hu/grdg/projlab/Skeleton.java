@@ -26,7 +26,9 @@ public class Skeleton {
         //Must be closed with endTest()
         SkeletonTester.beginTest("PlayerStepOnUnstableIceTile");
 
-        UnstableIceTile ut = new UnstableIceTile();
+        int limit = SkeletonTester.askNumber("UnstableIceTile limit: ");
+        int pc = SkeletonTester.askNumber("UnstableIceTile player count: ");
+        UnstableIceTile ut = new UnstableIceTile(limit, pc);
 
         //Registers a named reference to the current test
         //It is used for printing arguments
