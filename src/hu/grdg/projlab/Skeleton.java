@@ -7,7 +7,7 @@ public class Skeleton {
         //Register tests below
         SkeletonTester.registerTest("PlayerStepOnUnstableIceTile", Skeleton::playerStepOnUnsatbleIceTile);
         SkeletonTester.registerTest("ScanLimitHoleTile", Skeleton::scanLimitHoleTile);
-        SkeletonTester.registerTest("ScanLimiIceTile", Skeleton::scanLimitIceTile);
+        SkeletonTester.registerTest("ScanLimitIceTile", Skeleton::scanLimitIceTile);
         SkeletonTester.registerTest("ScanLimitUnstableIceTile", Skeleton::scanLimitUnstableIceTile);
 
 
