@@ -12,12 +12,11 @@ public class Skeleton {
         SkeletonTester.registerTest("ScanLimitIceTile", Skeleton::scanLimitIceTile);
         SkeletonTester.registerTest("ScanLimitUnstableIceTile", Skeleton::scanLimitUnstableIceTile);
         SkeletonTester.registerTest("UnfreezeItem", Skeleton::unfreezeItem);
-        SkeletonTester.registerTest("RemoveSnowLayer", Skeleton::RemoveSnowLayer);
-        SkeletonTester.registerTest("DieByDrown",Skeleton::DieByDrown);
+        SkeletonTester.registerTest("RemoveSnowLayer", Skeleton::removeSnowLayer);
+        SkeletonTester.registerTest("DieByDrown",Skeleton::dieByDrown);
         SkeletonTester.registerTest("SnowStorm", Skeleton::snowStorm);
-        SkeletonTester.registerTest("BuildIgloo", Skeleton::BuildIgloo);
-        SkeletonTester.registerTest("RemoveSnowWithShovel",Skeleton::RemoveSnowWithShovel);
-
+        SkeletonTester.registerTest("BuildIgloo", Skeleton::buildIgloo);
+        SkeletonTester.registerTest("RemoveSnowWithShovel",Skeleton::removeSnowWithShovel);
 
         //Run testing
         SkeletonTester.start();
@@ -180,7 +179,7 @@ public class Skeleton {
      * Az eszkimo belefullad a vízbe
      * @author Boti
      */
-    private static void DieByDrown(){
+    private static void dieByDrown(){
         SkeletonTester.beginTest("DieByDrown");
 
         HoleTile h = new HoleTile();
@@ -201,7 +200,7 @@ public class Skeleton {
      * Remove snow layer without shovel
      * @author Geri
      */
-    private static void RemoveSnowLayer(){
+    private static void removeSnowLayer(){
         SkeletonTester.beginTest("RemoveSnowLayer");
 
         int layers = SkeletonTester.askNumber("Number of snow layers on tile: ");
@@ -220,7 +219,7 @@ public class Skeleton {
      * Eskimo build igloo
      * @author Dorina
      */
-    private static void BuildIgloo(){
+    private static void buildIgloo(){
         SkeletonTester.beginTest("BuildIgloo");
 
         Eskimo e = new Eskimo();
@@ -239,7 +238,7 @@ public class Skeleton {
      * Removing 2 layer of snow with shovel
      * @author Boti
      */
-    private static void RemoveSnowWithShovel(){
+    private static void removeSnowWithShovel(){
         SkeletonTester.beginTest("RemoveSnowWithShovel");
 
         int layers = SkeletonTester.askNumber("Number of snow layers on tile: ");
