@@ -150,6 +150,10 @@ public class Skeleton {
         SkeletonTester.endTest();
     }
 
+    /**
+     * Snowstorm damage tiles and players
+     * @author Dorina
+     */
     private static void snowStorm(){
         SkeletonTester.beginTest("SnowStorm");
 
