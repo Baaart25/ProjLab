@@ -15,6 +15,7 @@ public class Skeleton {
         SkeletonTester.registerTest("RemoveSnowLayer", Skeleton::RemoveSnowLayer);
         SkeletonTester.registerTest("DieByDrown",Skeleton::DieByDrown);
         SkeletonTester.registerTest("SnowStorm", Skeleton::snowStorm);
+        SkeletonTester.registerTest("BuildIgloo", Skeleton::BuildIgloo);
         SkeletonTester.registerTest("RemoveSnowWithShovel",Skeleton::RemoveSnowWithShovel);
 
 
@@ -203,6 +204,27 @@ public class Skeleton {
         IceTile it = new IceTile(layers);
         SkeletonTester.addNamedReference(it,"it");
         it.removeSnowLayer(1);
+
+        SkeletonTester.endTest();
+    }
+
+
+    /**
+     * Eskimo build igloo
+     * @author Dorina
+     */
+    private static void BuildIgloo(){
+        SkeletonTester.beginTest("BuildIgloo");
+
+        Eskimo e = new Eskimo();
+        SkeletonTester.addNamedReference(e,"e");
+
+        IceTile currentTile = new IceTile();
+        SkeletonTester.addNamedReference(currentTile, "currentTile");
+
+        e.setCurrentTile(currentTile);
+
+        e.specialAbility();
 
         SkeletonTester.endTest();
     }

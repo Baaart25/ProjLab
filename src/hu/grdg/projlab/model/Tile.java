@@ -33,10 +33,16 @@ public abstract class Tile {
     }
 
     public abstract boolean removeSnowLayer(int n);
-    public void buildIgloo() {
+    public boolean buildIgloo() {
         SkeletonTester.call(this);
-
-        SkeletonTester.creturn();
+        if(hasIgloo){
+            SkeletonTester.creturn(false);
+            return false;
+        }else {
+            hasIgloo = true;
+            SkeletonTester.creturn(true);
+            return true;
+        }
     }
 
     public abstract int scanLimit();
