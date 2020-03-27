@@ -12,17 +12,67 @@ public class Skeleton {
         SkeletonTester.registerTest("ScanLimitIceTile", Skeleton::scanLimitIceTile);
         SkeletonTester.registerTest("ScanLimitUnstableIceTile", Skeleton::scanLimitUnstableIceTile);
         SkeletonTester.registerTest("UnfreezeItem", Skeleton::unfreezeItem);
-        SkeletonTester.registerTest("RemoveSnowLayer", Skeleton::RemoveSnowLayer);
-        SkeletonTester.registerTest("DieByDrown",Skeleton::DieByDrown);
+        SkeletonTester.registerTest("RemoveSnowLayer", Skeleton::removeSnowLayer);
+        SkeletonTester.registerTest("DieByDrown",Skeleton::dieByDrown);
         SkeletonTester.registerTest("SnowStorm", Skeleton::snowStorm);
-        SkeletonTester.registerTest("BuildIgloo", Skeleton::BuildIgloo);
-        SkeletonTester.registerTest("RemoveSnowWithShovel",Skeleton::RemoveSnowWithShovel);
-        SkeletonTester.registerTest("EatFood", Skeleton::EatFood);
+        SkeletonTester.registerTest("BuildIgloo", Skeleton::buildIgloo);
+        SkeletonTester.registerTest("RemoveSnowWithShovel",Skeleton::removeSnowWithShovel);
+        SkeletonTester.registerTest("EatFood", Skeleton::eatFood);
+        SkeletonTester.registerTest("PlayerSurviveInDivingSuit", Skeleton::playerSurviveInDivingSuit);
+        SkeletonTester.registerTest("PickUpItem", Skeleton::playerPickUpItem);
         SkeletonTester.registerTest("SavePlayerWithRope",Skeleton::savePlayerWithRope);
-
 
         //Run testing
         SkeletonTester.start();
+    }
+
+    /**
+     * Demonstrates a player item pickup
+     * @author Barrow099
+     */
+    private static void playerPickUpItem() {
+        SkeletonTester.beginTest("PlayerPickUpItem");
+
+        IceTile currentTile = new IceTile();
+        int snowLayers = SkeletonTester.askNumber("IceTile snowLayers: ");
+        SkeletonTester.addNamedReference(currentTile, "currentTile");
+        currentTile.setSnowLayers(snowLayers);
+
+        Shovel item = new Shovel();
+        SkeletonTester.addNamedReference(item, "item");
+        boolean isFrozen = SkeletonTester.askYesNo("Item isFrozen");
+        currentTile.setFrozenItem(item);
+        item.setIsFrozen(isFrozen);
+
+        Eskimo e = new Eskimo();
+        SkeletonTester.addNamedReference(e,"e");
+
+        currentTile.pickupItem(e);
+
+        SkeletonTester.endTest();
+    }
+
+    /**
+     * When a player is in water, they can use a DivingSuit item to
+     * move out of the hole.
+     * @author Barrow099
+     */
+    private static void playerSurviveInDivingSuit() {
+        SkeletonTester.beginTest("PlayerSurviveInDivingSuit");
+
+        Scientist p = new Scientist();
+        SkeletonTester.addNamedReference(p, "p");
+
+        boolean isInWater = SkeletonTester.askYesNo("Player isInWater");
+        p.setIsInWater(isInWater);
+
+        DivingSuit d = new DivingSuit();
+        SkeletonTester.addNamedReference(d, "d");
+        d.setOwner(p);
+
+        d.useItem();
+
+        SkeletonTester.endTest();
     }
 
     /**
@@ -182,7 +232,7 @@ public class Skeleton {
      * Az eszkimo belefullad a vízbe
      * @author Boti
      */
-    private static void DieByDrown(){
+    private static void dieByDrown(){
         SkeletonTester.beginTest("DieByDrown");
 
         HoleTile h = new HoleTile();
@@ -203,7 +253,7 @@ public class Skeleton {
      * Remove snow layer without shovel
      * @author Geri
      */
-    private static void RemoveSnowLayer(){
+    private static void removeSnowLayer(){
         SkeletonTester.beginTest("RemoveSnowLayer");
 
         int layers = SkeletonTester.askNumber("Number of snow layers on tile: ");
@@ -222,7 +272,7 @@ public class Skeleton {
      * Eskimo build igloo
      * @author Dorina
      */
-    private static void BuildIgloo(){
+    private static void buildIgloo(){
         SkeletonTester.beginTest("BuildIgloo");
 
         Eskimo e = new Eskimo();
@@ -241,7 +291,7 @@ public class Skeleton {
      * Removing 2 layer of snow with shovel
      * @author Boti
      */
-    private static void RemoveSnowWithShovel(){
+    private static void removeSnowWithShovel(){
         SkeletonTester.beginTest("RemoveSnowWithShovel");
 
         int layers = SkeletonTester.askNumber("Number of snow layers on tile: ");
@@ -260,7 +310,12 @@ public class Skeleton {
 
         SkeletonTester.endTest();
     }
-    private static void EatFood(){
+
+    /**
+     * Consumes food from player inventory
+     * @author Geri
+     */
+    private static void eatFood(){
         SkeletonTester.beginTest("EatFood");
 
         Food f = new Food();
