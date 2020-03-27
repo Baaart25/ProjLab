@@ -5,4 +5,10 @@ package hu.grdg.projlab.model;
  * they can step out of it (and not dying).
  */
 public class DivingSuit extends Item{
+    @Override
+    public boolean useItem() {
+        ///
+        ///
+        return false;
+    }
 }

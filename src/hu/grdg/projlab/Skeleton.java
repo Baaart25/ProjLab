@@ -15,6 +15,7 @@ public class Skeleton {
         SkeletonTester.registerTest("RemoveSnowLayer", Skeleton::RemoveSnowLayer);
         SkeletonTester.registerTest("DieByDrown",Skeleton::DieByDrown);
         SkeletonTester.registerTest("SnowStorm", Skeleton::snowStorm);
+        SkeletonTester.registerTest("RemoveSnowWithShovel",Skeleton::RemoveSnowWithShovel);
 
 
         //Run testing
@@ -202,6 +203,29 @@ public class Skeleton {
         IceTile it = new IceTile(layers);
         SkeletonTester.addNamedReference(it,"it");
         it.removeSnowLayer(1);
+
+        SkeletonTester.endTest();
+    }
+    /**
+     * Removing 2 layer of snow with shovel
+     * @author Boti
+     */
+    private static void RemoveSnowWithShovel(){
+        SkeletonTester.beginTest("RemoveSnowWithShovel");
+
+        int layers = SkeletonTester.askNumber("Number of snow layers on tile: ");
+
+        Shovel sh = new Shovel();
+        SkeletonTester.addNamedReference(sh,"sh");
+        Scientist owner = new Scientist();
+        SkeletonTester.addNamedReference(owner,"owner");
+        IceTile currentTile = new IceTile(layers);
+        SkeletonTester.addNamedReference(currentTile,"currentTile");
+
+        owner.setCurrentTile(currentTile);
+        sh.setOwner(owner);
+        sh.useItem();
+
 
         SkeletonTester.endTest();
     }

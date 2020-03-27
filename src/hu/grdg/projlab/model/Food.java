@@ -9,4 +9,11 @@ public class Food extends Item{
         //////////
         /////////
     }
+
+    @Override
+    public boolean useItem() {
+        ///
+        ///
+        return false;
+    }
 }

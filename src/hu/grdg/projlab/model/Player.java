@@ -24,7 +24,9 @@ public abstract class Player {
 
         SkeletonTester.creturn();
     }
-
+    public Tile getCurrentTile(){
+        return this.currentTile;
+    }
     public void setCurrentTile(Tile newTile) {
         SkeletonTester.call(this, newTile);
 
@@ -82,4 +84,5 @@ public abstract class Player {
         }
         SkeletonTester.creturn();
     }
+
 }

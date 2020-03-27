@@ -7,6 +7,7 @@ import hu.grdg.projlab.SkeletonTester;
  */
 public abstract class Item {
     private boolean isFrozen = true;
+    protected Player owner;
 
     /**
      * Sets the frozen state to false if it was frozen
@@ -24,4 +25,13 @@ public abstract class Item {
         SkeletonTester.creturn(true);
         return true;
     }
+
+
+    public void setOwner(Player player){
+        SkeletonTester.call(this,player);
+        owner = player;
+        SkeletonTester.creturn();
+    }
+
+    public abstract boolean useItem();
 }

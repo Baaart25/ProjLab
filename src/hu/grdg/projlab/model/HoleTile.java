@@ -24,4 +24,9 @@ public class HoleTile extends Tile{
 
         SkeletonTester.creturn();
     }
+
+    @Override
+    public boolean removeSnowLayer(int n) {
+        return false;
+    }
 }

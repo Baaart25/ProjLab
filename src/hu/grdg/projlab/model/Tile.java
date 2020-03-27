@@ -32,6 +32,7 @@ public abstract class Tile {
         SkeletonTester.creturn();
     }
 
+    public abstract boolean removeSnowLayer(int n);
     public void buildIgloo() {
         SkeletonTester.call(this);
 
