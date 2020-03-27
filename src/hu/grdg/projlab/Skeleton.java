@@ -17,7 +17,7 @@ public class Skeleton {
         SkeletonTester.registerTest("SnowStorm", Skeleton::snowStorm);
         SkeletonTester.registerTest("BuildIgloo", Skeleton::buildIgloo);
         SkeletonTester.registerTest("RemoveSnowWithShovel",Skeleton::removeSnowWithShovel);
-        SkeletonTester.registerTest("EatFood", Skeleton::EatFood);
+        SkeletonTester.registerTest("EatFood", Skeleton::eatFood);
         //Run testing
         SkeletonTester.start();
     }
@@ -257,7 +257,7 @@ public class Skeleton {
 
         SkeletonTester.endTest();
     }
-    private static void EatFood(){
+    private static void eatFood(){
         SkeletonTester.beginTest("EatFood");
 
         Food f = new Food();
