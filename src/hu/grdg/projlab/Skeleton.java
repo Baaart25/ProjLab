@@ -8,6 +8,7 @@ public class Skeleton {
         SkeletonTester.registerTest("PlayerStepOnUnstableIceTile", Skeleton::playerStepOnUnsatbleIceTile);
         SkeletonTester.registerTest("ScanLimitHoleTile", Skeleton::scanLimitHoleTile);
         SkeletonTester.registerTest("ScanLimiIceTile", Skeleton::scanLimitIceTile);
+        SkeletonTester.registerTest("ScanLimitUnstableIceTile", Skeleton::scanLimitUnstableIceTile);
 
 
 
@@ -87,6 +88,27 @@ public class Skeleton {
         SkeletonTester.endTest();
     }
 
+    /**
+     * Scientist scan UnstableIceTile
+     * @author Dorina
+     */
+    private static void scanLimitUnstableIceTile(){
+        SkeletonTester.beginTest("ScanLimitUnstableIceTile");
 
+        Scientist sc = new Scientist();
+        SkeletonTester.addNamedReference(sc, "sc");
+        IceTile tile = new IceTile();
+        SkeletonTester.addNamedReference(tile, "tile");
+        UnstableIceTile unstable = new UnstableIceTile();
+        SkeletonTester.addNamedReference(unstable, "ice");
+
+        tile.setNeighbour(unstable, Direction.EAST);
+
+        sc.setCurrentTile(tile);
+
+        sc.specialAbility();
+
+        SkeletonTester.endTest();
+    }
 
 }
