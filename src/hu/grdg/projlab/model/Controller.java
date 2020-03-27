@@ -11,8 +11,6 @@ public class Controller {
     public void endGame(boolean b){
         SkeletonTester.call(this, b);
 
-
-
         SkeletonTester.creturn();
     }
 }

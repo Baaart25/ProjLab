@@ -43,6 +43,7 @@ public abstract class Player {
     /**
      * Tries to unfreeze the item on the current tile
      * @return If the unfreeze was successful, used for work counting
+     * @author Barrow099
      */
     public boolean unfreezeItem() {
         SkeletonTester.call(this);
@@ -68,6 +69,11 @@ public abstract class Player {
         SkeletonTester.creturn();
     }
 
+    /**
+     * Sets the game controller reference of the player
+     * @param controller The game controller instance
+     * @author Baaart35
+     */
     public void setController(Controller controller){
         SkeletonTester.call(this,controller);
 

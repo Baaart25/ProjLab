@@ -41,8 +41,11 @@ public class Skeleton {
         //It is used for printing arguments
         SkeletonTester.addNamedReference(ut,"ut");
 
+        Controller gameController = new Controller();
+        SkeletonTester.addNamedReference(gameController, "controller");
         Scientist sc = new Scientist();
         SkeletonTester.addNamedReference(sc,"sc");
+        sc.setController(gameController);
 
         //Call methods here
         //Make sure to document method calls in the methods
@@ -148,6 +151,10 @@ public class Skeleton {
         SkeletonTester.endTest();
     }
 
+    /**
+     * Snowstorm damage tiles and players
+     * @author Dorina
+     */
     private static void snowStorm(){
         SkeletonTester.beginTest("SnowStorm");
 
