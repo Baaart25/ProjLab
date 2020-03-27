@@ -19,7 +19,9 @@ public abstract class Player {
      */
     public void die() {
         SkeletonTester.call(this);
+
         controller.endGame(false);
+
         SkeletonTester.creturn();
     }
 
@@ -61,7 +63,9 @@ public abstract class Player {
 
     public void setController(Controller controller){
         SkeletonTester.call(this,controller);
+
         this.controller = controller;
+
         SkeletonTester.creturn();
     }
 

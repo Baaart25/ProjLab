@@ -180,8 +180,9 @@ public class Skeleton {
         Controller c = new Controller();
         SkeletonTester.addNamedReference(c, "c");
 
-        h.acceptPlayer(e);
         e.setController(c);
+
+        h.acceptPlayer(e);
         e.die();
 
         SkeletonTester.endTest();
