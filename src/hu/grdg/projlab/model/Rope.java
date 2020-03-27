@@ -10,6 +10,7 @@ public class Rope extends Item{
     @Override
     public boolean useItem() {
         SkeletonTester.call(this);
+
         boolean res = owner.savingPlayers();
 
         SkeletonTester.creturn(res);

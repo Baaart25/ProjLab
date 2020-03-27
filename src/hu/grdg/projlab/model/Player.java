@@ -72,34 +72,59 @@ public abstract class Player {
     }
 
     /**
-     *
+     * moves the player to the given tile
+     * @param tile
+     */
+    public void move(Tile tile){
+        SkeletonTester.call(this,tile);
+
+        if(!isInWater){
+            currentTile.remove(this);
+            tile.acceptPlayer(this);
+        }
+
+        SkeletonTester.creturn();
+    }
+
+
+    /**
+     * the player steps to the given tile
      * @param tile the tile to step
      * @return if the player is on holetile
      */
     public boolean savedFromWater(Tile tile){
+        SkeletonTester.call(this,tile);
+
+        boolean res = false;
         if(isInWater){
+            res = true;
+            isInWater = false;
             move(tile);
         }
+
+        SkeletonTester.creturn(res);
+        return res;
     }
+
+
+
     /**
      * saves players from the neighbouring tiles
-     * @return boolean the succesfulnes of saving players
+     * @return boolean the succesfullnes of saving players
      */
     public boolean savingPlayers(){
         SkeletonTester.call(this);
 
         boolean res = false;
         Tile tile = currentTile.getNeighbour(Direction.EAST);
-        ArrayList<Player> p = tile.getPlayers();
+        ArrayList<Player> p = new ArrayList<Player>(tile.getPlayers());
         for (Player player : p) {
-            if(player.savedFromWater(currentTile))
+            if (player.savedFromWater(currentTile))
                 res = true;
         }
 
-
         SkeletonTester.creturn(res);
         return res;
-
     }
     /**
      * Sets the game controller reference of the player

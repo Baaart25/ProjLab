@@ -20,11 +20,16 @@ public class HoleTile extends Tile{
         return 0;
     }
 
+    /**
+     * accepts the player
+     * @param player The new player
+     */
     @Override
     public void acceptPlayer(Player player) {
         SkeletonTester.call(this, player);
 
         player.setCurrentTile(this);
+        players.add(player);
         player.fallInWater();
 
         SkeletonTester.creturn();

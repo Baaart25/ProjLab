@@ -50,10 +50,10 @@ public class UnstableIceTile extends IceTile{
     public void acceptPlayer(Player player) {
         //Start method call, the first parameter is the current instance, followed by all method parameters
         SkeletonTester.call(this, player);
-
         if(playerCount + 1 > limit) {
             player.die();
         }else {
+            players.add(player);
             player.setCurrentTile(this);
             playerCount++;
         }

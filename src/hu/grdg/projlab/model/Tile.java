@@ -13,7 +13,7 @@ public abstract class Tile {
     private HashMap<Direction, Tile> neighbours;
     private Item frozenItem = null;
     private int snowLayers;
-    private ArrayList<Player> players;
+    protected ArrayList<Player> players;
     private boolean hasIgloo;
 
     public Tile(){
@@ -33,11 +33,19 @@ public abstract class Tile {
     }
 
     /**
+     * deletes the given player from players
+     * @param player
+     */
+    public void remove(Player player){
+        players.remove(player);
+    }
+    /**
      * Returns the players list
      * @return players list
      */
     public ArrayList<Player> getPlayers(){
         SkeletonTester.call(this);
+
         SkeletonTester.creturn(players);
         return players;
     }
