@@ -1,6 +1,9 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.Skeleton;
 import hu.grdg.projlab.SkeletonTester;
+
+import java.util.ArrayList;
 
 /**
  * Base class for user controller
@@ -10,6 +13,8 @@ public abstract class Player {
     protected boolean isInWater;
     protected Controller controller;
     private int currentTemp;
+    private ArrayList<Item> inventory;
+    private int maxTemp;
 
     public abstract void specialAbility();
 
@@ -81,5 +86,24 @@ public abstract class Player {
             die();
         }
         SkeletonTester.creturn();
+    }
+
+    /**
+     * Increases the player's temperature by 1 and removes food from inventory if max temperature not reached
+     * @param food The item to be deleted from invenotry
+     * @return succesfulness of action
+     * @author Geri
+     */
+    public boolean eat(Item food){
+        SkeletonTester.call(this, food);
+        if (currentTemp == maxTemp){
+            SkeletonTester.creturn(false);
+            return false;
+        } else {
+            currentTemp++;
+            inventory.remove(food);
+            SkeletonTester.creturn(true);
+            return true;
+        }
     }
 }

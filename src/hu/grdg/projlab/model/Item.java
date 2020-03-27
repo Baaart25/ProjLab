@@ -6,6 +6,7 @@ import hu.grdg.projlab.SkeletonTester;
  * Base class for player usable items
  */
 public abstract class Item {
+    protected Player owner;
     private boolean isFrozen = true;
 
     /**
@@ -24,4 +25,20 @@ public abstract class Item {
         SkeletonTester.creturn(true);
         return true;
     }
+
+    /**
+     * Set the owner of the Item
+     * @param p The owner player
+     * @author Geri
+     */
+    public void setOwner(Player p){
+        owner = p;
+    }
+
+    /**
+     *
+     * @return Succesfullness of the action
+     * @author Geri
+     */
+    public abstract boolean useItem();
 }

@@ -15,6 +15,7 @@ public class Skeleton {
         SkeletonTester.registerTest("RemoveSnowLayer", Skeleton::RemoveSnowLayer);
         SkeletonTester.registerTest("DieByDrown",Skeleton::DieByDrown);
         SkeletonTester.registerTest("SnowStorm", Skeleton::snowStorm);
+        SkeletonTester.registerTest("EatFood", Skeleton::EatFood);
 
 
         //Run testing
@@ -202,6 +203,16 @@ public class Skeleton {
         IceTile it = new IceTile(layers);
         SkeletonTester.addNamedReference(it,"it");
         it.removeSnowLayer(1);
+
+        SkeletonTester.endTest();
+    }
+    private static void EatFood(){
+        SkeletonTester.beginTest("EatFood");
+
+        Food f = new Food();
+        Eskimo e = new Eskimo();
+        f.setOwner(e);
+        f.useItem();
 
         SkeletonTester.endTest();
     }
