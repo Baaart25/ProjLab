@@ -64,4 +64,14 @@ public class Skeleton {
         SkeletonTester.endTest();
     }
 
+
+    /**
+     * Scientist scan IceTile
+     */
+    private static void HoleTile(){
+
+    }
+
+
+
 }
