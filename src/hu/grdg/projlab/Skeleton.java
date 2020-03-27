@@ -12,8 +12,6 @@ public class Skeleton {
         SkeletonTester.registerTest("UnfreezeItem", Skeleton::unfreezeItem);
 
 
-
-
         //Run testing
         SkeletonTester.start();
     }
@@ -47,6 +45,7 @@ public class Skeleton {
 
     /**
      * Unfreeze a frozen item
+     * @author Barrow099
      */
     private static void unfreezeItem() {
         SkeletonTester.beginTest("UnfreezeItem");
