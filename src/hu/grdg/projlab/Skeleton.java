@@ -8,6 +8,7 @@ public class Skeleton {
         SkeletonTester.registerTest("PlayerStepOnUnstableIceTile", Skeleton::playerStepOnUnsatbleIceTile);
         SkeletonTester.registerTest("ScanLimitHoleTile", Skeleton::scanLimitHoleTile);
         SkeletonTester.registerTest("ScanLimiIceTile", Skeleton::scanLimitIceTile);
+        SkeletonTester.registerTest("UnfreezeItem", Skeleton::unfreezeItem);
 
 
 
@@ -39,6 +40,30 @@ public class Skeleton {
         //Call methods here
         //Make sure to document method calls in the methods
         ut.acceptPlayer(sc);
+
+        SkeletonTester.endTest();
+    }
+
+    /**
+     * Unfreeze a frozen item
+     */
+    private static void unfreezeItem() {
+        SkeletonTester.beginTest("UnfreezeItem");
+
+        IceTile it = new IceTile();
+        Shovel sh = new Shovel();
+        Scientist sc = new Scientist();
+
+        SkeletonTester.addNamedReference(it, "it");
+        SkeletonTester.addNamedReference(sh, "sh");
+        SkeletonTester.addNamedReference(sc, "sc");
+
+        //Setup
+        it.setFrozenItem(sh);
+        it.acceptPlayer(sc);
+
+        //Actual test
+        sc.unfreezeItem();
 
         SkeletonTester.endTest();
     }
