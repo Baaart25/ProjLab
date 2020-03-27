@@ -9,6 +9,7 @@ public abstract class Player {
     protected Tile currentTile;
     protected boolean isInWater;
     protected Controller controller;
+    private int currentTemp;
 
     public abstract void specialAbility();
 
@@ -61,6 +62,20 @@ public abstract class Player {
     public void setController(Controller controller){
         SkeletonTester.call(this,controller);
         this.controller = controller;
+        SkeletonTester.creturn();
+    }
+
+    /**
+     *
+     * @param i Decrease the player's temperature with i
+     * @author Dorina
+     */
+    public void damage(int i) {
+        SkeletonTester.call(this, i);
+        currentTemp-=i;
+        if(currentTemp == 0){
+            die();
+        }
         SkeletonTester.creturn();
     }
 }
