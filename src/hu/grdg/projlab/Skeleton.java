@@ -12,6 +12,7 @@ public class Skeleton {
         SkeletonTester.registerTest("ScanLimitIceTile", Skeleton::scanLimitIceTile);
         SkeletonTester.registerTest("ScanLimitUnstableIceTile", Skeleton::scanLimitUnstableIceTile);
         SkeletonTester.registerTest("UnfreezeItem", Skeleton::unfreezeItem);
+        SkeletonTester.registerTest("RemoveSnowLayer", Skeleton::RemoveSnowLayer);
         SkeletonTester.registerTest("DieByDrown",Skeleton::DieByDrown);
         SkeletonTester.registerTest("SnowStorm", Skeleton::snowStorm);
 
@@ -184,6 +185,23 @@ public class Skeleton {
 
         h.acceptPlayer(e);
         e.die();
+
+        SkeletonTester.endTest();
+    }
+    /**
+     * Remove snow layer without shovel
+     * @author Geri
+     */
+    private static void RemoveSnowLayer(){
+        SkeletonTester.beginTest("RemoveSnowLayer");
+
+        int layers = SkeletonTester.askNumber("Number of snow layers on tile: ");
+
+        Eskimo e = new Eskimo();
+        SkeletonTester.addNamedReference(e,"e");
+        IceTile it = new IceTile(layers);
+        SkeletonTester.addNamedReference(it,"it");
+        it.removeSnowLayer(1);
 
         SkeletonTester.endTest();
     }
