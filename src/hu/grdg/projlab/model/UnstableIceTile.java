@@ -61,4 +61,11 @@ public class UnstableIceTile extends IceTile{
         //Return from a method call
         SkeletonTester.creturn();
     }
+
+    @Override
+    public int scanLimit() {
+        SkeletonTester.call(this);
+        SkeletonTester.creturn(limit);
+        return limit;
+    }
 }

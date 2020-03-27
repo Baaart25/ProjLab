@@ -98,11 +98,13 @@ public class Skeleton {
     private static void scanLimitUnstableIceTile(){
         SkeletonTester.beginTest("ScanLimitUnstableIceTile");
 
+        int limit = SkeletonTester.askNumber("UnstableIceTile limit: ");
+
         Scientist sc = new Scientist();
         SkeletonTester.addNamedReference(sc, "sc");
         IceTile tile = new IceTile();
         SkeletonTester.addNamedReference(tile, "tile");
-        UnstableIceTile unstable = new UnstableIceTile();
+        UnstableIceTile unstable = new UnstableIceTile(limit);
         SkeletonTester.addNamedReference(unstable, "ice");
 
         tile.setNeighbour(unstable, Direction.EAST);
