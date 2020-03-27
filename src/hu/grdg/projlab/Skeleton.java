@@ -67,6 +67,7 @@ public class Skeleton {
 
     /**
      * Scientist scan IceTile
+     * @author Dorina
      */
     private static void scanLimitIceTile(){
         SkeletonTester.beginTest("ScanLimitIceTile");
