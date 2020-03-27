@@ -27,7 +27,7 @@ public abstract class Tile {
     }
 
     public void buildIgloo() {
-        SkeletonTester.call(this, null);
+        SkeletonTester.call(this);
 
         SkeletonTester.creturn();
     }
