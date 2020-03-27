@@ -32,10 +32,17 @@ public abstract class Tile {
         SkeletonTester.creturn();
     }
 
-    public void buildIgloo() {
+    public boolean buildIgloo() {
         SkeletonTester.call(this);
+        if(hasIgloo){
+            SkeletonTester.creturn(false);
+            return false;
+        }else {
+            hasIgloo=true;
+            SkeletonTester.creturn(true);
+            return true;
+        }
 
-        SkeletonTester.creturn();
     }
 
     public abstract int scanLimit();
