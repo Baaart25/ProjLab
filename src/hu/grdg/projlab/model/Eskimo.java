@@ -11,4 +11,12 @@ public class Eskimo extends Player{
     public void specialAbility() {
         currentTile.buildIgloo();
     }
+
+    /**
+     * @author Geri
+     */
+    public Eskimo(){
+        super();
+        maxTemp = 5;
+    }
 }

@@ -70,6 +70,7 @@ public abstract class Item {
             return false;
         }else {
             owner = p;
+            p.addItem(this);                        // @author Geri
             SkeletonTester.creturn(true);
             return true;
         }

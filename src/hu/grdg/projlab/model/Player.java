@@ -12,9 +12,9 @@ public abstract class Player {
     protected Tile currentTile;
     protected boolean isInWater;
     protected Controller controller;
-    private int currentTemp;
+    protected int currentTemp;
     private ArrayList<Item> inventory;
-    private int maxTemp;
+    protected int maxTemp;
 
     public abstract void specialAbility();
 
@@ -155,7 +155,7 @@ public abstract class Player {
 
     /**
      * Increases the player's temperature by 1 and removes food from inventory if max temperature not reached
-     * @param food The item to be deleted from invenotry
+     * @param food The item to be deleted from inventory
      * @return succesfulness of action
      * @author Geri
      */
@@ -194,5 +194,26 @@ public abstract class Player {
         boolean wasInWater = isInWater;
         isInWater = false;
         return wasInWater;
+    }
+
+    //TODO Máténak vagy valakinek ezt megnézni/jóváhagyni
+
+    /**
+     * Adds an item to the inventory
+     * @param i Item to be added to the inventory
+     * @author Geri
+     */
+    public void addItem(Item i){
+        SkeletonTester.call(this, i);
+        inventory.add(i);
+        SkeletonTester.creturn();
+    }
+
+    /**
+     * Sets reference to an ArrayList
+     * @author Geri
+     */
+    public Player(){
+        inventory = new ArrayList<Item>();
     }
 }

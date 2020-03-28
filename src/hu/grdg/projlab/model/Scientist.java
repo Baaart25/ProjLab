@@ -16,4 +16,12 @@ public class Scientist extends Player{
 
         SkeletonTester.creturn();
     }
+
+    /**
+     * @author Geri
+     */
+    public Scientist(){
+        super();
+        maxTemp = 4;
+    }
 }
