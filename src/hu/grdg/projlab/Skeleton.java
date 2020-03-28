@@ -21,6 +21,8 @@ public class Skeleton {
         SkeletonTester.registerTest("PlayerSurviveInDivingSuit", Skeleton::playerSurviveInDivingSuit);
         SkeletonTester.registerTest("PickUpItem", Skeleton::playerPickUpItem);
         SkeletonTester.registerTest("SavePlayerWithRope",Skeleton::savePlayerWithRope);
+        SkeletonTester.registerTest("PlayerStepOnIceTile", Skeleton::playerStepOnIceTile);
+        SkeletonTester.registerTest("PlayerStepOnHoleTile", Skeleton::playerStepOnHoleTile);
 
         //Run testing
         SkeletonTester.start();
@@ -361,4 +363,39 @@ public class Skeleton {
 
         SkeletonTester.endTest();
     }
+
+    /**
+     * This is testing a player's step to an IceTile
+     * @author: Dani
+     */
+    private static void playerStepOnIceTile() {
+        SkeletonTester.beginTest("playerStepOnIceTile");
+
+        IceTile iceTile = new IceTile();
+        SkeletonTester.addNamedReference(iceTile, "iceTile");
+        Scientist scientist = new Scientist();
+        SkeletonTester.addNamedReference(scientist, "scientist");
+
+        iceTile.acceptPlayer(scientist);
+
+        SkeletonTester.endTest();
+    }
+
+    /**
+     * This is testing a player's step to an HoleTile
+     * @author Dani
+     */
+    private static void playerStepOnHoleTile() {
+        SkeletonTester.beginTest("playerStepOnHoleTile");
+
+        HoleTile holeTile = new HoleTile();
+        SkeletonTester.addNamedReference(holeTile, "holeTile");
+        Scientist scientist = new Scientist();
+        SkeletonTester.addNamedReference(scientist, "scientist");
+
+        holeTile.acceptPlayer(scientist);
+
+        SkeletonTester.endTest();
+    }
+
 }
