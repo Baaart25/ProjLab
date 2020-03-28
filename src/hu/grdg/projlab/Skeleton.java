@@ -23,6 +23,7 @@ public class Skeleton {
         SkeletonTester.registerTest("SavePlayerWithRope",Skeleton::savePlayerWithRope);
         SkeletonTester.registerTest("PlayerStepOnIceTile", Skeleton::playerStepOnIceTile);
         SkeletonTester.registerTest("PlayerStepOnHoleTile", Skeleton::playerStepOnHoleTile);
+        SkeletonTester.registerTest("BuildRocket", Skeleton::buildRocket);
 
         //Run testing
         SkeletonTester.start();
@@ -398,4 +399,43 @@ public class Skeleton {
         SkeletonTester.endTest();
     }
 
+    /**
+     *
+     * @author Dani
+     */
+    private static void buildRocket() {
+        SkeletonTester.beginTest("buildRocket");
+        RocketPart[] rockets = new RocketPart[3];
+        SkeletonTester.addNamedReference(rockets, "rockets");
+        Level level = new Level();
+        SkeletonTester.addNamedReference(level, "level");
+        Scientist scientist = new Scientist();
+        SkeletonTester.addNamedReference(scientist, "scientist");
+        Player[] players = new Player[1];
+        SkeletonTester.addNamedReference(players, "players");
+        players[0] = scientist;
+
+
+        Controller controller = new Controller();
+        SkeletonTester.addNamedReference(controller, "controller");
+        IceTile iceTile = new IceTile();
+        SkeletonTester.addNamedReference(iceTile, "iceTile");
+
+        rockets[0] = new RocketPart();
+        rockets[1] = new RocketPart();
+        rockets[2] = new RocketPart();
+        for (RocketPart rocket : rockets) {
+            scientist.addItem(rocket);
+            rocket.setOwner(scientist);
+        }
+
+        iceTile.acceptPlayer(scientist);
+        level.setRocketParts(rockets);
+        controller.setLevel(level);
+        controller.setPlayers(players);
+
+        controller.checkWin();
+
+        SkeletonTester.endTest();
+    }
 }

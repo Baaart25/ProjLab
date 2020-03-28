@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class Level {
     private ArrayList<Tile> tiles;
+    private RocketPart[] rocketParts;
 
     public Level(){
         tiles = new ArrayList<Tile>();
@@ -43,5 +44,28 @@ public class Level {
         SkeletonTester.addNamedReference(tile, "tile");
         SkeletonTester.creturn(tile);
         return tile;
+    }
+
+    /**
+     * Visszaadja a RocketPart-ok tömbjét
+     * @return RocketPart-ok tömbje
+     * @author Dani
+     */
+    public RocketPart[] getRocketParts() {
+        SkeletonTester.call(this);
+        SkeletonTester.creturn(rocketParts);
+        return rocketParts;
+    }
+
+    /**
+     * Beállítja a level rocketParts attribútumát, a paraméterként kapott-ra
+     * (ez a függvény csak a skeletonhoz kell!)
+     * @param rp rocketParts
+     * @author Dani
+     */
+    public void setRocketParts(RocketPart[] rp) {
+        SkeletonTester.call(this, rp);
+        this.rocketParts = rp;
+        SkeletonTester.creturn();
     }
 }

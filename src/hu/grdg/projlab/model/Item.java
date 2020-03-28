@@ -38,6 +38,16 @@ public abstract class Item {
     }
 
     /**
+     * Visszatér a tulajdonossal (akkoris, ha az null)
+     * @return tulajdonossal (akkor is, ha az null)
+     * @author Dani
+     */
+    public Player getOwner() {
+        SkeletonTester.call(this);
+        SkeletonTester.creturn();
+        return owner;
+    }
+    /**
      *
      * @return Succesfullness of the action
      * @author Geri
