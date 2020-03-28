@@ -218,6 +218,9 @@ public class Skeleton {
         Eskimo e = new Eskimo();
         SkeletonTester.addNamedReference(e,"e");
 
+        Controller c = new Controller();
+        e.setController(c);
+
         lvl.genTiles(1,1);
         ArrayList<Tile> tiles = lvl.getTiles();
         Tile tile = tiles.get(0);
