@@ -314,6 +314,7 @@ public class Skeleton {
 
         owner.setCurrentTile(currentTile);
         sh.setOwner(owner);
+
         sh.useItem();
 
 
