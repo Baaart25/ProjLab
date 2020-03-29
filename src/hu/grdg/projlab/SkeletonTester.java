@@ -95,7 +95,7 @@ public class SkeletonTester {
      * @param instance The instance which method was called
      * @param args Additional arguments to the method
      */
-    public static void call(Object instance, Object ... args) {
+    public static void call(Object instance, Object arg1, Object ... args) {
         checkInstance();
         currentInstance.fnLevel++;
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -103,7 +103,35 @@ public class SkeletonTester {
             StackTraceElement ste = stackTrace[2];
             String method = ste.getMethodName();
             String clazz = ste.getClassName();
-            printf("%s%s.%s(%s)", padding(), objectInfo(instance),method, String.join(", ",objaInfo(args)));
+            printf("%s%s.%s(%s,%s)", padding(), objectInfo(instance),method, objectInfo(arg1), String.join(", ",objaInfo(args)));
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void call(Object instance, Object arg) {
+        checkInstance();
+        currentInstance.fnLevel++;
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        try {
+            StackTraceElement ste = stackTrace[2];
+            String method = ste.getMethodName();
+            String clazz = ste.getClassName();
+            printf("%s%s.%s(%s)", padding(), objectInfo(instance),method, objectInfo(arg));
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void call(Object instance) {
+        checkInstance();
+        currentInstance.fnLevel++;
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        try {
+            StackTraceElement ste = stackTrace[2];
+            String method = ste.getMethodName();
+            String clazz = ste.getClassName();
+            printf("%s%s.%s()", padding(), objectInfo(instance),method);
         }catch (Exception e) {
             e.printStackTrace();
         }
