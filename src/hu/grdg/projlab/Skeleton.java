@@ -374,7 +374,7 @@ public class Skeleton {
 
     /**
      * This is testing a player's step to an IceTile
-     * @author: Dani
+     * @author Dani
      */
     private static void playerStepOnIceTile() {
         SkeletonTester.beginTest("playerStepOnIceTile");
