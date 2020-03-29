@@ -225,12 +225,15 @@ public class Skeleton {
         SkeletonTester.addNamedReference(c, "controller");
         e.setController(c);
 
+        boolean hasIgloo = SkeletonTester.askYesNo("Tile has igloo:");
+
         lvl.genTiles(1,1);
         ArrayList<Tile> tiles = lvl.getTiles();
         Tile tile = tiles.get(0);
+        if(hasIgloo) tile.buildIgloo();
+
         SkeletonTester.addNamedReference(tile, "tile");
         tile.acceptPlayer(e);
-
 
         storm.doEvent(lvl);
 
