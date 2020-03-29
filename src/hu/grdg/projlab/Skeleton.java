@@ -222,6 +222,7 @@ public class Skeleton {
         SkeletonTester.addNamedReference(e,"e");
 
         Controller c = new Controller();
+        SkeletonTester.addNamedReference(c, "controller");
         e.setController(c);
 
         lvl.genTiles(1,1);
