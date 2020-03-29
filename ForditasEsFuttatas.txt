@@ -1,5 +1,5 @@
 A Skeleton fordításához és futtatásához Java JDK 11 szükséges.
-A fordítás kézzel vagy a projektben lévő scriptel lehetséges(remélhetőleg).
+A fordítás kézzel vagy a projektben lévő scriptel lehetséges.
 A Main class (IDEkhez): hu.grdg.projlab.Skeleton
 
 Kézzel:

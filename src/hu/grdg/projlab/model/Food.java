@@ -7,12 +7,6 @@ import hu.grdg.projlab.SkeletonTester;
  */
 public class Food extends Item{
 
-
-    public void eat() {
-        //////////
-        /////////
-    }
-
     /**
      * Calls the player's eat function with itself as parameter
      * @return Succesfulness of action
