@@ -9,7 +9,6 @@ public class Scientist extends Player{
     @Override
     public void specialAbility() {
         SkeletonTester.call(this);
-        //currentTile.buildIgloo(); ???????
         Tile t = currentTile.getNeighbour(Direction.EAST);
         SkeletonTester.addNamedReference(t, "t");
         int limit = t.scanLimit();
