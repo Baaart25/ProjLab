@@ -28,9 +28,10 @@ public class HoleTile extends Tile{
     public void acceptPlayer(Player player) {
         SkeletonTester.call(this, player);
 
+        player.fallInWater();
         player.setCurrentTile(this);
         players.add(player);
-        player.fallInWater();
+
 
         SkeletonTester.creturn();
     }
