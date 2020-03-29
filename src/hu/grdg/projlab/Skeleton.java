@@ -421,6 +421,7 @@ public class Skeleton {
         Player[] players = new Player[1];
         SkeletonTester.addNamedReference(players, "players");
         players[0] = scientist;
+        SkeletonTester.addNamedReference(players[0], "scientist");
 
 
         Controller controller = new Controller();
@@ -429,8 +430,11 @@ public class Skeleton {
         SkeletonTester.addNamedReference(iceTile, "iceTile");
 
         rockets[0] = new RocketPart();
+        SkeletonTester.addNamedReference(rockets[0], "rocket1");
         rockets[1] = new RocketPart();
+        SkeletonTester.addNamedReference(rockets[1], "rocket2");
         rockets[2] = new RocketPart();
+        SkeletonTester.addNamedReference(rockets[2], "rocket3");
         for (RocketPart rocket : rockets) {
             scientist.addItem(rocket);
             rocket.setOwner(scientist);
