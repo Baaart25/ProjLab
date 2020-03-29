@@ -149,7 +149,7 @@ public class Skeleton {
 
         currentTile.setNeighbour(hole, Direction.EAST);
 
-        currentTile.acceptPlayer(sc);
+        sc.setCurrentTile(currentTile);
 
         sc.specialAbility();
 
@@ -198,7 +198,7 @@ public class Skeleton {
 
         tile.setNeighbour(unstable, Direction.EAST);
 
-        tile.acceptPlayer(sc);
+        sc.setCurrentTile(tile);
 
         sc.specialAbility();
 
