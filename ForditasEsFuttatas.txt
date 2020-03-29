@@ -1,0 +1,14 @@
+A Skeleton fordításához és futtatásához Java JDK 11 szükséges.
+A fordítás kézzel vagy a projektben lévő scriptel lehetséges(remélhetőleg).
+
+Kézzel:
+Linux: javac -d out src/hu/grdg/projlab/model/Item.java src/hu/grdg/projlab/model/Food.java src/hu/grdg/projlab/model/DivingSuit.java src/hu/grdg/projlab/model/Player.java src/hu/grdg/projlab/model/Controller.java src/hu/grdg/projlab/model/Shovel.java src/hu/grdg/projlab/model/Level.java src/hu/grdg/projlab/model/UnstableIceTile.java src/hu/grdg/projlab/model/EnvironmentEvent.java src/hu/grdg/projlab/model/Scientist.java src/hu/grdg/projlab/model/Rope.java src/hu/grdg/projlab/model/Direction.java src/hu/grdg/projlab/model/Tile.java src/hu/grdg/projlab/model/RocketPart.java src/hu/grdg/projlab/model/Eskimo.java src/hu/grdg/projlab/model/IceTile.java src/hu/grdg/projlab/model/HoleTile.java src/hu/grdg/projlab/model/SnowStorm.java src/hu/grdg/projlab/Skeleton.java src/hu/grdg/projlab/SkeletonTester.java
+Windows: javac -d out src\hu\grdg\projlab\model\Item.java src\hu\grdg\projlab\model\Food.java src\hu\grdg\projlab\model\DivingSuit.java src\hu\grdg\projlab\model\Player.java src\hu\grdg\projlab\model\Controller.java src\hu\grdg\projlab\model\Shovel.java src\hu\grdg\projlab\model\Level.java src\hu\grdg\projlab\model\UnstableIceTile.java src\hu\grdg\projlab\model\EnvironmentEvent.java src\hu\grdg\projlab\model\Scientist.java src\hu\grdg\projlab\model\Rope.java src\hu\grdg\projlab\model\Direction.java src\hu\grdg\projlab\model\Tile.java src\hu\grdg\projlab\model\RocketPart.java src\hu\grdg\projlab\model\Eskimo.java src\hu\grdg\projlab\model\IceTile.java src\hu\grdg\projlab\model\HoleTile.java src\hu\grdg\projlab\model\SnowStorm.java src\hu\grdg\projlab\Skeleton.java src\hu\grdg\projlab\SkeletonTester.java
+
+Scripttel:
+Linux: ./compile.sh
+Windows: compile.bat
+
+Futtatás:
+cd out
+java hu.grdg.projlab.Skeleton
