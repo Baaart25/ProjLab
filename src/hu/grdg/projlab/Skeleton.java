@@ -438,6 +438,7 @@ public class Skeleton {
         for (RocketPart rocket : rockets) {
             scientist.addItem(rocket);
             rocket.setOwner(scientist);
+            rocket.setController(controller);
         }
 
         iceTile.acceptPlayer(scientist);
@@ -445,7 +446,7 @@ public class Skeleton {
         controller.setLevel(level);
         controller.setPlayers(players);
 
-        controller.checkWin();
+        rockets[0].useItem();
 
         SkeletonTester.endTest();
     }
