@@ -45,7 +45,7 @@ public abstract class Tile {
      */
     public ArrayList<Player> getPlayers(){
         SkeletonTester.call(this);
-
+        SkeletonTester.addNamedReference(players, "players");
         SkeletonTester.creturn(players);
         return players;
     }
