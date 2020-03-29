@@ -336,7 +336,7 @@ public class Skeleton {
         Eskimo e = new Eskimo();
         SkeletonTester.addNamedReference(e, "e");
         f.setIsFrozen(false);
-        f.setOwner(e);
+
         f.pickedUp(e);
         f.useItem();
 
