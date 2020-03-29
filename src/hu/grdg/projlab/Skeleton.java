@@ -230,6 +230,8 @@ public class Skeleton {
         Tile tile = tiles.get(0);
         SkeletonTester.addNamedReference(tile, "tile");
         tile.acceptPlayer(e);
+
+
         storm.doEvent(lvl);
 
         SkeletonTester.endTest();
