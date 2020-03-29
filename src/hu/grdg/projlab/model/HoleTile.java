@@ -23,6 +23,7 @@ public class HoleTile extends Tile{
     /**
      * accepts the player
      * @param player The new player
+     * @author Boti
      */
     @Override
     public void acceptPlayer(Player player) {
