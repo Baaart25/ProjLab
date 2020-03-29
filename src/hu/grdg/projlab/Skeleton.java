@@ -167,7 +167,7 @@ public class Skeleton {
         Scientist sc = new Scientist();
         SkeletonTester.addNamedReference(sc, "sc");
         IceTile tile = new IceTile();
-        SkeletonTester.addNamedReference(tile, "tile");
+        SkeletonTester.addNamedReference(tile, "currentTile");
         IceTile ice = new IceTile();
         SkeletonTester.addNamedReference(ice, "ice");
 

@@ -11,7 +11,7 @@ public class IceTile extends Tile{
     private int snowLayer;
     @Override
     public int scanLimit() {
-        SkeletonTester.call(this, null);
+        SkeletonTester.call(this);
         SkeletonTester.creturn(-1);
         return -1;
     }
