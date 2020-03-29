@@ -20,7 +20,6 @@ public class Scientist extends Player{
      * @author Geri
      */
     public Scientist(){
-        super();
-        maxTemp = 4;
+        super(4);
     }
 }

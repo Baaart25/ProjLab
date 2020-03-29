@@ -16,7 +16,6 @@ public class Eskimo extends Player{
      * @author Geri
      */
     public Eskimo(){
-        super();
-        maxTemp = 5;
+        super(5);
     }
 }

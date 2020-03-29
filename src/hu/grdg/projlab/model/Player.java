@@ -213,7 +213,8 @@ public abstract class Player {
      * Sets reference to an ArrayList
      * @author Geri
      */
-    public Player(){
+    public Player(int maxTemp){
         inventory = new ArrayList<Item>();
+        this.maxTemp = maxTemp;
     }
 }
