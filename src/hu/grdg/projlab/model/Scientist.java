@@ -10,7 +10,6 @@ public class Scientist extends Player{
     public void specialAbility() {
         SkeletonTester.call(this);
         Tile t = currentTile.getNeighbour(Direction.EAST);
-        SkeletonTester.addNamedReference(t, "hole");
         int limit = t.scanLimit();
 
         SkeletonTester.creturn();

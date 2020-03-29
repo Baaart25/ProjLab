@@ -142,14 +142,14 @@ public class Skeleton {
 
         Scientist sc = new Scientist();
         SkeletonTester.addNamedReference(sc, "sc");
-        IceTile tile = new IceTile();
-        SkeletonTester.addNamedReference(tile, "tile");
+        IceTile currentTile = new IceTile();
+        SkeletonTester.addNamedReference(currentTile, "currentTile");
         HoleTile hole = new HoleTile();
         SkeletonTester.addNamedReference(hole, "hole");
 
-        tile.setNeighbour(hole, Direction.EAST);
+        currentTile.setNeighbour(hole, Direction.EAST);
 
-        sc.setCurrentTile(tile);
+        currentTile.acceptPlayer(sc);
 
         sc.specialAbility();
 
@@ -192,13 +192,13 @@ public class Skeleton {
         Scientist sc = new Scientist();
         SkeletonTester.addNamedReference(sc, "sc");
         IceTile tile = new IceTile();
-        SkeletonTester.addNamedReference(tile, "tile");
+        SkeletonTester.addNamedReference(tile, "currentTile");
         UnstableIceTile unstable = new UnstableIceTile(limit);
-        SkeletonTester.addNamedReference(unstable, "ice");
+        SkeletonTester.addNamedReference(unstable, "unstable");
 
         tile.setNeighbour(unstable, Direction.EAST);
 
-        sc.setCurrentTile(tile);
+        tile.acceptPlayer(sc);
 
         sc.specialAbility();
 
