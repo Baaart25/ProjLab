@@ -15,7 +15,7 @@ public class HoleTile extends Tile{
      */
     @Override
     public int scanLimit() {
-        SkeletonTester.call(this, null);
+        SkeletonTester.call(this);
         SkeletonTester.creturn(0);
         return 0;
     }
