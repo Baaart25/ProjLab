@@ -1,13 +1,14 @@
 package hu.grdg.projlab;
 
 import hu.grdg.projlab.model.*;
+import hu.grdg.projlab.save.MapLoader;
 
 import java.util.ArrayList;
 
 public class Skeleton {
     public static void main(String[] args) {
         //Register tests below
-        SkeletonTester.registerTest("PlayerStepOnUnstableIceTile", Skeleton::playerStepOnUnsatbleIceTile);
+        /*SkeletonTester.registerTest("PlayerStepOnUnstableIceTile", Skeleton::playerStepOnUnsatbleIceTile);
         SkeletonTester.registerTest("ScanLimitHoleTile", Skeleton::scanLimitHoleTile);
         SkeletonTester.registerTest("ScanLimitIceTile", Skeleton::scanLimitIceTile);
         SkeletonTester.registerTest("ScanLimitUnstableIceTile", Skeleton::scanLimitUnstableIceTile);
@@ -23,10 +24,22 @@ public class Skeleton {
         SkeletonTester.registerTest("SavePlayerWithRope",Skeleton::savePlayerWithRope);
         SkeletonTester.registerTest("PlayerStepOnIceTile", Skeleton::playerStepOnIceTile);
         SkeletonTester.registerTest("PlayerStepOnHoleTile", Skeleton::playerStepOnHoleTile);
-        SkeletonTester.registerTest("BuildRocket", Skeleton::buildRocket);
+        SkeletonTester.registerTest("BuildRocket", Skeleton::buildRocket);*/
+        SkeletonTester.registerTest("TestLoad", Skeleton::testLoad);
 
         //Run testing
         SkeletonTester.start();
+    }
+
+    private static void testLoad() {
+        try {
+            MapLoader loader = new MapLoader("testmap.txt");
+            loader.load();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     /**

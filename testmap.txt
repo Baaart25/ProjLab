@@ -1,0 +1,6 @@
+<mapwidth | 2> <mapheight | 3>
+<entity | ads>
+<entity | bsd>
+<tile | 00> <tile | 01>
+<tile | 10> <tile | 11>
+<tile | 20> <tile | 21>
