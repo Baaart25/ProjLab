@@ -31,4 +31,9 @@ public class Tile {
     public void setFrozenItem(Item item) {
 
     }
+
+    //FIXME
+    public void addSnowLayer(int amount) {
+
+    }
 }
