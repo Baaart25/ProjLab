@@ -16,6 +16,7 @@ public class Proto {
         pis.registerCommand("RemoveSnow", new RemoveSnowCommand());
         pis.registerCommand("Eskimo", new EskimoCommand());
         pis.registerCommand("Scientist", new ScientistCommand());
+        pis.registerCommand("Item", new ItemCommand());
 
 
 

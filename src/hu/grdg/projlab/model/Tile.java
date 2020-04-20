@@ -26,4 +26,9 @@ public class Tile {
     public void acceptEntity(Entity entity) {
 
     }
+
+    //FIXME
+    public void setFrozenItem(Item item) {
+
+    }
 }
