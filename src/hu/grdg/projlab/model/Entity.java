@@ -6,4 +6,9 @@ public class Entity {
     public Tile getCurrentTile() {
         return null;
     }
+
+    //FIXME
+    public void move(int direction) {
+
+    }
 }

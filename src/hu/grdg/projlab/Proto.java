@@ -19,8 +19,10 @@ public class Proto {
         pis.registerCommand("Scientist", new ScientistCommand());
         pis.registerCommand("PolarBear", new PolarBearCommand());
         pis.registerCommand("Item", new ItemCommand());
-
-
+        pis.registerCommand("Step", new StepCommand());
+        //pis.registerCommand("Load", new LoadCommand());
+        //pis.registerCommand("Save", new SaveCommand());
+        pis.registerCommand("Stat", new StatCommand());
 
         //Run the tester
         pis.start();

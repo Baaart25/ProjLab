@@ -23,6 +23,7 @@ public class Tile {
     }
 
     //FIXME
+    //--------THE TILE HAVE TO PRINT THE STEP_OUT_MESSAGE BASED ON TILE----------
     public void acceptEntity(Entity entity) {
 
     }
@@ -34,6 +35,11 @@ public class Tile {
 
     //FIXME
     public void addSnowLayer(int amount) {
+
+    }
+
+    //FIXME
+    public void removeEntity(Entity entity) {
 
     }
 }
