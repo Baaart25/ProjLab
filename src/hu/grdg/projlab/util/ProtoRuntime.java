@@ -1,9 +1,6 @@
 package hu.grdg.projlab.util;
 
-import hu.grdg.projlab.model.Controller;
-import hu.grdg.projlab.model.Entity;
-import hu.grdg.projlab.model.IceTile;
-import hu.grdg.projlab.model.Tile;
+import hu.grdg.projlab.model.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -61,5 +58,14 @@ public class ProtoRuntime {
         if(namedEntities.containsKey(entityName))
             return namedEntities.get(entityName);
         return null;
+    }
+
+    /**
+     * Registers a new entity to the game
+     * @param name Name of the entity
+     * @param entity The new entity
+     */
+    public void addEntity(String name, Entity entity) {
+        namedEntities.put(name, entity);
     }
 }

@@ -21,4 +21,9 @@ public class Tile {
     public boolean removeSnowLayer(int amount) {
         return false;
     }
+
+    //FIXME
+    public void acceptEntity(Entity entity) {
+
+    }
 }
