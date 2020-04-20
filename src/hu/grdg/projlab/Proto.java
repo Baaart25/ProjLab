@@ -13,6 +13,8 @@ public class Proto {
         pis.registerCommand("SetNeighbour", new SetNeighbourCommand());
         pis.registerCommand("Inventory", new InventoryCommand());
         pis.registerCommand("Inspect", new InspectCommand());
+        pis.registerCommand("RemoveSnow", new RemoveSnowCommand());
+
 
 
         //Run the tester

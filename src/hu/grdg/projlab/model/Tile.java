@@ -16,4 +16,9 @@ public class Tile {
     public Item getFrozenItem() {
         return null;
     }
+
+    //FIXME
+    public boolean removeSnowLayer(int amount) {
+        return false;
+    }
 }
