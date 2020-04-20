@@ -1,4 +1,4 @@
-
+package hu.grdg.projlab;
 /**
 * Helper class for printing to the standard output
 * Also contains helper functions to read numbers, bools, etc. from the 
@@ -61,7 +61,7 @@ public class ProtoIO {
   * @author Barrow099
   */
   public static void output(String message) {
-    throw new RuntimeException("Not implemented yet");
+      System.out.println(message);
   }
   
   /**
@@ -69,6 +69,6 @@ public class ProtoIO {
   * @author Barrow099
   */
   public static void outputf(String message, Object ... args) {
-    throw new RuntimeException("Not implemented yet");
+    System.out.printf(message + "\n", args);
   }
 }
