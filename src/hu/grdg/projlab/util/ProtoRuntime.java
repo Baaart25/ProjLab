@@ -51,4 +51,15 @@ public class ProtoRuntime {
             return namedTiles.get(tileName);
         return null;
     }
+
+    /**
+     * Gets a registered entity by its name
+     * @param entityName The name of the entity
+     * @return The entity or null if not found
+     */
+    public Entity getEntity(String entityName) {
+        if(namedEntities.containsKey(entityName))
+            return namedEntities.get(entityName);
+        return null;
+    }
 }

@@ -2,6 +2,7 @@ package hu.grdg.projlab;
 
 import hu.grdg.projlab.util.ProtoInputSystem;
 import hu.grdg.projlab.util.commands.ClearGameCommand;
+import hu.grdg.projlab.util.commands.InventoryCommand;
 import hu.grdg.projlab.util.commands.NewTileCommand;
 import hu.grdg.projlab.util.commands.SetNeighbourCommand;
 
@@ -13,6 +14,7 @@ public class Proto {
         pis.registerCommand("ClearGame", new ClearGameCommand());
         pis.registerCommand("NewTile", new NewTileCommand());
         pis.registerCommand("SetNeighbour", new SetNeighbourCommand());
+        pis.registerCommand("Inventory", new InventoryCommand());
 
 
         //Run the tester
