@@ -44,7 +44,7 @@ public abstract class Command {
             inputParams.remove(0);
             return p;
         }
-        throw new CommandException("a string argument is required but was not provided");
+        throw new CommandException("A string argument is required but was not provided");
     }
 
     /**
@@ -69,9 +69,12 @@ public abstract class Command {
      * @throws CommandException if the next arg is not an integer
      */
     protected int getIntArg(List<String> inputParams) throws CommandException {
-        String val = getStringArg(inputParams);
+        String val = "";
         try {
+            val = getStringArg(inputParams);
             return Integer.parseInt(val);
+        }catch (CommandException e) {
+            throw new CommandException("An int argument is required but was not provided");
         }catch (NumberFormatException e) {
             throw new CommandException(String.format("Integer was required but %s is not a valid integer", val));
         }
