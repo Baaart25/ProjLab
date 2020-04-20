@@ -1,5 +1,9 @@
 package hu.grdg.projlab.util;
 
+import hu.grdg.projlab.ProtoIO;
+import hu.grdg.projlab.model.Entity;
+import hu.grdg.projlab.model.Player;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -80,4 +84,20 @@ public abstract class Command {
         }
     }
 
+
+    /**
+     * Finds the named player
+     * @param pName The name of the player
+     * @param state The current game state
+     * @return The player or null
+     */
+    protected Player getPlayer(String pName, ProtoRuntime state) {
+        Entity e = state.getEntity(pName);
+        if(!(e instanceof Player)) {
+            return null;
+        }
+
+        //The cast is safe, its checked above
+        return (Player) e;
+    }
 }

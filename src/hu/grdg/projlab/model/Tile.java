@@ -11,4 +11,9 @@ public class Tile {
     public void setNeighbour(Tile tile, int direction) {
 
     }
+
+    //FIXME
+    public Item getFrozenItem() {
+        return null;
+    }
 }
