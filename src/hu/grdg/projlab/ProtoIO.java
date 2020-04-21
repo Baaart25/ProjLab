@@ -54,6 +54,7 @@ public class ProtoIO {
     public static final String SPECAB_OUT_SCI = "Tile scanned: %d";
     public static final String SPECAB_ERR_FAILURE = "SpecialAbility failure";
     public static final String UNFREEZE_OUT = "Item unfreezed";
+    public static final String UNFREEZE_ERR_UNFRREZED = "Unfreeze failed";
   }
   
   /**

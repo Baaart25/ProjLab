@@ -26,6 +26,8 @@ public class Proto {
         //pis.registerCommand("SnowStorm", new SnowStormCommand());
         pis.registerCommand("Add", new AddCommand());
         pis.registerCommand("UseItem", new UseItemCommand());
+        pis.registerCommand("SpecialAbility", new SpecialAbilityCommand());
+        pis.registerCommand("Unfreeze", new UnfreezeCommand());
 
 
         //Run the tester

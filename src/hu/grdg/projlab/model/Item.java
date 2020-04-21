@@ -14,4 +14,9 @@ public class Item {
     public boolean useItem() {
         return false;
     }
+
+    //FIXME
+    public boolean unfreeze() {
+        return false;
+    }
 }

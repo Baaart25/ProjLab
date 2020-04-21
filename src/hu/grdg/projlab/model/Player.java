@@ -21,4 +21,12 @@ public class Player extends Entity{
     public int addItem(Item itm) {
         return 0;
     }
+
+
+    //----------WARNING-------------
+    //IMPLEMENTATION HAS TO PRINT THE OUTPUT MESSAGE
+    //FIXME
+    public boolean specialAbility() {
+        return false;
+    }
 }
