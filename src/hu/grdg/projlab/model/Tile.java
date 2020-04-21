@@ -14,7 +14,7 @@ public abstract class Tile {
     private int snowLayers;
     private Item frozenItem;
     private HashMap<Integer,Tile> neighbours;
-    private ArrayList<Entity> entities;
+    protected ArrayList<Entity> entities;
 
     /**
      *Returns the Tile at the given direction
@@ -139,13 +139,14 @@ public abstract class Tile {
     public void bearAttack(){
         if(!hasIgloo){
             for (Entity e: entities) {
+                ProtoIO.output(ProtoIO.OutputMessages.STEP_BEAR_EAT);
                 e.die();
             }
 
         }
     }
 
-    public abstract void scanLimit();
+    public abstract int scanLimit();
 
     /**
      *
