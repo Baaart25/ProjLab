@@ -1,0 +1,5 @@
+NewTile f1 h
+NewTile f2 i
+SetNeighbour f2 1 f1 3
+Eskimo e1 f2
+Step e1 1
