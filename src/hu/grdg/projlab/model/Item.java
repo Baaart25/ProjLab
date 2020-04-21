@@ -1,6 +1,10 @@
 package hu.grdg.projlab.model;
 
-public class Item {
+public abstract class Item {
+    protected boolean isFrozen;
+    protected Player owner;
+
+
 
     //----------WARNING-------------
     //NOT IN DOCS
@@ -10,13 +14,46 @@ public class Item {
         return false;
     }
 
-    //FIXME
-    public boolean useItem() {
+    /**
+     * Adds itself to the player inventory if isFrozen==false
+     * @param byPlayer the player who wants to pick it up
+     * @return false is isFrozen==true, true if isFrozen==false
+     * @author Boti
+     */
+    public boolean pickedUp(Player byPlayer){
+        if(isFrozen){
+            return false;
+        }
+        //listához hozzáadni
+        return true;
+    }
+
+    /**
+     * set the isFrozen field to false if it was true
+     * @return true if isFrozen was true
+     * @author Boti
+     */
+    public boolean unfreeze(){
+        if(isFrozen){
+            isFrozen = false;
+            return true;
+        }
         return false;
     }
 
-    //FIXME
-    public boolean unfreeze() {
-        return false;
+    /**
+     * abstract useItem function, the derived classes will implement it
+     * @return true if it was succesful
+     * @author Boti
+     */
+    public abstract boolean useItem();
+
+    /**
+     * returns the owner of the item
+     * @return the owner
+     * @author Boti
+     */
+    public Player getOwner(){
+        return owner;
     }
 }
