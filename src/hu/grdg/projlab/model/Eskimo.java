@@ -1,5 +1,7 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.ProtoIO;
+
 public class Eskimo extends Player{
 
     /**
@@ -8,6 +10,14 @@ public class Eskimo extends Player{
      * @author Geri
      */
     public boolean specialAbility(){
-        return getCurrentTile().buildIgloo();
+
+        boolean succesfulness = getCurrentTile().buildIgloo();
+        if(succesfulness){
+            ProtoIO.output(ProtoIO.OutputMessages.SPECAB_OUT_ESKIMO);
+            return true;
+        } else {
+            ProtoIO.output(ProtoIO.OutputMessages.SPECAB_ERR_FAILURE);
+            return false;
+        }
     }
 }
