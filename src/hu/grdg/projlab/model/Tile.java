@@ -42,4 +42,9 @@ public class Tile {
     public void removeEntity(Entity entity) {
 
     }
+
+    //FIXME
+    public void stormDamage() {
+
+    }
 }
