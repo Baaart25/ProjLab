@@ -9,4 +9,9 @@ public class Item {
     public boolean isFrozen() {
         return false;
     }
+
+    //FIXME
+    public boolean useItem() {
+        return false;
+    }
 }

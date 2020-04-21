@@ -25,6 +25,8 @@ public class Proto {
         pis.registerCommand("Stat", new StatCommand());
         //pis.registerCommand("SnowStorm", new SnowStormCommand());
         pis.registerCommand("Add", new AddCommand());
+        pis.registerCommand("UseItem", new UseItemCommand());
+
 
         //Run the tester
         pis.start();
