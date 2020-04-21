@@ -12,4 +12,13 @@ public class Player extends Entity{
     public List<Item> getInventory() {
         return new ArrayList<>();
     }
+
+    //----------------WARNING----------------
+    //CHANGED ARG FROM VOID TO INT
+    //@returns The index of the added item
+    //TODO Fix doc
+    //FIXME
+    public int addItem(Item itm) {
+        return 0;
+    }
 }
