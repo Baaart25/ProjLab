@@ -11,4 +11,12 @@ public class Entity {
     public void move(int direction) {
 
     }
+
+    //FIXME
+    public void damage(int i) {
+    }
+
+    //FIXME
+    public void die() {
+    }
 }

@@ -29,4 +29,6 @@ public class Player extends Entity{
     public boolean specialAbility() {
         return false;
     }
+
+    public boolean eat(Food f){return false;};
 }
