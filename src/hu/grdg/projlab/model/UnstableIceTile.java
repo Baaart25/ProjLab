@@ -4,7 +4,7 @@ import hu.grdg.projlab.ProtoIO;
 
 public class UnstableIceTile extends IceTile{
     private int limit;
-    //FIXME fix the constructor
+
     public UnstableIceTile(int limit) {
         this.limit = limit;
     }
