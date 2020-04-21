@@ -30,5 +30,7 @@ public class Player extends Entity{
         return false;
     }
 
-    public boolean eat(Food f){return false;};
+    public boolean eat(Food f){return false;}
+
+    public boolean savingPlayers(){return false;}
 }
