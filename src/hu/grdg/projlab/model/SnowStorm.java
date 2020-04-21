@@ -1,4 +1,23 @@
 package hu.grdg.projlab.model;
 
 public class SnowStorm implements TurnBasedEvent{
+    private static SnowStorm instance = null;
+    public static SnowStorm getInstance() { return instance; }
+
+    public SnowStorm() {
+        instance = this;
+    }
+
+
+    //FIXME Fuckin not in docs
+    /**
+     * Do the storm on the tile. It adds the snow and damages the players.
+     * @param tile Target tile
+     * @param amount Amount of snow to add
+     * @author Barrow099
+     */
+    public void doStorm(Tile tile, int amount) {
+        tile.addSnowLayer(amount);
+        tile.stormDamage();
+    }
 }
