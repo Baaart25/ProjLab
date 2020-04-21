@@ -5,6 +5,14 @@ import hu.grdg.projlab.ProtoIO;
 public class Eskimo extends Player{
 
     /**
+     * Sets the maximum temperature in player's constructor
+     * @author Geri
+     */
+    public Eskimo(){
+        super(5);
+    }
+
+    /**
      * Calls buildIgloo on currentTile
      * @return Succesfulness of operation
      * @author Geri

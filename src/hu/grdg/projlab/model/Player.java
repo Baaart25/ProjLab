@@ -4,6 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player extends Entity{
+    protected int maxTemp;
+
+    /**
+     * Sets maxTemp for player
+     * @param _maxTemp Maximum temperature
+     * @author Geri
+     */
+    public Player(int _maxTemp){
+        maxTemp = _maxTemp;
+    }
 
     //----------------WARNING-----------------
     //NOT IN DOCS
