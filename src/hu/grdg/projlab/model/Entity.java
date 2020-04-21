@@ -19,4 +19,12 @@ public class Entity {
     //FIXME
     public void die() {
     }
+
+    //FIXME
+    public void fallInWater() {
+    }
+
+    //FIXME
+    public void setCurrentTile(Tile tile) {
+    }
 }

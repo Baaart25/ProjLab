@@ -64,6 +64,7 @@ public abstract class Tile {
      */
     //--------THE TILE HAVE TO PRINT THE STEP_OUT_MESSAGE BASED ON TILE----------
     public void acceptEntity(Entity entity) {
+        entity.setCurrentTile(this);
         entities.add(entity);
     }
 
