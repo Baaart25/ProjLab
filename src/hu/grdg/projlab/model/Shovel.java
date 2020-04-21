@@ -1,10 +1,13 @@
 package hu.grdg.projlab.model;
 
 public class Shovel extends Item {
-
-
-
+    /**
+     * removes 2 layers of snow from owners tile
+     * @return if it was succesful
+     * @author Boti
+     */
     public boolean useItem(){
-        return false;
+        Tile t = owner.getCurrentTile();
+        return t.removeSnowLayer(2);
     }
 }
