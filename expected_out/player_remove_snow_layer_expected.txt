@@ -1,0 +1,4 @@
+Tile created
+Snow layer added
+Scientist created
+Snow layer removed

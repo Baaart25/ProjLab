@@ -1,0 +1,7 @@
+Tile created
+Tile created
+Neighbours updated
+Scientist created
+Eskimo created
+Eskimo created
+Stepped to tile

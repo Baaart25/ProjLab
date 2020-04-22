@@ -1,0 +1,6 @@
+NewTile i1 i
+Eskimo e1 i1
+SpecialAbility e1 null
+Eskimo e2 i1
+Scientist s1 i1
+SnowStorm i1 2

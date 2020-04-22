@@ -1,0 +1,6 @@
+NewTile i1 i
+Scientist s1 i1
+Add s1 Tent
+UseItem s1 1
+Eskimo e1 i1
+SnowStorm i1 2

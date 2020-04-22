@@ -1,0 +1,7 @@
+Tile created
+Eskimo created
+Item created
+Item unfreezed
+Snowstorm done
+Player damaged
+Snow on tile

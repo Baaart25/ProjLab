@@ -148,7 +148,6 @@ public abstract class Tile {
                 ProtoIO.output(ProtoIO.OutputMessages.STEP_BEAR_EAT);
                 e.die();
             }
-
         }
     }
 

@@ -1,0 +1,9 @@
+NewTile i1 i
+NewTile i2 i
+Scientist s1 i1
+Scientist s2 i1
+Scientist s3 i1
+Add s1 RocketPart
+Add s2 RocketPart
+Item RocketPart i2
+UseItem s1 1

@@ -1,0 +1,8 @@
+NewTile i1 i
+Scientist s1 i1
+Add s1 BreakableShovel
+PutSnow i1 4
+UseItem s1 1
+UseItem s1 1
+UseItem s1 1
+UseItem s1 1

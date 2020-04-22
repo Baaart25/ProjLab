@@ -1,0 +1,4 @@
+NewTile i1 i
+Scientist s1 i1
+Add s1 Tent
+UseItem s1 1

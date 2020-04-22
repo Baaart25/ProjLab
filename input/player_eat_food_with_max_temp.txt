@@ -1,0 +1,5 @@
+NewTile i1 i
+Eskimo e1 i
+Add e1 Food
+UseItem 1
+Inventory e1

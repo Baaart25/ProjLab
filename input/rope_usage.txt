@@ -1,0 +1,8 @@
+NewTile i1 i
+NewTile h1 h
+SetNeighbour i1 1 h1 1
+Scientist s1 i1
+Scientist s2 i1
+Step s2 1
+Add s1 Rope
+UseItem s1 1

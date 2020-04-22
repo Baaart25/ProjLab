@@ -1,0 +1,7 @@
+Tile created
+Scientist created
+Item added. Slot: 1
+Snow layer added
+IceTile stat: [PropertyName: i1, SnowLayer: 1]
+Item used
+IceTile stat: [PropertyName: i1, SnowLayer: 0]

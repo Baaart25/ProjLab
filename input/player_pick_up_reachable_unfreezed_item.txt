@@ -1,0 +1,5 @@
+NewTile i1 i
+Eskimo e1 i1
+Item Rope i1
+Unfreeze e1
+PickUp e1

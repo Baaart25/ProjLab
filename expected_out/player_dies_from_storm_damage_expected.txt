@@ -1,0 +1,13 @@
+Tile created
+Eskimo created
+Snowstorm done
+Player damaged
+Snowstorm done
+Player damaged
+Snowstorm done
+Player damaged
+Snowstorm done
+Player damaged
+Snowstorm done
+Player damaged
+Player died. Game ended

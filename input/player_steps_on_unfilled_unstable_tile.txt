@@ -1,0 +1,7 @@
+NewTile u1 u 3
+NewTile i1 i
+SetNeighbour u1 1 i1 3
+Scientist s1 u1
+Eskimo e1 i1
+Eskimo e2 i1
+Step s1 1

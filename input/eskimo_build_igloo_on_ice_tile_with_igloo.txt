@@ -1,0 +1,5 @@
+NewTile i1 i
+Eskimo e1 i1
+SpecialAbility e1 null
+Eskimo e2 i1
+SpecialAbility e2 null

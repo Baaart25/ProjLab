@@ -1,0 +1,3 @@
+NewTile h1 h
+Eskimo e1 h1
+SpecialAbility e1 null

@@ -1,0 +1,7 @@
+NewTile i1 i
+Eskimo e1 i
+SnowStorm i1 0
+SnowStorm i1 0
+SnowStorm i1 0
+SnowStorm i1 0
+SnowStorm i1 0

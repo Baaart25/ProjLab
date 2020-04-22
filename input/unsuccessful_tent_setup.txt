@@ -1,0 +1,7 @@
+NewTile i1 i
+Scientist s1 i1
+Add s1 Tent6
+UseItem s1 1
+Scientist s2 i1
+Add s2 Tent
+UseItem s2 1

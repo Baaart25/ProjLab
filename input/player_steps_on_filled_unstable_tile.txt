@@ -1,0 +1,6 @@
+NewTile i1 i
+NewTile u1 h 1
+SetNeighour i1 1 u1 1
+Eskimo e1 i1
+Scientist s1 u1
+Step e1 1

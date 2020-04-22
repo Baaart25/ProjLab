@@ -1,0 +1,4 @@
+NewTile i1 i
+PutSnow i1 2
+Scientist s1 i1
+RemoveSnow s1

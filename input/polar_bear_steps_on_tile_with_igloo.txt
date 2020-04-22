@@ -1,0 +1,7 @@
+NewTile i1 i
+NewTile i2 i
+SetNeighbour i1 1 i2 1
+Eskimo e1 i1
+SpecialAbility e1 null
+PolarBear b1 i2
+Step b1 1

@@ -1,0 +1,6 @@
+Tile created
+Scientist created
+Eskimo created
+Snowstorm done
+Player damaged
+Player damaged

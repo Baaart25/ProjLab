@@ -1,0 +1,5 @@
+NewTile i1 i
+NewTile i2 i
+SetNeighbour i1 1 i2 1
+Scientist s1 i1
+SpecialAbility s1 1
