@@ -3,7 +3,8 @@ package hu.grdg.projlab.util;
 import hu.grdg.projlab.model.*;
 
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * The game runtime state of the proto
@@ -67,5 +68,21 @@ public class ProtoRuntime {
      */
     public void addEntity(String name, Entity entity) {
         namedEntities.put(name, entity);
+    }
+
+    /**
+     * Returns all named tile
+     * @return Set of named tile
+     */
+    public Set<Map.Entry<String, Tile>> getTiles() {
+        return namedTiles.entrySet();
+    }
+
+    /**
+     * Returns all named entities
+     * @return Set of named entities
+     */
+    public Set<Map.Entry<String, Entity>> getEntities() {
+        return namedEntities.entrySet();
     }
 }

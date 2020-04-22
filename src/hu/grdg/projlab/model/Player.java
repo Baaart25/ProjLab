@@ -56,6 +56,14 @@ public abstract class Player extends Entity{
         return inventory.size();
     }
 
+    //----------------NOT IN DOC-----------
+    /**
+     * Sets the current temp
+     * @param currentTemp The current temp
+     */
+    public void setCurrentTemp(int currentTemp) {
+        this.currentTemp = currentTemp;
+    }
 
     //----------WARNING-------------
     //IMPLEMENTATION HAS TO PRINT THE OUTPUT MESSAGE

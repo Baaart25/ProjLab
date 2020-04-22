@@ -13,7 +13,7 @@ public class RemoveTent implements TurnBasedEvent{
      * @param lvl az adott leve (csak az automatizált hóviharhoz kell)
      * @param fullTurn akkor true, ha egy teljes kör telt le (ehhez lényegtelen)
      */
-    void doEvent(Level lvl, boolean fullTurn) {
+    public void doEvent(Level lvl, boolean fullTurn) {
         for (Tent tent : tents) {
             tent.decreaseLife();
         }
