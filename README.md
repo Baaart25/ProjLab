@@ -12,4 +12,5 @@ A múltkor megírt tesztesetekhez megkell csinálni a *bemenet.txt*-ket és az *
 Ezeke az `input` és `expected_out` mappában *teszeset_teljes_neve*.txt néven kellenének.  
 A tesztesetek futtatásának megkönnyítéséhez lett létrehozva a (windows alatt működő) 
 `runtest.bat` script. Így a tesztesetek futtatása a `runtest.bat <teszt_eset_neve_.txt_nelkul>`.
-A sikeres futást a Test PASSED, a sikertelent a Test FAILED jelzi.
+A sikeres futást a Test PASSED, a sikertelent a Test FAILED jelzi.  
+Példa: `> runtest.bat player_steps_on_hole_tile`

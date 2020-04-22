@@ -28,8 +28,9 @@ public class EskimoCommand extends Command {
 
         Eskimo ne = new Eskimo();
         state.addEntity(name, ne);
-        t.acceptEntity(ne);
         ProtoIO.output(ProtoIO.OutputMessages.ESKIMO_OUT);
+        t.acceptEntity(ne);
+
     }
 
     @Override
