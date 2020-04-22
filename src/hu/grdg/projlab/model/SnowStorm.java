@@ -8,6 +8,10 @@ public class SnowStorm implements TurnBasedEvent{
         instance = this;
     }
 
+    @Override
+    public void doEvent(Level lvl, boolean fullTurn) {
+
+    }
 
     //FIXME Fuckin not in docs
     /**
