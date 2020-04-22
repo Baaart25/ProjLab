@@ -43,6 +43,7 @@ public class Controller {
         for (RocketPart rp: rocketParts) {
             if(rp.getOwner() == null) return false;
         }
+        endGame(true);
         return true;
     }
 
