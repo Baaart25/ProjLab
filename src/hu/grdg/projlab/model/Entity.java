@@ -1,30 +1,31 @@
 package hu.grdg.projlab.model;
 
-public class Entity {
+public abstract class Entity {
+    protected Tile currentTile;
 
-    //FIXME
+    /**
+     * Returns the Entity's current Tile
+     * @return the Entity's current Tile
+     * @author Dorina
+     */
     public Tile getCurrentTile() {
-        return null;
+        return currentTile;
     }
 
-    //FIXME
-    public void move(int direction) {
+    public abstract void move(int direction);
 
-    }
+    public abstract void damage(int i);
 
-    //FIXME
-    public void damage(int i) {
-    }
+    public abstract void die();
 
-    //FIXME
-    public void die() {
-    }
+    public abstract void fallInWater();
 
-    //FIXME
-    public void fallInWater() {
-    }
-
-    //FIXME
-    public void setCurrentTile(Tile tile) {
+    /**
+     * Sets the Entity's currentTile
+     * @param tile the Entity,s current Tile
+     * @author Dorina
+     */
+    public void setCurrentTile(Tile tile){
+        currentTile=tile;
     }
 }
