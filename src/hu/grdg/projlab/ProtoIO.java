@@ -36,7 +36,7 @@ public class ProtoIO {
     public static final String ERR_NEIGHBOUR_NOT_FOUND = "Neighbour not found";
     public static final String LOAD_OUT = "Game state loaded";
     public static final String LOAD_ERR_NOTFOUND = "File not found";
-    public static final String LOAD_ERR_FORMAT = "Formate error: %s";
+    public static final String LOAD_ERR_FORMAT = "Format error: %s";
     public static final String ERR_IO = "IO error";
     public static final String STAT_OUT = "ERRR -- DONT FUCKIN USE THIS -- ERRR";
     public static final String SNOWSTORM_OUT_NORMAL = "Snowstorm done";

@@ -56,4 +56,15 @@ public abstract class Item {
     public Player getOwner(){
         return owner;
     }
+
+    //---------------WARNING-----------------
+    //NOT IN DOCS
+    //TODO Add docs
+    /**
+     * Sets the isFrozen property. Used for saved game loading
+     * @param isForzen The new state
+     */
+    public void setIsFrozen(boolean isForzen) {
+        this.isFrozen = isForzen;
+    }
 }

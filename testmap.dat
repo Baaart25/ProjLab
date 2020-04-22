@@ -1,0 +1,13 @@
+<tilecount | 4>
+<conncount | 4>
+<entitycount | 2>
+<tile | u:2,1:Shovel,true:false,false:T1>
+<tile | i:0,3:None,true:false,false:T2>
+<tile | h:0,2:None,true:true,false:T3>
+<tile | i:0,4:None,true:false,true:T4>
+<connection | T1,2:T2,4>
+<connection | T1,3:T4,1>
+<connection | T2,3:T3,1>
+<connection | T3,4:T4,2>
+<entity | P1:polar:T1:0:None>
+<entity | S1:scientist:T2:3:Shovel>
