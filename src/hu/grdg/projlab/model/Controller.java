@@ -5,4 +5,9 @@ package hu.grdg.projlab.model;
  * It schedules the turns, events. It checks the win and lose conditions.
  */
 public class Controller {
+
+    //FIXME
+    public void endGame(boolean win){
+
+    }
 }

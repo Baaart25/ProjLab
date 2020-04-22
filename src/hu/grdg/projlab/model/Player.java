@@ -1,46 +1,159 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.ProtoIO;
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class Player extends Entity{
+public abstract class Player extends Entity{
     protected int maxTemp;
+    private ArrayList<Item> inventory;
+    private Controller controller;
+    private int currentTemp;
+    private boolean isInWater;
+
+
 
     /**
-     * Sets maxTemp for player
+     * Sets maxTemp for player, init other attributes
      * @param _maxTemp Maximum temperature
-     * @author Geri
+     * @author Geri, Dorina
      */
     public Player(int _maxTemp){
+        inventory = new ArrayList<Item>();
         maxTemp = _maxTemp;
+        currentTemp = maxTemp;
+        isInWater = false;
     }
 
     //----------------WARNING-----------------
     //NOT IN DOCS
     //TODO Fix the doc
-    //FIXME
+
+    /**
+     * Returns the Entity's inventory
+     * @return the Entity's inventory
+     * @author Dorina
+     */
     public List<Item> getInventory() {
-        return new ArrayList<>();
+        return inventory;
     }
 
     //----------------WARNING----------------
     //CHANGED ARG FROM VOID TO INT
     //@returns The index of the added item
     //TODO Fix doc
-    //FIXME
-    public int addItem(Item itm) {
-        return 0;
+
+    /**
+     * Add new item to the inventory
+     * @param item new Item
+     * @return The index of the added item
+     * @author Dorina
+     */
+    public int addItem(Item item) {
+        inventory.add(item);
+        ProtoIO.output(ProtoIO.OutputMessages.ADD_OUT + inventory.size());
+        return inventory.size();
     }
 
 
     //----------WARNING-------------
     //IMPLEMENTATION HAS TO PRINT THE OUTPUT MESSAGE
-    //FIXME
-    public boolean specialAbility() {
+    public abstract boolean specialAbility();
+
+    /**
+     * Entity eats food
+     * @param f the food that the Entity eats
+     * @return if the eating was successful
+     * @author Dorina
+     */
+    public boolean eat(Food f){
+        if(maxTemp == currentTemp) return false;
+        currentTemp++;
+        inventory.remove(f);
+        return true;
+    }
+
+    /**
+     * Save player from near holes
+     * @return if the saving was successful
+     * @author Dorina
+     */
+    public boolean savingPlayers(){
+        boolean succ = false;
+        Collection<Tile> neighbours = currentTile.getNeighbours();
+        for (Tile neighbour: neighbours) {
+            ArrayList<Entity> entities = neighbour.getEntities();
+            for (Entity entity: entities) {
+                if(entity.savedFromWater(currentTile)) succ = true;
+            }
+        }
+        return succ;
+    }
+
+    /**
+     * Entity moves at the given direction
+     * @param direction the direction in which the Entity moves
+     * @author Dorina
+     */
+    @Override
+    public void move(int direction) {
+        if(isInWater) return;
+        Tile newTile = currentTile.getNeighbour(direction);
+        currentTile.removeEntity(this);
+        newTile.acceptEntity(this);
+    }
+
+    /**
+     * Decrease the Entity's current temp with the given amount
+     * @param i the amount of temp the Entity's currentTemp decrease
+     * @author Dorina
+     */
+    @Override
+    public void damage(int i) {
+        currentTemp -= i;
+        if(currentTemp<=0) die();
+    }
+
+    /**
+     * The player dies
+     * @author Dorina
+     */
+    @Override
+    public void die() {
+        controller.endGame(false);
+    }
+
+    /**
+     * Sets the isInWater to true;
+     * @author Dorina
+     */
+    @Override
+    public void fallInWater() {
+        isInWater = true;
+    }
+
+    /**
+     * Sets the isInWater to false
+     * @author Dorina
+     */
+    public void surviveWater(){
+        isInWater = false;
+    }
+
+
+    //TODO move()!!!!
+    public boolean savedFromWater(Tile t){
+        if(isInWater){
+            //FIXME move missing
+            isInWater = false;
+            return true;
+        }
         return false;
     }
 
-    public boolean eat(Food f){return false;}
+    //FIXME
+    public void turn(){}
 
-    public boolean savingPlayers(){return false;}
 }

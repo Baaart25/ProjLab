@@ -28,4 +28,7 @@ public abstract class Entity {
     public void setCurrentTile(Tile tile){
         currentTile=tile;
     }
+
+    public abstract boolean savedFromWater(Tile t);
+
 }
