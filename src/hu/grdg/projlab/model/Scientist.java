@@ -9,4 +9,10 @@ public class Scientist extends Player{
     public Scientist(){
         super(4);
     }
+
+    //FIXME
+    @Override
+    public boolean specialAbility() {
+        return false;
+    }
 }

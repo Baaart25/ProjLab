@@ -1,5 +1,7 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.ProtoIO;
+
 public class IceTile extends Tile{
 
     /**
@@ -10,5 +12,11 @@ public class IceTile extends Tile{
     @Override
     public int scanLimit() {
         return -1;
+    }
+
+    @Override
+    public void acceptEntity(Entity entity) {
+        super.acceptEntity(entity);
+        ProtoIO.output(ProtoIO.OutputMessages.STEP_OUT_TILE);
     }
 }

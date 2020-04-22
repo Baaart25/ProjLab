@@ -53,7 +53,6 @@ public abstract class Player extends Entity{
      */
     public int addItem(Item item) {
         inventory.add(item);
-        ProtoIO.output(ProtoIO.OutputMessages.ADD_OUT + inventory.size());
         return inventory.size();
     }
 

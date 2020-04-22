@@ -16,6 +16,11 @@ public abstract class Tile {
     private HashMap<Integer,Tile> neighbours;
     protected ArrayList<Entity> entities;
 
+    public Tile(){
+        neighbours= new HashMap<Integer, Tile>();
+        entities = new ArrayList<Entity>();
+    }
+
     /**
      *Returns the Tile at the given direction
      * @param direction the direction the Tile at
