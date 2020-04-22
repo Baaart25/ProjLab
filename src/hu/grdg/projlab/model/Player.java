@@ -142,10 +142,16 @@ public abstract class Player extends Entity{
     }
 
 
-    //TODO move()!!!!
-    public boolean savedFromWater(Tile t){
+    /**
+     * Save the entity from drowning
+     * @param tile the tile where the entity steps
+     * @return if the saving was successful
+     * @author Dorina
+     */
+    public boolean savedFromWater(Tile tile){
         if(isInWater){
-            //FIXME move missing
+            currentTile.removeEntity(this);
+            tile.acceptEntity(this);
             isInWater = false;
             return true;
         }
