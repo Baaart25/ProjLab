@@ -158,7 +158,4 @@ public abstract class Player extends Entity{
         return false;
     }
 
-    //FIXME
-    public void turn(){}
-
 }
