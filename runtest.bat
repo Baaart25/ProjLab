@@ -17,6 +17,7 @@ if not exist %inp_file% (
 
 java -cp %cp% %mainclass% > out_temp < %inp_file%
 fc out_temp %out_file%
+echo ---------------------------------------
 if errorlevel 1 goto err
 echo Test PASSED
 goto end
