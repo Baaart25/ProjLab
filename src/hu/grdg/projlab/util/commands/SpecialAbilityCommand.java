@@ -1,7 +1,9 @@
 package hu.grdg.projlab.util.commands;
 
 import hu.grdg.projlab.ProtoIO;
+import hu.grdg.projlab.model.Direction;
 import hu.grdg.projlab.model.Player;
+import hu.grdg.projlab.model.Scientist;
 import hu.grdg.projlab.util.Command;
 import hu.grdg.projlab.util.CommandException;
 import hu.grdg.projlab.util.ProtoRuntime;
@@ -26,6 +28,10 @@ public class SpecialAbilityCommand extends Command {
             return;
         }
 
+        if(p instanceof Scientist && dir == 0) {
+            throw new CommandException("Required int parameter was not provided");
+        }
+        Direction.direction = dir;
         if(p.specialAbility()) {
 
         }else {
