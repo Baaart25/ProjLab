@@ -36,6 +36,7 @@ public class Proto {
         pis.registerCommand("UseItem", new UseItemCommand());
         pis.registerCommand("SpecialAbility", new SpecialAbilityCommand());
         pis.registerCommand("Unfreeze", new UnfreezeCommand());
+        pis.registerCommand("PickUp", new PickupCommand());
 
 
         //Run the tester
