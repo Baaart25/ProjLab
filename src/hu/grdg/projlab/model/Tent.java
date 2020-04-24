@@ -1,7 +1,5 @@
 package hu.grdg.projlab.model;
 
-
-
 //Ez nincs a doksiban xD
 public class Tent extends Item {
     private int life;
@@ -43,12 +41,5 @@ public class Tent extends Item {
     public void setLife(int life) {
         this.life = life;
     }
-}
 
-/*Tent
-public boolean useItem(): egy sátrat rak arra a mezőre ahol a tulajdonosa
-áll, és gondoskodik arról, hogy az adott Tent feliratkozásra kerüljön a
-RemoveTent osztályra.
-public void decreaseLife(): csökkenti az adott Tent élettartamát, és
-amennyiben eléri az a nullát, meghívja a RemoveTent osztály removeTent(t:
-Tent) függvényét az adott tent-et paraméterként átadva annak.*/
+}
