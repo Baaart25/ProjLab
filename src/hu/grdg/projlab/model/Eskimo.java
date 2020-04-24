@@ -23,9 +23,7 @@ public class Eskimo extends Player{
         if(succesfulness){
             ProtoIO.output(ProtoIO.OutputMessages.SPECAB_OUT_ESKIMO);
             return true;
-        } else {
-            ProtoIO.output(ProtoIO.OutputMessages.SPECAB_ERR_FAILURE);
-            return false;
         }
+        return false;
     }
 }
