@@ -6,8 +6,9 @@ public class RemoveTent implements TurnBasedEvent{
     private static RemoveTent singleton;
     private ArrayList<Tent> tents;
 
-    private RemoveTent(){
+    public RemoveTent(){
         singleton = this;
+        tents = new ArrayList<Tent>();
     }
 
     /**
