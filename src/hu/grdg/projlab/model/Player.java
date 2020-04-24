@@ -130,6 +130,7 @@ public abstract class Player extends Entity{
      */
     @Override
     public void die() {
+        ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDIE);
         controller.endGame(false);
     }
 
