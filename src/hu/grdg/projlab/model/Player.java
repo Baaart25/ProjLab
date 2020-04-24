@@ -14,7 +14,6 @@ public abstract class Player extends Entity{
     private boolean isInWater;
 
 
-
     /**
      * Sets maxTemp for player, init other attributes
      * @param _maxTemp Maximum temperature
