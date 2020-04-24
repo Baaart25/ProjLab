@@ -26,7 +26,7 @@ public class EskimoCommand extends Command {
             return;
         }
 
-        Eskimo ne = new Eskimo();
+        Eskimo ne = new Eskimo(state.getController());
         state.addEntity(name, ne);
         ProtoIO.output(ProtoIO.OutputMessages.ESKIMO_OUT);
 

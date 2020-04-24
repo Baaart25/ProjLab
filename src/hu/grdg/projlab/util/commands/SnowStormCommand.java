@@ -35,11 +35,14 @@ public class SnowStormCommand extends Command {
             pairs.put(t, amount);
         }
 
+        //FIXME Fix the fuckin test order
+        ProtoIO.output(SNOWSTORM_OUT_NORMAL);
+
         for (Map.Entry<Tile, Integer> tileIntegerEntry : pairs.entrySet()) {
             SnowStorm.getInstance().doStorm(tileIntegerEntry.getKey(), tileIntegerEntry.getValue());
         }
 
-        ProtoIO.output(SNOWSTORM_OUT_NORMAL);
+
     }
 
     @Override

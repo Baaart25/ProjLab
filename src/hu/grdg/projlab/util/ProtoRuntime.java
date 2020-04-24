@@ -85,4 +85,12 @@ public class ProtoRuntime {
     public Set<Map.Entry<String, Entity>> getEntities() {
         return namedEntities.entrySet();
     }
+
+    /**
+     * Returns the current game controller
+     * @return The game controller
+     */
+    public Controller getController() {
+        return gameController;
+    }
 }

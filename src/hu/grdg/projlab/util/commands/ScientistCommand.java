@@ -27,7 +27,7 @@ public class ScientistCommand extends Command {
             return;
         }
 
-        Scientist ns = new Scientist();
+        Scientist ns = new Scientist(state.getController());
         state.addEntity(name, ns);
 
 

@@ -23,6 +23,9 @@ public class Controller {
     //FIXME
     public void endGame(boolean win){
         ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDIE);
+
+        //TODO Add graceful shutdown
+        System.exit(0);
     }
 
     //FIXME
