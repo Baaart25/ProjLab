@@ -28,10 +28,10 @@ public class Controller {
         System.exit(0);
     }
 
-    //FIXME
-    public void startGame(){
-
-    }
+    //PROTOBA NINCS MÉG HASZNÁLVA!
+    public void startGame(){ }
+    void generatePlayers() { }
+    void init() { }
 
     /**
      * Checks if all conditions are true for winning the game
