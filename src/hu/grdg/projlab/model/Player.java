@@ -20,11 +20,12 @@ public abstract class Player extends Entity{
      * @param _maxTemp Maximum temperature
      * @author Geri, Dorina
      */
-    public Player(int _maxTemp){
+    public Player(int _maxTemp, Controller controller){
         inventory = new ArrayList<Item>();
         maxTemp = _maxTemp;
         currentTemp = maxTemp;
         isInWater = false;
+        this.controller = controller;
     }
 
     //----------------WARNING-----------------
@@ -120,6 +121,7 @@ public abstract class Player extends Entity{
     @Override
     public void damage(int i) {
         currentTemp -= i;
+        ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDAMAGE);
         if(currentTemp<=0) die();
     }
 
@@ -165,5 +167,7 @@ public abstract class Player extends Entity{
         }
         return false;
     }
+
+
 
 }

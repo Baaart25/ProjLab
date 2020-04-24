@@ -22,7 +22,7 @@ public class Controller {
 
     //FIXME
     public void endGame(boolean win){
-        
+        ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDIE);
     }
 
     //FIXME

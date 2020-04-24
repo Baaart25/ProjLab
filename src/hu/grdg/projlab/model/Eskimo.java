@@ -8,8 +8,8 @@ public class Eskimo extends Player{
      * Sets the maximum temperature in player's constructor
      * @author Geri
      */
-    public Eskimo(){
-        super(5);
+    public Eskimo(Controller controller){
+        super(5, controller);
     }
 
     /**

@@ -6,8 +6,8 @@ public class Scientist extends Player{
      * Sets the maximum temperature in player's constructor
      * @author Geri
      */
-    public Scientist(){
-        super(4);
+    public Scientist(Controller controller){
+        super(4,controller);
     }
 
     //FIXME
