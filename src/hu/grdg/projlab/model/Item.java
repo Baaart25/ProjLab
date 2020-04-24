@@ -1,7 +1,7 @@
 package hu.grdg.projlab.model;
 
 public abstract class Item {
-    protected boolean isFrozen;
+    protected boolean isFrozen = true;
     protected Player owner;
 
 

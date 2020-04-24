@@ -1,5 +1,5 @@
 Tile created
 Eskimo created
-Item added
+Item created
 Item unfreezed
 Pickup successful
