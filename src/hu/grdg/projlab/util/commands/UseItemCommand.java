@@ -15,7 +15,10 @@ public class UseItemCommand extends Command {
     public void runCommand(ProtoRuntime state, List<String> inputParams) throws CommandException {
         String pName = getStringArg(inputParams);
         int slot = getIntArg(inputParams);
-        int arg = getIntArg(inputParams);
+
+        int arg = -1;
+        if(inputParams.size() > 0 && !inputParams.get(0).equals("null"))
+            arg = getIntArg(inputParams);
 
         Player p;
         if((p = getPlayer(pName,state)) == null) {
@@ -24,13 +27,14 @@ public class UseItemCommand extends Command {
         }
 
         try {
-            Item item = p.getInventory().get(slot);
+            Item item = p.getInventory().get(slot - 1);
             boolean succ = item.useItem();
             if(succ)
                 ProtoIO.output(ProtoIO.OutputMessages.USEITEM_OUT);
             else
                 ProtoIO.output(ProtoIO.OutputMessages.USEITEM_ERR_ITEMFAIL);
         } catch (Exception e) {
+            e.printStackTrace();
             ProtoIO.output(ProtoIO.OutputMessages.USEITEM_ERR_NOITEM);
         }
 
@@ -38,6 +42,6 @@ public class UseItemCommand extends Command {
 
     @Override
     public int getParamCount() {
-        return 3;
+        return 2;
     }
 }

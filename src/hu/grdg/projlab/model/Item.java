@@ -24,7 +24,10 @@ public abstract class Item {
         if(isFrozen){
             return false;
         }
-        //listához hozzáadni
+
+        owner = byPlayer;
+        byPlayer.addItem(this);
+
         return true;
     }
 
@@ -66,5 +69,14 @@ public abstract class Item {
      */
     public void setIsFrozen(boolean isForzen) {
         this.isFrozen = isForzen;
+    }
+
+    //----------NOT IN FUCKIN DOCS-----------------
+    /**
+     * Sets the owner of the item
+     * @param player The new owner
+     */
+    public void setFuckinOwner(Player player) {
+        this.owner = player;
     }
 }

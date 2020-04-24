@@ -44,9 +44,13 @@ public class AddCommand extends Command {
                 itm = new RocketPart();
                 break;
         }
+        if(itm != null) {
+            int slot = player.addItem(itm);
+            itm.setFuckinOwner(player);
 
-        int slot = player.addItem(itm);
-        ProtoIO.outputf(ProtoIO.OutputMessages.ADD_OUT, slot);
+            ProtoIO.outputf(ProtoIO.OutputMessages.ADD_OUT, slot);
+        }
+
     }
 
     @Override

@@ -27,7 +27,7 @@ public class InventoryCommand extends Command {
             if(!out.toString().isEmpty())
                 out.append(",");
             Item i = inventory.get(i1);
-            out.append(String.format("%d: %s", i1, i.getClass().getSimpleName()));
+            out.append(String.format("%d: %s", i1 + 1, i.getClass().getSimpleName()));
         }
 
         ProtoIO.outputf(ProtoIO.OutputMessages.INVENTORY_OUT, out.toString());

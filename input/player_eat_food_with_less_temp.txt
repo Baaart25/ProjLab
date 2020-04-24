@@ -1,6 +1,6 @@
 NewTile i1 i
-Eskimo e1 i
+Eskimo e1 i1
 Add e1 Food
 SnowStorm i1 0
-UseItem 1
+UseItem e1 1
 Inventory e1
