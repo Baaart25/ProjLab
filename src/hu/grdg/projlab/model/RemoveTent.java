@@ -6,7 +6,9 @@ public class RemoveTent implements TurnBasedEvent{
     private static RemoveTent singleton;
     private ArrayList<Tent> tents;
 
-    private RemoveTent(){ }
+    private RemoveTent(){
+        singleton = this;
+    }
 
     /**
      * Értesít minden sátrat, hogy csökkentse a számlálóját (meghívja a decreaseLife() függvényüket)

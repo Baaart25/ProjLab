@@ -60,7 +60,8 @@ public class StatCommand extends Command {
                 //Set field accessibility so we can get the value
                 declaredField.setAccessible(true);
                 //Get the value of the field in the specified instance
-                String value = declaredField.get(intstance).toString();
+                Object valueObj = declaredField.get(intstance);
+                String value = valueObj == null ? "null" : valueObj.toString();
                 dataMap.put(name, value);
             }
         }

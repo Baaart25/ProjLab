@@ -7,7 +7,7 @@ public class BreakableShovel extends Shovel{
     private int useCount;
 
     public BreakableShovel(){
-        this.useCount = 3;
+        this.useCount = 0;
     }
 
     /**
