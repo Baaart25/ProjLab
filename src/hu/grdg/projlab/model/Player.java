@@ -147,8 +147,12 @@ public abstract class Player extends Entity{
      * Sets the isInWater to false
      * @author Dorina
      */
-    public void surviveWater(){
-        isInWater = false;
+    public boolean surviveWater(){
+        if(isInWater) {
+            isInWater = false;
+            return true;
+        }
+        return false;
     }
 
 
