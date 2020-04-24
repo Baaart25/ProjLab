@@ -3,5 +3,5 @@ Tile created
 Neighbours updated
 Eskimo created
 Igloo built
-PolarBear created
+Polarbear created
 Stepped to tile
