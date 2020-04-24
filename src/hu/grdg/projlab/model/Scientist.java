@@ -1,5 +1,7 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.ProtoIO;
+
 public class Scientist extends Player{
 
     /**
@@ -10,9 +12,16 @@ public class Scientist extends Player{
         super(4,controller);
     }
 
-    //FIXME
+    /**
+     * Scientist scan a tile at a direction
+     * @return if the scanning was successful
+     * @author Dorina
+     */
     @Override
     public boolean specialAbility() {
-        return false;
+        Tile t = currentTile.getNeighbour(Direction.direction);
+        int limit = t.scanLimit();
+        ProtoIO.outputf(ProtoIO.OutputMessages.SPECAB_OUT_SCI, limit);
+        return true;
     }
 }
