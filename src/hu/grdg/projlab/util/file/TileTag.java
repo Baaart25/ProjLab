@@ -77,7 +77,8 @@ public class TileTag extends Tag<TileClass> {
                 itm = new Tent();
                 break;
             case "RocketPart":
-                itm = new RocketPart();
+                //TODO FIX IT
+                itm = new RocketPart(null);
                 break;
             case "None":
                 itm = null;

@@ -40,7 +40,7 @@ public class ItemCommand extends Command {
                 itm = new Tent();
                 break;
             case "RocketPart":
-                itm = new RocketPart();
+                itm = new RocketPart(state.getController());
                 break;
         }
         t.setFrozenItem(itm);
