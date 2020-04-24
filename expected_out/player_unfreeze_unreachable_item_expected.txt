@@ -1,5 +1,5 @@
 Tile created
 Eskimo created
-Item added
+Item created
 Snow layer added
 Snow on tile
