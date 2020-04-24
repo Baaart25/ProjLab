@@ -30,8 +30,11 @@ public class PolarBearCommand extends Command {
 
         PolarBear npb = new PolarBear();
         state.addEntity(name, npb);
-        t.acceptEntity(npb);
         ProtoIO.output(ProtoIO.OutputMessages.POLARBEAR_OUT);
+
+        ProtoIO.mute();
+        t.acceptEntity(npb);
+        ProtoIO.unmute();
     }
 
     @Override

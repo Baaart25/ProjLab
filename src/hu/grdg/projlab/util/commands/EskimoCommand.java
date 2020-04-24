@@ -29,7 +29,10 @@ public class EskimoCommand extends Command {
         Eskimo ne = new Eskimo();
         state.addEntity(name, ne);
         ProtoIO.output(ProtoIO.OutputMessages.ESKIMO_OUT);
+
+        ProtoIO.mute();
         t.acceptEntity(ne);
+        ProtoIO.unmute();
 
     }
 

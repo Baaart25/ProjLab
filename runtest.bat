@@ -1,6 +1,8 @@
-@echo off
+--//@echo off
 
-call compile.bat
+if "%~1"=="" goto blank
+
+call compile.bat >nul >nul 2>&1
 set expected=.\expected_out
 set input=.\input
 set cp=.\out
@@ -24,7 +26,10 @@ goto end
 
 :err
 echo Test FAILED
+goto end
 
+:blank
+echo "Usage: runtest.bat <test_name>"
 
 :end
-del /Q out_temp
+del /Q out_temp >nul >nul 2>&1

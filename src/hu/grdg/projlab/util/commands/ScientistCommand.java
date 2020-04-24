@@ -29,8 +29,14 @@ public class ScientistCommand extends Command {
 
         Scientist ns = new Scientist();
         state.addEntity(name, ns);
-        t.acceptEntity(ns);
+
+
+
         ProtoIO.output(ProtoIO.OutputMessages.SCIENTIST_OUT);
+
+        ProtoIO.mute();
+        t.acceptEntity(ns);
+        ProtoIO.unmute();
     }
 
     @Override

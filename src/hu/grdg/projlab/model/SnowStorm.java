@@ -24,9 +24,4 @@ public class SnowStorm implements TurnBasedEvent{
         tile.addSnowLayer(amount);
         tile.stormDamage();
     }
-
-    @Override
-    public void doEvent(Level lvl, boolean fullTurn) {
-
-    }
 }
