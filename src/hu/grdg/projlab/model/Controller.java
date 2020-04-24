@@ -20,6 +20,11 @@ public class Controller {
         rocketParts = new ArrayList<RocketPart>();
     }
 
+    //TODO docs
+    public void addPlayer(Player p){
+        players.add(p);
+    }
+
     //FIXME
     public void endGame(boolean win){
         ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDIE);
