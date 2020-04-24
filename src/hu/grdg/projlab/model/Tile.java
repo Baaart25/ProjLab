@@ -47,7 +47,10 @@ public abstract class Tile {
      * @author Dorina
      */
     public Item getFrozenItem() {
-        return frozenItem;
+        if(snowLayers==0) {
+            return frozenItem;
+        }
+        return null;
     }
 
     /**
