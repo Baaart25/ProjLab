@@ -5,6 +5,7 @@ public class RocketPart extends Item{
 
     public RocketPart(Controller c){
         controller = c;
+        c.addRocketPart(this);
     }
 
     public boolean useItem(){

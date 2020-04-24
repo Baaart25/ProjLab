@@ -25,10 +25,16 @@ public class Controller {
         players.add(p);
     }
 
+    public void addRocketPart(RocketPart rp){
+        rocketParts.add(rp);
+    }
+
     //FIXME
     public void endGame(boolean win){
 
-
+        if(win) {
+            ProtoIO.output("Item used. Game ended with a win.");
+        }
         //TODO Add graceful shutdown
         System.exit(0);
     }

@@ -68,6 +68,8 @@ public class ProtoRuntime {
      */
     public void addEntity(String name, Entity entity) {
         namedEntities.put(name, entity);
+        if(entity instanceof Player)
+            gameController.addPlayer((Player) entity);
     }
 
     /**
