@@ -53,6 +53,7 @@ public class ProtoIO {
         public static final String USEITEM_ERR_ITEMFAIL = "Item use failed";
         public static final String PICKUP_OUT = "Pickup successful";
         public static final String PICKUP_ERR_FORZEN = "Item frozen";
+        public static final String PICKUP_ERR_NOITEM_OR_SNOW = "No item or snow on tile";
         public static final String ERR_SNOW = "Snow on tile";
         public static final String ERR_NOITEM = "No item on tile";
         public static final String SPECAB_OUT_ESKIMO = "Igloo built";

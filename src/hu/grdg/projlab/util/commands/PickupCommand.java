@@ -29,7 +29,7 @@ public class PickupCommand extends Command {
 
         Item itm = tile.getFrozenItem();
         if(itm == null) {
-            ProtoIO.output(ProtoIO.OutputMessages.ERR_NOITEM);
+            ProtoIO.output(ProtoIO.OutputMessages.PICKUP_ERR_NOITEM_OR_SNOW);
             return;
         }
 

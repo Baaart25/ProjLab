@@ -28,7 +28,8 @@ public class Controller {
         System.exit(0);
     }
 
-    //PROTOBA NINCS MÉG HASZNÁLVA!
+
+
     public void startGame(){ }
     void generatePlayers() { }
     void init() { }

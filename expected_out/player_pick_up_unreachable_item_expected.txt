@@ -4,4 +4,4 @@ Item created
 Item unfreezed
 Snowstorm done
 Player damaged
-Snow on tile
+No item or snow on tile
