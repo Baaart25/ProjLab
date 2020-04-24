@@ -4,4 +4,4 @@ Neighbours updated
 Eskimo created
 Scientist created
 Stepped to tile
-Died on unstable. Game ended
+Player died. Game ended

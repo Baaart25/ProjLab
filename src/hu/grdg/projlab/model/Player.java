@@ -91,7 +91,7 @@ public abstract class Player extends Entity{
         boolean succ = false;
         Collection<Tile> neighbours = currentTile.getNeighbours();
         for (Tile neighbour: neighbours) {
-            ArrayList<Entity> entities = neighbour.getEntities();
+            ArrayList<Entity> entities = new ArrayList<>(neighbour.getEntities());
             for (Entity entity: entities) {
                 if(entity.savedFromWater(currentTile)) succ = true;
             }
@@ -130,6 +130,7 @@ public abstract class Player extends Entity{
      */
     @Override
     public void die() {
+        ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDIE);
         controller.endGame(false);
     }
 
