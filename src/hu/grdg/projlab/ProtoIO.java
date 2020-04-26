@@ -37,7 +37,7 @@ public class ProtoIO {
         public static final String STEP_OUT_TILE = "Stepped to tile";
         public static final String STEP_OUT_HOLE = "Fall in hole";
         public static final String STEP_OUT_UNSTABLE_DIE = "Died on unstable. Game ended";
-        public static final String STEP_BEAR_EAT = "Polarbear eats player. Game ended";
+        public static final String STEP_BEAR_EAT = "Polarbear eats player";
         public static final String ERR_NEIGHBOUR_NOT_FOUND = "Neighbour not found";
         public static final String LOAD_OUT = "Game state loaded";
         public static final String LOAD_ERR_NOTFOUND = "File not found";

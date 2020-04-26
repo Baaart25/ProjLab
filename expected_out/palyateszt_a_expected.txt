@@ -1,0 +1,52 @@
+Tile created
+Tile created
+Tile created
+Tile created
+Tile created
+Tile created
+Tile created
+Tile created
+Tile created
+Tile created
+Tile created
+Tile created
+Tile created
+Eskimo created
+Scientist created
+Scientist created
+Polarbear created
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Neighbours updated
+Item created
+Item created
+Item created
+Item created
+Stepped to tile
+Stepped to tile
+Polarbear eats player
+Player died. Game ended

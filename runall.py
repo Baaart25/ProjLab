@@ -22,7 +22,7 @@ for r, d, f in os.walk(path):
 names = []
 for file in files:
     filep: str = file
-    name = filep.split("\\")[1]
+    name = filep.split(os.path.sep)[1]
     name = name.replace(".txt","")
     names.append(name)
 

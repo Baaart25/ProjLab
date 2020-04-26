@@ -1,0 +1,49 @@
+NewTile i1 i
+NewTile i2 i
+NewTile i3 i
+NewTile i4 i
+NewTile i5 i
+NewTile h1 h
+NewTile h2 h
+NewTile h3 h
+NewTile h4 h
+NewTile h5 h
+NewTile u1 u 3
+NewTile u2 u 1
+NewTile u3 u 4
+Eskimo E1 u2
+Scientist K1 u3
+Scientist K2 i5
+PolarBear M i1
+SetNeighbour u1 1 i1 1
+SetNeighbour u1 2 h2 1
+SetNeighbour u1 3 i3 1
+SetNeighbour i1 2 h1 1
+SetNeighbour i1 3 i2 1
+SetNeighbour i1 4 h2 4
+SetNeighbour h1 2 i2 2
+SetNeighbour h1 3 u2 1
+SetNeighbour h2 2 i3 2
+SetNeighbour h2 3 i4 2
+SetNeighbour h2 5 i2 6
+SetNeighbour i2 3 u2 5
+SetNeighbour i2 4 h4 3
+SetNeighbour i2 5 i4 3
+SetNeighbour u2 2 h5 1
+SetNeighbour u2 3 i5 3
+SetNeighbour u2 4 h4 4
+SetNeighbour h5 2 i5 4
+SetNeighbour i3 3 i4 1
+SetNeighbour i3 4 h3 1
+SetNeighbour i4 4 h4 2
+SetNeighbour i4 5 u3 1
+SetNeighbour i4 6 h3 2
+SetNeighbour h4 1 u3 2
+SetNeighbour h4 5 i5 2
+SetNeighbour u3 3 h3 3
+SetNeighbour u3 4 i5 1
+Item RocketPart u1
+Item RocketPart i2
+Item RocketPart i3
+Item Shovel i4
+Step K1 3
