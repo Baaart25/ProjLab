@@ -4,5 +4,5 @@ Neighbours updated
 Eskimo created
 Polarbear created
 Stepped to tile
-Polarbear eats player. Game ended
+Polarbear eats player
 Player died. Game ended
