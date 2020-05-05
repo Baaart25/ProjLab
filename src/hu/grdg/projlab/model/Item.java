@@ -1,5 +1,8 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.gui.EntityRenderer;
+import hu.grdg.projlab.gui.ItemRenderer;
+
 public abstract class Item {
     protected boolean isFrozen = true;
     protected Player owner;
@@ -79,4 +82,11 @@ public abstract class Item {
     public void setFuckinOwner(Player player) {
         this.owner = player;
     }
+
+    /**
+     * Returns the item renderer for this item
+     * @return The items renderer
+     */
+    public abstract ItemRenderer getRenderer();
+
 }

@@ -1,5 +1,7 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.gui.ItemRenderer;
+
 public class Rope extends Item{
 
     /**
@@ -9,5 +11,10 @@ public class Rope extends Item{
      */
     public boolean useItem() {
         return owner.savingPlayers();
+    }
+
+    @Override
+    public ItemRenderer getRenderer() {
+        return null;
     }
 }

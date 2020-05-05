@@ -1,5 +1,7 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.gui.ItemRenderer;
+
 public class Food extends Item{
 
 
@@ -10,5 +12,10 @@ public class Food extends Item{
      */
     public boolean useItem(){
         return owner.eat(this);
+    }
+
+    @Override
+    public ItemRenderer getRenderer() {
+        return null;
     }
 }

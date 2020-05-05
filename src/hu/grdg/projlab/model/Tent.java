@@ -1,5 +1,7 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.gui.ItemRenderer;
+
 //Ez nincs a doksiban xD
 public class Tent extends Item {
     private int life;
@@ -19,6 +21,11 @@ public class Tent extends Item {
             RemoveTent.getInstance().addTent(this);
         }
         return res;
+    }
+
+    @Override
+    public ItemRenderer getRenderer() {
+        return null;
     }
 
     /**Csökkenti eggyel a sátor élettartamát

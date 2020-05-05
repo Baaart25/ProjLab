@@ -52,7 +52,7 @@ public class MainWindow extends JFrame {
         createLevelView();
         createDataView();
 
-        setSize(800,600);
+        setSize(815,600);
         setResizable(false);
 
         //Center

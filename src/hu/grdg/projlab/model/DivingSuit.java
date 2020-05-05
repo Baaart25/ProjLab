@@ -1,5 +1,7 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.gui.ItemRenderer;
+
 public class DivingSuit extends Item{
 
 
@@ -10,5 +12,10 @@ public class DivingSuit extends Item{
      */
     public boolean useItem(){
         return owner.surviveWater();
+    }
+
+    @Override
+    public ItemRenderer getRenderer() {
+        return null;
     }
 }
