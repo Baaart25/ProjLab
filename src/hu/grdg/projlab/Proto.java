@@ -1,5 +1,6 @@
 package hu.grdg.projlab;
 
+import hu.grdg.projlab.gui.MainWindow;
 import hu.grdg.projlab.util.ProtoInputSystem;
 import hu.grdg.projlab.util.commands.*;
 import hu.grdg.projlab.util.file.GameLoadException;
@@ -38,8 +39,7 @@ public class Proto {
         pis.registerCommand("Unfreeze", new UnfreezeCommand());
         pis.registerCommand("PickUp", new PickupCommand());
 
-
-        //Run the tester
-        pis.start();
+        MainWindow mainWindow = new MainWindow();
+        mainWindow.create(null);
     }
 }
