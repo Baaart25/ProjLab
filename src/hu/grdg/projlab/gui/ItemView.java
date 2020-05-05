@@ -20,7 +20,7 @@ public class ItemView extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        g.setClip(5,5, lastX == 50 ? getWidth() - 5 : lastX, getHeight() - 5);
+        g.setClip(5,5, lastX >= 50 ? getWidth() - 5 : lastX, getHeight() - 5);
         item.getRenderer().draw((Graphics2D) g);
     }
 
