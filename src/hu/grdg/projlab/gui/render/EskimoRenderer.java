@@ -28,9 +28,16 @@ public class EskimoRenderer implements EntityRenderer {
 
     @Override
     public void draw(Graphics2D g, boolean isActive, int xOffset, int yOffset, boolean isInWater){
-        if(isInWater)
-            g.drawImage(eskimoOnHoleImage, xOffset, yOffset, 25, 25, null);
-        else
+        if (isInWater)
+            if (isActive) {
+                g.drawImage(eskimoOnHoleSelectedImage, xOffset, yOffset, 25, 25, null);
+            } else {
+                g.drawImage(eskimoOnHoleImage, xOffset, yOffset, 25, 25, null);
+            }
+        else if (isActive) {
+            g.drawImage(eskimoSelectedImage, xOffset, yOffset, 25, 25, null);
+        } else {
             g.drawImage(eskimoImage, xOffset, yOffset, 25, 25, null);
+        }
     }
 }
