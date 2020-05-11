@@ -81,7 +81,6 @@ public class DataView extends JPanel {
 
 
         //Item view
-
         list = new JList<Item>(new Item[]{new RocketPart(null,1), new RocketPart(null,2),
                 new RocketPart(null,3), new Shovel(), new Shovel(), new Shovel(), new Shovel(), new Shovel(), new Shovel()});
 
@@ -91,6 +90,19 @@ public class DataView extends JPanel {
         list.setFixedCellHeight(50);
         list.setFixedCellWidth(50);
         list.setVisibleRowCount(1);
+
+        list.addListSelectionListener(listSelectionEvent -> {
+            if(listSelectionEvent.getFirstIndex() < 0)
+                return;
+            int index = listSelectionEvent.getFirstIndex();
+            Item item = list.getModel().getElementAt(index);
+
+            System.out.println("Item used: " + item.toString());
+            //TODO fix it
+            item.useItem();
+            list.setSelectedIndex(-1);
+
+        });
 
         inventoryScrollPane = new JScrollPane(list);
 
