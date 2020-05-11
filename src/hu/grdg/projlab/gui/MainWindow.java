@@ -45,9 +45,7 @@ public class MainWindow extends JFrame {
         }
     }
 
-    public void create(Controller c) {
-        this.controller = c;
-
+    public void create() {
         createMenus();
         createLevelView();
         createDataView();

@@ -22,6 +22,8 @@ public class LevelView extends JPanel {
         int tileXCount = 10;
         int tileYCount = 10;
 
+        //controller.g
+
         //Calculate the offset to center the tile map
         int xOffset = (getWidth() - (tileXCount * 50)) / 2;
         int yOffset = (getHeight() - (tileYCount * 50)) / 2;
@@ -31,6 +33,7 @@ public class LevelView extends JPanel {
         //Gen tiles
         for(int x = 0; x < tileXCount; x++) {
             for(int y = 0; y < tileYCount; y++) {
+
                 IceTile tile = new IceTile();
                 tile.addSnowLayer(ThreadLocalRandom.current().nextInt(0,2));
 
