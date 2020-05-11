@@ -13,14 +13,15 @@ public class ItemView extends JPanel {
     private int lastX = 50;
 
     public void setItem(Item item) {
-        System.out.println("Item render");
         this.color = new Color(Color.HSBtoRGB(ThreadLocalRandom.current().nextFloat(), 1.0f, 1.0f));
         this.item = item;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
+        //For that stupid JList
         g.setClip(5,5, lastX >= 50 ? getWidth() - 5 : lastX, getHeight() - 5);
+
         item.getRenderer().draw((Graphics2D) g);
     }
 
