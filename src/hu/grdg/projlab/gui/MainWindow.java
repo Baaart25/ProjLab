@@ -134,6 +134,7 @@ public class MainWindow extends JFrame {
         menuItemAbout.addActionListener(this::showAbout);
         menuItemHelp.addActionListener(this::showHelp);
 
+        menuItemNewGame.addActionListener(this::newGame);
         menuItemExit.addActionListener(this::showExitConfirm);
 
         menuGame.add(menuItemNewGame);
@@ -145,6 +146,15 @@ public class MainWindow extends JFrame {
         mainMenuBar.add(menuGame);
         mainMenuBar.add(menuHelp);
         setJMenuBar(mainMenuBar);
+
+    }
+
+    /**
+     *
+     * @author Dani
+     * @param actionEvent ignored
+     */
+    private void newGame(ActionEvent actionEvent) {
 
     }
 
