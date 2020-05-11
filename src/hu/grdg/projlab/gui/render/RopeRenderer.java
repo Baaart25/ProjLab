@@ -21,6 +21,9 @@ public class RopeRenderer implements ItemRenderer {
 
     @Override
     public void draw(Graphics2D g, boolean isTile) {
-        g.drawImage(ropeImage,5,5,45,45, null);
+        if(!isTile)
+            g.drawImage(ropeImage,5,5,45,45, null);
+        else
+            g.drawImage(ropeImage,15,15,30,30, null);
     }
 }

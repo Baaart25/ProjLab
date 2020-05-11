@@ -33,15 +33,19 @@ public class BreakableShovelRenderer implements ItemRenderer {
     @Override
     public void draw(Graphics2D g, boolean isTile) {
         int number = 3-breakableShovel.getUseCount();
+        BufferedImage img;
         if(number == 3)
-            g.drawImage(breakableShovel3Image,5,5,45,45, null);
+            img = breakableShovel3Image;
         else if(number == 2)
-            g.drawImage(breakableShovel2Image,5,5,45,45, null);
+            img = breakableShovel3Image;
         else if(number == 1)
-            g.drawImage(breakableShovel1Image,5,5,45,45, null);
-        else if(number == 1)
-            g.drawImage(breakableShovel1Image,5,5,45,45, null);
+            img = breakableShovel1Image;
         else
-            g.drawImage(brokenShovelImage,5,5,45,45, null);
+            img = brokenShovelImage;
+
+        if(!isTile)
+            g.drawImage(img, 5,5,45,45, null);
+        else
+            g.drawImage(img,15,15,30,30, null);
     }
 }

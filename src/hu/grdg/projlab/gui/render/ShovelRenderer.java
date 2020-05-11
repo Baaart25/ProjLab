@@ -23,6 +23,9 @@ public class ShovelRenderer implements ItemRenderer {
 
     @Override
     public void draw(Graphics2D g, boolean isTile) {
-        g.drawImage(shovelImage,5,5,45,45, null);
+        if(!isTile)
+            g.drawImage(shovelImage,5,5,45,45, null);
+        else
+            g.drawImage(shovelImage,15,15,30,30, null);
     }
 }

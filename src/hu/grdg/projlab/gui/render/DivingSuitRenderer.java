@@ -22,6 +22,9 @@ public class DivingSuitRenderer implements ItemRenderer {
 
     @Override
     public void draw(Graphics2D g, boolean isTile) {
-        g.drawImage(divingSuitImage,5,5,45,45, null);
+        if(!isTile)
+            g.drawImage(divingSuitImage,5,5,45,45, null);
+        else
+            g.drawImage(divingSuitImage,15,15,30,30, null);
     }
 }

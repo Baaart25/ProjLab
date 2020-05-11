@@ -24,6 +24,9 @@ public class TentRenderer implements ItemRenderer {
     //TODO
     @Override
     public void draw(Graphics2D g, boolean isTile) {
-        g.drawImage(tentImage,5,5,45,45, null);
+        if(!isTile)
+            g.drawImage(tentImage,5,5,45,45, null);
+        else
+            g.drawImage(tentImage,5,5,30,30, null);
     }
 }
