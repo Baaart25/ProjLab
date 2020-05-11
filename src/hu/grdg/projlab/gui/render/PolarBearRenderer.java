@@ -21,7 +21,7 @@ public class PolarBearRenderer implements EntityRenderer {
     }
 
     @Override
-    public void draw(Graphics2D g, boolean isActive, int xOffset, int yOffset){
+    public void draw(Graphics2D g, boolean isActive, int xOffset, int yOffset,boolean isInWater){
         g.drawImage(polarBearImage, 5, 5, 45, 45, null);
     }
 }
