@@ -13,7 +13,7 @@ public class ShovelRenderer implements ItemRenderer {
 
     public ShovelRenderer() {
         try {
-            this.shovelImage = ImageIO.read(new File("img/shovel.png"));
+            this.shovelImage = ImageIO.read(new File("img/Shovel.png"));
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);

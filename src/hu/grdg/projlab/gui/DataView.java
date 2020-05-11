@@ -84,6 +84,7 @@ public class DataView extends JPanel {
 
         list = new JList<Item>(new Item[]{new RocketPart(null,1), new RocketPart(null,2),
                 new RocketPart(null,3), new Shovel(), new Shovel(), new Shovel(), new Shovel(), new Shovel(), new Shovel()});
+
         list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
         list.setCellRenderer(new ItemViewCellRenderer());
 
@@ -110,7 +111,16 @@ public class DataView extends JPanel {
             //Idiot hack to not overdraw the scrollpane just because Java Swing is great
             Rectangle viewportBorderBounds = inventoryScrollPane.getViewport().getViewRect();
             int lastVisiblePixel = viewportBorderBounds.x + viewportBorderBounds.width;
+            int firstVisibleImagePixel = viewportBorderBounds.x - ((viewportBorderBounds.x / 50)*50);
+            int firstVisibleIndex = (viewportBorderBounds.x / 50);
+
+            if(firstVisibleIndex == index)
+                this.setStartVisibleX(firstVisibleImagePixel-5);
+            else
+                this.setStartVisibleX(0);
+
             this.setVisibleX(lastVisiblePixel - index * 50 - 5);
+
             //End of idiot hack
 
             this.setPreferredSize(new Dimension(50,50));
