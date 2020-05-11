@@ -74,6 +74,7 @@ public class Level {
                     t.setNeighbour(n2, 0);
                     n2.setNeighbour(t,2);
                 }
+                t.addSnowLayer(ThreadLocalRandom.current().nextInt(4));
                 tiles.add(t);
             }
         }
@@ -150,10 +151,11 @@ public class Level {
      * @author Dorina
      */
     private Tile genTile(boolean hole) {
-        double pIce = 0.5, pUnstable = 1-pIce, pHole ;
+        double pIce = 0.5, pUnstable, pHole = 0.25 ;
         if(hole){
             pHole = 0;
         }
+        pUnstable = 1 - pIce - pHole;
         double rnd = Math.random();
         Tile tile;
         if(rnd<pIce){
