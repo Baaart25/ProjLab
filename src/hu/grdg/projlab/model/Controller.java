@@ -96,7 +96,7 @@ public class Controller {
      * @author Dani
      */
     void init() {
-        Level level = new Level();
+        Level level = new Level(this);
         generatePlayers();
         level.generateLevel(players);
     }

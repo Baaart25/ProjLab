@@ -6,6 +6,16 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Level {
     private ArrayList<Tile> tiles;
     private ArrayList<RocketPart> rocketParts;
+    private Controller controller;
+
+    /**
+     * Konstruktor, paraméterként kapott controllert beállítja
+     * @author Dani
+     * @param c kontroller
+     */
+    Level(Controller c) {
+        controller = c;
+    }
 
     /**
      * Legenerálja a levelt
@@ -70,6 +80,12 @@ public class Level {
             Item item = new Tent();
             placeItem(item);
         }
+        //RocketParts
+        for(int i = 0; i < 3; i++) {
+            RocketPart item = new RocketPart(controller, i + 1);
+            placeItem(item);
+            rocketParts.add(item);
+        }
     }
 
     private void placePlayers(ArrayList<Player> players, Tile startTile) {
@@ -81,13 +97,14 @@ public class Level {
      * @author Dani
      * @param item
      */
-    private void placeItem(Item item) {
+    private Tile placeItem(Item item) {
         Tile tile;
         do {
             int x = ThreadLocalRandom.current().nextInt(0, 20); //sor
             int y = ThreadLocalRandom.current().nextInt(0, 20); //oszlop
             tile = tiles.get(x + y * 20);
         } while(tile.setFrozenItem(item));
+        return tile;
     }
 
     private Tile genTile() {
