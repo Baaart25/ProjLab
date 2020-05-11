@@ -57,7 +57,8 @@ public class TileView extends JPanel {
          */
 
         if(tile.getSnowLayers() > 0) {
-            g.drawImage(imgSnowLayer, 0,0,50,50, null);
+            //TODO ha ez kikommentelve maradt, akkor dani hülye
+            //g.drawImage(imgSnowLayer, 0,0,50,50, null);
         }
 
         if(tile.hasTent()) {

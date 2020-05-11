@@ -94,6 +94,7 @@ public class Level {
             Item item = new Food();
             placeItem(item);
         }
+        System.out.println();
         //Rope
         for(int i = 0; i < 5; i++) {
             Item item = new Rope();
@@ -152,6 +153,7 @@ public class Level {
             int y = ThreadLocalRandom.current().nextInt(0, 10); //oszlop
             tile = tiles.get(x + y * 10);
         } while(tile.setFrozenItem(item));
+
         return tile;
     }
 
@@ -163,7 +165,7 @@ public class Level {
      */
     private Tile genTile(boolean hole) {
         double pIce = 0.5, pUnstable, pHole = 0.25 ;
-        if(hole){
+        if(!hole){
             pHole = 0;
         }
         pUnstable = 1 - pIce - pHole;

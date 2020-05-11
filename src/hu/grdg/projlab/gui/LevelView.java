@@ -49,13 +49,13 @@ public class LevelView extends JPanel {
                     tile.buildTent();
 
                 if(x % 2 == 0 && y % 2 == 0)
-                    tile.setFrozenItem(new RocketPart(null, 1 + (y % 3)));*/
-
-                /*TileView tw = new TileView(tiles.get(x + y * 20));
+                    */
+                //tiles.get(y + x * 10).setFrozenItem(new RocketPart(null, 1));
+                TileView tw = new TileView(tiles.get(y + x * 10));
                 tw.setSize(50,50);
                 tw.setBounds(xOffset + x * 50, yOffset + y * 50, 50,50);
 
-                this.add(tw);*/
+                this.add(tw);
             }
         }
 
