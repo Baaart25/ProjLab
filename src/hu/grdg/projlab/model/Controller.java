@@ -58,7 +58,6 @@ public class Controller {
      */
     public void generatePlayers() {
         JFrame frame = new JFrame("InputDialog");
-
         boolean formatOk = false;
         int count = 0;
         String response;
@@ -99,7 +98,7 @@ public class Controller {
     void init() {
         Level level = new Level();
         generatePlayers();
-        level.genrateLevel(players);
+        level.generateLevel(players);
     }
 
     /**
