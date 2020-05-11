@@ -52,25 +52,44 @@ public class Controller {
     public void startGame(){ }
 
     /**
-     * Létrehoz a paraméterként kapott darabszámú játékost
+     * Létrehoz a felhasználótól megkérdezett számú játékost
+     * //TODO ki kéne hogy tudjon lépni az ember a számválasztás közben is
      * @author Dani
      */
-    void generatePlayers() {
-        /*JFrame frame = new JFrame("InputDialog");
+    public void generatePlayers() {
+        JFrame frame = new JFrame("InputDialog");
 
-        int n = JOptionPane.showConfirmDialog(
-                frame, "Add meg a játékosok számát?",
-                "Játékosok száma",
-                JOptionPane.YES_OPTION);
-        if (n == JOptionPane.YES_OPTION) {
-
+        boolean formatOk = false;
+        int count = 0;
+        String response;
+        String message = "Add meg a játékosok számát!";
+        while (!formatOk || count < 3) {
+            response = JOptionPane.showInputDialog(frame, message, "");
+            try {
+                count = Integer.parseInt(response);
+                formatOk = true;
+                message = "A játékosok számának minimum 3-nak kell lennie!\nAdd meg a játékosok számát!";
+            } catch(NumberFormatException e) {
+                formatOk = false;
+                message = "Kérlek számot adj meg!\nAdd meg a játékosok számát!";
+            }
         }
+        for(int i = 0; i < count; i++) {
+            Object[] options = { "Eszkimo", "Kutató"};
 
-        String response = JOptionPane.showInputDialog(frame, "Add meg a játékosok számát?", "");
-        if ((response != null) && (response.length() > 0)) {
-
-        }*/
-
+            int result = JOptionPane.showOptionDialog(frame, (i+1) + ". játékos karaktere:", "Karakterválasztás",
+                    JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
+                    null, options, null);
+            if(result == JOptionPane.YES_OPTION) { //Eszkimo
+                players.add(new Eskimo(this));
+            }
+            if(result == JOptionPane.NO_OPTION) {
+                players.add(new Scientist(this));
+            }
+            if(result == JOptionPane.CLOSED_OPTION) {
+                i--;
+            }
+        }
     }
 
     /**

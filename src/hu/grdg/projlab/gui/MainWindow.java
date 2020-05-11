@@ -155,7 +155,8 @@ public class MainWindow extends JFrame {
      * @param actionEvent ignored
      */
     private void newGame(ActionEvent actionEvent) {
-
+        Controller c = new Controller();
+        c.generatePlayers();
     }
 
     /**
