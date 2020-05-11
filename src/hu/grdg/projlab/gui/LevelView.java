@@ -52,6 +52,8 @@ public class LevelView extends JPanel {
                 this.add(tw);
             }
         }
+
+
     }
 
 }
