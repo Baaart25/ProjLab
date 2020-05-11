@@ -81,10 +81,9 @@ public class Level {
         }
         double rnd = Math.random();
         Tile tile;
-        tile.setNeighbour(tiles.get(tiles.size()-),0);
-        if(rnd<0.5){
+        if(rnd<pIce){
             tile = new IceTile();
-        }else if(rnd<0.75){
+        }else if(rnd<pIce+pUnstable){
             tile = new UnstableIceTile(ThreadLocalRandom.current().nextInt(4));
         }else {
             tile = new HoleTile();
