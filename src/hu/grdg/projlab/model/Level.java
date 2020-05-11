@@ -19,6 +19,8 @@ public class Level {
      */
     Level(Controller c) {
         controller = c;
+        tiles = new ArrayList<Tile>();
+        rocketParts = new ArrayList<RocketPart>();
     }
 
     /**
@@ -53,7 +55,6 @@ public class Level {
      * @author Dorina
      */
     private Tile genTiles(int w, int h) {
-        tiles = new ArrayList<Tile>();
         for(int j = 0; j < w; j++){
             for(int i = 0; i < h; i++){
                 boolean hole = true;
@@ -118,7 +119,7 @@ public class Level {
             Item item = new Tent();
             placeItem(item);
         }
-        rocketParts = new ArrayList<RocketPart>();
+
         //RocketParts
         for(int i = 0; i < 3; i++) {
             RocketPart item = new RocketPart(controller, i + 1);
