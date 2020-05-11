@@ -201,5 +201,20 @@ public abstract class Tile {
      */
     public abstract TileRenderer getRenderer();
 
+    /**
+     * Gets the number of snow layers on the tile
+     * @return The number of snow layers
+     */
+    public int getSnowLayers() {
+        return snowLayers;
+    }
+
+    public boolean hasIgloo() {
+        return hasIgloo;
+    }
+
+    public boolean hasTent() {
+        return hasTent;
+    }
 }
 
