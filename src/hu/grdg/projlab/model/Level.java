@@ -7,7 +7,9 @@ public class Level {
     private ArrayList<RocketPart> rocketParts;
 
     public void generateLevel(ArrayList<Player> players) {
-
+        Tile startTile = genTiles(10, 10);
+        genItems();
+        placePlayers(players, startTile);
     }
 
     public ArrayList<Tile> getTiles() {
@@ -18,14 +20,14 @@ public class Level {
         return rocketParts;
     }
 
-    private IceTile genTiles(int w, int h) {
+    private Tile genTiles(int w, int h) {
         return null;
     }
 
     private void genItems() {
 
     }
-    private void placePlayers(ArrayList<Player> players, ArrayList<Tile> startTile) {
+    private void placePlayers(ArrayList<Player> players, Tile startTile) {
 
     }
     private Tile placeItem(Item item) {
