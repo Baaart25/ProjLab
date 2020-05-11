@@ -1,6 +1,5 @@
 package hu.grdg.projlab.gui;
 
-import com.sun.org.apache.xml.internal.security.utils.IgnoreAllErrorHandler;
 import hu.grdg.projlab.gui.render.IglooRenderer;
 import hu.grdg.projlab.gui.render.TentRenderer;
 import hu.grdg.projlab.model.Entity;
@@ -78,7 +77,6 @@ public class TileView extends JPanel {
             int xd = i - (yd*count) - 1;
 
             int gap = (int) (40 / count);
-
 
             int xOffset = xd * gap;
             int yOffset = yd * gap;
