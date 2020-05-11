@@ -23,6 +23,7 @@ public class LevelView extends JPanel {
         int tileYCount = 10;
 
         controller.init();
+        ArrayList<Tile> tiles = controller.getLevel().getTiles();
 
         //Calculate the offset to center the tile map
         int xOffset = (getWidth() - (tileXCount * 50)) / 2;
@@ -32,6 +33,33 @@ public class LevelView extends JPanel {
 
         //Gen tiles
         for(int x = 0; x < tileXCount; x++) {
+            for(int y = 0; y < tileYCount; y++) {
+
+                /*IceTile tile = new IceTile();
+                tile.addSnowLayer(ThreadLocalRandom.current().nextInt(0,2));
+
+                for(int i = 0; i < y;i++) {
+                    tile.acceptEntity(i % 2 == 0 ? new Eskimo(null) : new Scientist(null));
+                }
+
+                if(ThreadLocalRandom.current().nextBoolean())
+                    tile.buildIgloo();
+                if(ThreadLocalRandom.current().nextBoolean())
+                    tile.buildTent();
+
+                if(x % 2 == 0 && y % 2 == 0)
+                    tile.setFrozenItem(new RocketPart(null, 1 + (y % 3)));*/
+
+                TileView tw = new TileView(tiles.get(x + y * 20));
+                tw.setSize(50,50);
+                tw.setBounds(xOffset + x * 50, yOffset + y * 50, 50,50);
+
+                this.add(tw);
+            }
+        }
+
+        //Ez anno működött és nem mertem kitörölni xD (Dani)
+        /*for(int x = 0; x < tileXCount; x++) {
             for(int y = 0; y < tileYCount; y++) {
 
                 IceTile tile = new IceTile();

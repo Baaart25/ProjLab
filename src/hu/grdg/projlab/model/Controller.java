@@ -127,4 +127,8 @@ public class Controller {
     public int getPlayerCount(){
         return players.size();
     }
+
+    public Level getLevel() {
+        return level;
+    }
 }
