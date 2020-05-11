@@ -21,7 +21,7 @@ public class ScientistRenderer implements EntityRenderer {
     }
 
     @Override
-    public void draw(Graphics2D g) {
-        g.drawImage(scientistImage, 5, 5,45, 45, null);
+    public void draw(Graphics2D g, boolean isActive, int xOffset, int yOffset){
+        g.drawImage(scientistImage, xOffset, yOffset,25, 25, null);
     }
 }
