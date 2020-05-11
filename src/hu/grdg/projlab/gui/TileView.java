@@ -81,7 +81,6 @@ public class TileView extends JPanel {
 
             Entity e = entities.get(i);
             e.getRenderer().draw((Graphics2D) g, false, xOffset, yOffset);
-
         }
 
     }
