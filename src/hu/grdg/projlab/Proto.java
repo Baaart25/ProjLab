@@ -41,5 +41,6 @@ public class Proto {
 
         MainWindow mainWindow = new MainWindow();
         mainWindow.create(null);
+
     }
 }

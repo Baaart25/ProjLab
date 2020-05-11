@@ -2,6 +2,7 @@ package hu.grdg.projlab.model;
 
 import hu.grdg.projlab.ProtoIO;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 /**
@@ -20,11 +21,18 @@ public class Controller {
         rocketParts = new ArrayList<RocketPart>();
     }
 
-    //TODO docs
+    /**TODO: lehet kikéne az ilyeneket törölni
+     * Proto használta csak!
+     * @param p
+     */
     public void addPlayer(Player p){
         players.add(p);
     }
 
+    /**TODO: lehet kikéne az ilyeneket törölni
+     * Proto használta csak!
+     * @param rp
+     */
     public void addRocketPart(RocketPart rp){
         rocketParts.add(rp);
     }
@@ -42,8 +50,38 @@ public class Controller {
 
 
     public void startGame(){ }
-    void generatePlayers() { }
-    void init() { }
+
+    /**
+     * Létrehoz a paraméterként kapott darabszámú játékost
+     * @author Dani
+     */
+    void generatePlayers() {
+        /*JFrame frame = new JFrame("InputDialog");
+
+        int n = JOptionPane.showConfirmDialog(
+                frame, "Add meg a játékosok számát?",
+                "Játékosok száma",
+                JOptionPane.YES_OPTION);
+        if (n == JOptionPane.YES_OPTION) {
+
+        }
+
+        String response = JOptionPane.showInputDialog(frame, "Add meg a játékosok számát?", "");
+        if ((response != null) && (response.length() > 0)) {
+
+        }*/
+
+    }
+
+    /**
+     * Inicializálja a pályát
+     * @author Dani
+     */
+    void init() {
+        Level level = new Level();
+        generatePlayers();
+        level.genrateLevel(players);
+    }
 
     /**
      * Checks if all conditions are true for winning the game
