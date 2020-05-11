@@ -1,6 +1,7 @@
 package hu.grdg.projlab.model;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Level {
     private ArrayList<Tile> tiles;
@@ -74,9 +75,21 @@ public class Level {
     private void placePlayers(ArrayList<Player> players, Tile startTile) {
 
     }
-    private Tile placeItem(Item item) {
 
+    /**
+     * Addig próbálkozik egy paraméterként kapott item elhelyezésével, amíg az sikeres nem lesz
+     * @author Dani
+     * @param item
+     */
+    private void placeItem(Item item) {
+        Tile tile;
+        do {
+            int x = ThreadLocalRandom.current().nextInt(0, 20); //sor
+            int y = ThreadLocalRandom.current().nextInt(0, 20); //oszlop
+            tile = tiles.get(x + y * 20);
+        } while(tile.setFrozenItem(item));
     }
+
     private Tile genTile() {
         return null;
     }
