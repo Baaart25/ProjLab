@@ -1,11 +1,10 @@
 package hu.grdg.projlab.gui;
 
-import hu.grdg.projlab.model.Controller;
-import hu.grdg.projlab.model.IceTile;
-import hu.grdg.projlab.model.RocketPart;
+import hu.grdg.projlab.model.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class LevelView extends JPanel {
     private Controller controller;
@@ -33,6 +32,17 @@ public class LevelView extends JPanel {
         for(int x = 0; x < tileXCount; x++) {
             for(int y = 0; y < tileYCount; y++) {
                 IceTile tile = new IceTile();
+                tile.addSnowLayer(ThreadLocalRandom.current().nextInt(0,2));
+
+                for(int i = 0; i < y;i++) {
+                    tile.acceptEntity(i % 2 == 0 ? new Eskimo(null) : new Scientist(null));
+                }
+
+                if(ThreadLocalRandom.current().nextBoolean())
+                    tile.buildIgloo();
+                if(ThreadLocalRandom.current().nextBoolean())
+                    tile.buildTent();
+
                 if(x % 2 == 0 && y % 2 == 0)
                     tile.setFrozenItem(new RocketPart(null, 1 + (y % 3)));
                 TileView tw = new TileView(tile);

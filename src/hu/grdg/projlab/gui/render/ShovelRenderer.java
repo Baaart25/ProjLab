@@ -12,12 +12,12 @@ public class ShovelRenderer implements ItemRenderer {
     private BufferedImage shovelImage;
 
     public ShovelRenderer() {
-        /*try {
+        try {
             this.shovelImage = ImageIO.read(new File("img/Shovel.png"));
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
-        }*/
+        }
     }
 
     /**

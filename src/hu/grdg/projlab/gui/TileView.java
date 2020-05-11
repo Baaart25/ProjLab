@@ -1,12 +1,34 @@
 package hu.grdg.projlab.gui;
 
+import hu.grdg.projlab.gui.render.IglooRenderer;
+import hu.grdg.projlab.gui.render.TentRenderer;
+import hu.grdg.projlab.model.Entity;
 import hu.grdg.projlab.model.Tile;
 
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class TileView extends JPanel {
     private static final int width = 50, height = 50;
+    private static BufferedImage imgSnowLayer;
+    private static TentRenderer tentRenderer = new TentRenderer();
+    private static IglooRenderer iglooRenderer = new IglooRenderer();
+
+    static {
+        try {
+            imgSnowLayer = ImageIO.read(new File("img/TileWithSnow.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(-1);
+        }
+    }
+
     private Tile tile;
 
     public TileView(Tile tile) {
@@ -27,5 +49,48 @@ public class TileView extends JPanel {
             tile.getFrozenItem().getRenderer().draw(g2, true);
         }
 
+        //FIXME Uncomment if asset is done
+        /*
+        if(tile.getFrozenItem().isFrozen()) {
+            g.drawImage(imgIceLayer, 0,0,50,50, null);
+        }
+         */
+
+        if(tile.getSnowLayers() > 0) {
+            g.drawImage(imgSnowLayer, 0,0,50,50, null);
+        }
+
+        if(tile.hasTent()) {
+            tentRenderer.draw((Graphics2D) g, true);
+        }
+
+        if(tile.hasIgloo()) {
+            iglooRenderer.draw((Graphics2D) g, true);
+        }
+
+        //Pleas do not touch
+        //IDK why its working
+        ArrayList<Entity> entities = tile.getEntities();
+        int count = (int) Math.ceil(Math.sqrt(entities.size()));
+        for(int i = 0; i < entities.size(); i++) {
+            int yd = (i - 1) / count;
+            int xd = i - (yd*count) - 1;
+
+            int gap = 40 / count;
+
+            int xOffset = xd * gap;
+            int yOffset = yd * gap;
+
+            xOffset = clamp(xOffset, 5, 50);
+            yOffset = clamp(yOffset, 0, 50);
+
+            Entity e = entities.get(i);
+            e.getRenderer().draw((Graphics2D) g, false, xOffset, yOffset);
+        }
+
+    }
+
+    private static int clamp(int num, int min, int max) {
+        return num > max ? max : num < min ? min : num;
     }
 }

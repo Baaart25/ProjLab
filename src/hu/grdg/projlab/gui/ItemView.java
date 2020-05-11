@@ -22,8 +22,6 @@ public class ItemView extends JPanel {
     protected void paintComponent(Graphics go) {
         Graphics2D g = (Graphics2D) go;
         //For that stupid JList
-        g.setColor(Color.RED);
-        g.fillRect(0,0,getWidth(), getHeight());
         g.setClip(5 + firstX,5, lastX >= 50 ? getWidth() - 5 : lastX, getHeight() - 5);
 
         item.getRenderer().draw((Graphics2D) g,false);

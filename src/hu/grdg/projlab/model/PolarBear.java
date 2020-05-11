@@ -1,5 +1,7 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.gui.EntityRenderer;
+
 public class PolarBear extends Entity{
 
     /**
@@ -53,5 +55,11 @@ public class PolarBear extends Entity{
     @Override
     public boolean savedFromWater(Tile t) {
         return false;
+    }
+
+    //FIXME
+    @Override
+    public EntityRenderer getRenderer() {
+        return null;
     }
 }
