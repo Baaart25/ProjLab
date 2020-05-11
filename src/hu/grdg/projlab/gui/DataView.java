@@ -79,7 +79,8 @@ public class DataView extends JPanel {
 
         //Item view
         list = new JList<Item>(new Item[]{new RocketPart(null,1), new RocketPart(null,2),
-                new RocketPart(null,3), new Rope(), new Shovel(), new Shovel(), new Shovel(), new Shovel(), new Shovel()});
+                new RocketPart(null,3), new Rope(), new Tent(),
+                new Food(), new DivingSuit(), new BreakableShovel(), new Shovel()});
 
         list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
         list.setCellRenderer(new ItemViewCellRenderer());

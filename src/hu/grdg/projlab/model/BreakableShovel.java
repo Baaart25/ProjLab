@@ -8,7 +8,7 @@ import hu.grdg.projlab.gui.render.ShovelRenderer;
  * A Shovel item that breaks after a specified amount of usage
  */
 public class BreakableShovel extends Shovel{
-    private BreakableShovelRenderer renderer = new BreakableShovelRenderer();
+    private BreakableShovelRenderer renderer = new BreakableShovelRenderer(this);
 
     @Override
     public ItemRenderer getRenderer() {
@@ -34,6 +34,11 @@ public class BreakableShovel extends Shovel{
             return sikerult;
         }
         return false;
+    }
+
+    //TODO add to document
+    public int getUseCount(){
+        return useCount;
     }
 
 }
