@@ -73,10 +73,10 @@ public class TileView extends JPanel {
         ArrayList<Entity> entities = tile.getEntities();
         int count = (int) Math.ceil(Math.sqrt(entities.size()));
         for(int i = 0; i < entities.size(); i++) {
-            int yd = (int) ((i - 1) / count);
+            int yd = (i - 1) / count;
             int xd = i - (yd*count) - 1;
 
-            int gap = (int) (40 / count);
+            int gap = 40 / count;
 
             int xOffset = xd * gap;
             int yOffset = yd * gap;
