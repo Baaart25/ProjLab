@@ -1,0 +1,27 @@
+IceTile -> egy jégmezőt reprezentál
+TileWithSnow -> egy hóval fedett mezőt reprezentál
+HoleTile -> egy lyukas mezőt reprezentál
+Eskimo -> egy eszkimót reprezentál
+EskimoOnHoleTile -> egy lyukba esett eszkimót reprezentál
+Scientist -> egy sarkkutatót reprezentál
+ScientistOnHoleTile -> egy lyukba esett sarkkutatót reprezentál
+EskimoSelected -> egy kijelölt eszkimót reprezentál
+EskimoOnHoleTileSelected -> egy lyukba esett kijelölt eszkimót reprezentál
+ScientistSelected -> egy kijelölt sarkkutatót reprezentál
+ScientistOnHoleTileSelected -> egy lyukba esett kijelölt sarkkutatót reprezentál
+PolarBear -> egy jegesmedvét reprezentál
+PolarBear -> egy jegesmedvét reprezentál ami Thanos kesztyű van
+Food -> egy ételt reprezentál
+Rope -> egy kötelet reprezentál
+DivingSuit -> egy búvárruhát reprezentál
+Shovel -> egy ásót reprezentál
+BrokenBreakableShovel -> egy törött törékeny ásót reprezentál
+BreakableShovel3 -> egy törékeny ásót reprezentál aminek még 3 élete van
+BreakableShovel2 -> egy törékeny ásót reprezentál aminek még 2 élete van
+BreakableShovel1 -> egy törékeny ásót reprezentál aminek még 1 élete van
+Igloo -> egy iglut reprezentál
+Tent -> egy sátrat reprezentál
+Tent -> egy GRDG feliratos sátrat reprezentál
+RocketPart1 -> egy pisztolyt reprezentál
+RocketPart2 -> egy jelzőfényt reprezentál
+RocketPart3 -> egy patront reprezentál
