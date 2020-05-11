@@ -74,6 +74,22 @@ public class Controller {
                 message = "Kérlek számot adj meg!\nAdd meg a játékosok számát!";
             }
         }
+        for(int i = 0; i < count; i++) {
+            Object[] options = { "Eszkimo", "Kutató"};
+
+            int result = JOptionPane.showOptionDialog(frame, (i+1) + ". játékos karaktere:", "Karakterválasztás",
+                    JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
+                    null, options, null);
+            if(result == JOptionPane.YES_OPTION) { //Eszkimo
+                players.add(new Eskimo(this));
+            }
+            if(result == JOptionPane.NO_OPTION) {
+                players.add(new Scientist(this));
+            }
+            if(result == JOptionPane.CLOSED_OPTION) {
+                i--;
+            }
+        }
     }
 
     /**
