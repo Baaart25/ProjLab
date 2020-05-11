@@ -11,6 +11,9 @@ import java.io.IOException;
 public class DivingSuitRenderer implements ItemRenderer {
     private BufferedImage divingSuitImage;
 
+    /**
+     * Beolvassa a megfelelő képet
+     */
     public DivingSuitRenderer() {
         try {
             this.divingSuitImage = ImageIO.read(new File("img/DivingSuit.png"));
@@ -20,6 +23,12 @@ public class DivingSuitRenderer implements ItemRenderer {
         }
     }
 
+    /**
+     * Kirajzoltatja g-re a képet
+     * ha Tile-ra kell rajzolni, akkor kisebbet rajzol
+     * @param g
+     * @param isTile
+     */
     @Override
     public void draw(Graphics2D g, boolean isTile) {
         if(!isTile)
