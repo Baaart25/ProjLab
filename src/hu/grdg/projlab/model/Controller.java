@@ -49,9 +49,7 @@ public class Controller {
 
 
 
-    public void startGame(){
-        init();
-        //TODO folytatni
+    public void startGame() {
     }
 
     /**
@@ -98,7 +96,7 @@ public class Controller {
      * Inicializálja a pályát
      * @author Dani
      */
-    void init() {
+    public void init() {
         level = new Level(this);
         generatePlayers();
         level.generateLevel(players);

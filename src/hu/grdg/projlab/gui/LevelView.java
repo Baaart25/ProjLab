@@ -22,7 +22,7 @@ public class LevelView extends JPanel {
         int tileXCount = 10;
         int tileYCount = 10;
 
-        controller.startGame();
+        controller.init();
 
         //Calculate the offset to center the tile map
         int xOffset = (getWidth() - (tileXCount * 50)) / 2;
