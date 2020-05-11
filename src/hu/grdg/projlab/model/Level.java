@@ -53,8 +53,9 @@ public class Level {
      * @author Dorina
      */
     private Tile genTiles(int w, int h) {
-        for(int i = 0; i < w; i++){
-            for(int j = 0; j < h; j++){
+        tiles = new ArrayList<Tile>();
+        for(int j = 0; j < w; j++){
+            for(int i = 0; i < h; i++){
                 boolean hole = true;
                 Tile n1=null,n2=null,t;
                 if(i>0) {
@@ -62,7 +63,7 @@ public class Level {
                     if (n1.scanLimit() == 0) hole = false;
                 }
                 if(j>0) {
-                    n2 = tiles.get((i - 1) * w + i);
+                    n2 = tiles.get((j - 1) * w + i);
                     if (n2.scanLimit() == 0) hole = false;
                 }
                 t = genTile(hole);
@@ -117,6 +118,7 @@ public class Level {
             Item item = new Tent();
             placeItem(item);
         }
+        rocketParts = new ArrayList<RocketPart>();
         //RocketParts
         for(int i = 0; i < 3; i++) {
             RocketPart item = new RocketPart(controller, i + 1);
@@ -145,9 +147,9 @@ public class Level {
     private Tile placeItem(Item item) {
         Tile tile;
         do {
-            int x = ThreadLocalRandom.current().nextInt(0, 20); //sor
-            int y = ThreadLocalRandom.current().nextInt(0, 20); //oszlop
-            tile = tiles.get(x + y * 20);
+            int x = ThreadLocalRandom.current().nextInt(0, 10); //sor
+            int y = ThreadLocalRandom.current().nextInt(0, 10); //oszlop
+            tile = tiles.get(x + y * 10);
         } while(tile.setFrozenItem(item));
         return tile;
     }
