@@ -125,8 +125,16 @@ public class Level {
         }
     }
 
+    /**
+     * Place players to the start tile
+     * @param players the players in the game
+     * @param startTile the tile where the players start the game
+     */
     private void placePlayers(ArrayList<Player> players, Tile startTile) {
-
+        for (Player player : players) {
+            player.setCurrentTile(startTile);
+            startTile.acceptEntity(player);
+        }
     }
 
     /**
