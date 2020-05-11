@@ -4,13 +4,17 @@ import hu.grdg.projlab.gui.ItemRenderer;
 import hu.grdg.projlab.gui.render.RocketPartRenderer;
 
 public class RocketPart extends Item{
-    private static RocketPartRenderer renderer = new RocketPartRenderer();
+    private int partType;
+    private RocketPartRenderer renderer;
 
     private Controller controller;
 
-    public RocketPart(Controller c){
+    public RocketPart(Controller c, int _partType){
+        partType = _partType;
+        renderer = new RocketPartRenderer(partType);
         controller = c;
-        c.addRocketPart(this);
+        //FIXME
+        //c.addRocketPart(this);
     }
 
     public boolean useItem(){

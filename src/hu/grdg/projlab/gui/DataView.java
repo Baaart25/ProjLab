@@ -2,6 +2,7 @@ package hu.grdg.projlab.gui;
 
 import hu.grdg.projlab.model.Controller;
 import hu.grdg.projlab.model.Item;
+import hu.grdg.projlab.model.RocketPart;
 import hu.grdg.projlab.model.Shovel;
 
 import javax.swing.*;
@@ -81,7 +82,8 @@ public class DataView extends JPanel {
 
         //Item view
 
-        list = new JList<Item>(new Item[]{new Shovel(), new Shovel(), new Shovel(), new Shovel(), new Shovel(), new Shovel(), new Shovel(), new Shovel(), new Shovel()});
+        list = new JList<Item>(new Item[]{new RocketPart(null,1), new RocketPart(null,2),
+                new RocketPart(null,3), new Shovel(), new Shovel(), new Shovel(), new Shovel(), new Shovel(), new Shovel()});
         list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
         list.setCellRenderer(new ItemViewCellRenderer());
 

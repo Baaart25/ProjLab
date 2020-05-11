@@ -41,7 +41,7 @@ public class AddCommand extends Command {
                 itm = new Tent();
                 break;
             case "RocketPart":
-                itm = new RocketPart(state.getController());
+                //itm = new RocketPart(state.getController());
                 break;
         }
         if(itm != null) {
