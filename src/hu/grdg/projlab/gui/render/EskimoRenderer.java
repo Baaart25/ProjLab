@@ -18,8 +18,8 @@ public class EskimoRenderer implements EntityRenderer {
         try {
             this.eskimoImage = ImageIO.read(new File("img/Eskimo.png"));
             this.eskimoSelectedImage = ImageIO.read(new File("img/EskimoSelected.png"));
-            this.eskimoOnHoleImage = ImageIO.read(new File("img/EskimoOnHoleTile"));
-            this.eskimoOnHoleSelectedImage = ImageIO.read(new File("img/EskimoOnHoleTileSelected"));
+            this.eskimoOnHoleImage = ImageIO.read(new File("img/EskimoOnHoleTile.png"));
+            this.eskimoOnHoleSelectedImage = ImageIO.read(new File("img/EskimoOnHoleTileSelected.png"));
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
