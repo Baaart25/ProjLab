@@ -1,5 +1,7 @@
 package hu.grdg.projlab.model;
 
+import java.util.ArrayList;
+
 public class SnowStorm implements TurnBasedEvent{
     private static SnowStorm instance = null;
     public static SnowStorm getInstance() {
@@ -18,6 +20,7 @@ public class SnowStorm implements TurnBasedEvent{
 
     @Override
     public void doEvent(Level lvl, boolean fullTurn) {
+        ArrayList<Tile> tiles =lvl.getTiles();
 
     }
 

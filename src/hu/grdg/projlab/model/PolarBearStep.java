@@ -5,7 +5,12 @@ import java.util.Random;
 
 public class PolarBearStep implements TurnBasedEvent{
     private ArrayList<PolarBear> bears;
-    private PolarBearStep instance;
+    private static PolarBearStep instance;
+
+
+    public PolarBearStep(){
+        instance = this;
+    }
 
     /**
      * Add the given bear to the list
@@ -36,7 +41,10 @@ public class PolarBearStep implements TurnBasedEvent{
      * @return the PolarBearStep instance
      * @author Dorina
      */
-    public PolarBearStep getInstance() {
+    public static PolarBearStep getInstance() {
+        if(instance==null){
+            new PolarBearStep();
+        }
         return instance;
     }
 }
