@@ -20,7 +20,12 @@ public class ShovelRenderer implements ItemRenderer {
         }*/
     }
 
-
+    /**
+     * Kirajzoltatja g-re a képet
+     * ha Tile-ra kell rajzolni, akkor kisebbet rajzol
+     * @param g
+     * @param isTile
+     */
     @Override
     public void draw(Graphics2D g, boolean isTile) {
         if(!isTile)

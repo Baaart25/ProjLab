@@ -21,7 +21,12 @@ public class TentRenderer implements ItemRenderer {
     }
 
 
-    //TODO
+    /**
+     * Kirajzoltatja g-re a képet
+     * ha Tile-ra kell rajzolni, akkor kisebbet rajzol
+     * @param g
+     * @param isTile
+     */
     @Override
     public void draw(Graphics2D g, boolean isTile) {
         if(!isTile)

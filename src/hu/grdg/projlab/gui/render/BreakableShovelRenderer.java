@@ -16,6 +16,11 @@ public class BreakableShovelRenderer implements ItemRenderer {
     private BufferedImage breakableShovel3Image;
     private BufferedImage brokenShovelImage;
 
+    /**
+     * Az átvett shovelt elmenti tagváltozóba
+     * beolvassa az összes breakableshovel képet
+     * @param shovel
+     */
     public BreakableShovelRenderer(BreakableShovel shovel) {
         try {
             breakableShovel = shovel;
@@ -29,7 +34,12 @@ public class BreakableShovelRenderer implements ItemRenderer {
         }
     }
 
-    //TODO
+    /**
+     * g-re rajzolja a megfelelő képet
+     * ha Tile-ra kell rajzolni, akkor kisebbet rajzol
+     * @param g
+     * @param isTile
+     */
     @Override
     public void draw(Graphics2D g, boolean isTile) {
         int number = 3-breakableShovel.getUseCount();
