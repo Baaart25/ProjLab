@@ -7,7 +7,7 @@ import java.awt.*;
 public class RocketPartRenderer implements ItemRenderer {
     //TODO
     @Override
-    public void draw(Graphics2D g) {
+    public void draw(Graphics2D g, boolean isTile) {
 
     }
 }

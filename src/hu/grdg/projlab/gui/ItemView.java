@@ -22,7 +22,7 @@ public class ItemView extends JPanel {
         //For that stupid JList
         g.setClip(5,5, lastX >= 50 ? getWidth() - 5 : lastX, getHeight() - 5);
 
-        item.getRenderer().draw((Graphics2D) g);
+        item.getRenderer().draw((Graphics2D) g,false);
     }
 
     protected void setVisibleX(int i) {

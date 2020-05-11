@@ -20,8 +20,9 @@ public class ShovelRenderer implements ItemRenderer {
         }
     }
 
+
     @Override
-    public void draw(Graphics2D g) {
+    public void draw(Graphics2D g, boolean isTile) {
         g.setColor(Color.GRAY);
         g.fillRect(5,5,45,45);
         g.drawImage(shovelImage,5,5,45,45, null);
