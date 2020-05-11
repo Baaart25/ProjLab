@@ -11,6 +11,7 @@ public class ItemView extends JPanel {
     private Item item;
     private Color color = Color.red;
     private int lastX = 50;
+    private int firstX = 0;
 
     public void setItem(Item item) {
         this.color = new Color(Color.HSBtoRGB(ThreadLocalRandom.current().nextFloat(), 1.0f, 1.0f));
@@ -20,12 +21,18 @@ public class ItemView extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         //For that stupid JList
-        g.setClip(5,5, lastX >= 50 ? getWidth() - 5 : lastX, getHeight() - 5);
+        g.setColor(Color.WHITE);
+        g.fillRect(0,0,getWidth(), getHeight());
+        g.setClip(5 + firstX,5, lastX >= 50 ? getWidth() - 5 : lastX, getHeight() - 5);
 
         item.getRenderer().draw((Graphics2D) g,false);
     }
 
     protected void setVisibleX(int i) {
         this.lastX = i;
+    }
+
+    protected void setStartVisibleX(int offset) {
+        firstX = offset;
     }
 }

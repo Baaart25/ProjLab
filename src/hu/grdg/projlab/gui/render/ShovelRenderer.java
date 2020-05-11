@@ -13,7 +13,7 @@ public class ShovelRenderer implements ItemRenderer {
 
     public ShovelRenderer() {
         try {
-            this.shovelImage = ImageIO.read(new File("img/shovel.png"));
+            this.shovelImage = ImageIO.read(new File("img/Shovel.png"));
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
@@ -24,7 +24,6 @@ public class ShovelRenderer implements ItemRenderer {
     @Override
     public void draw(Graphics2D g, boolean isTile) {
         g.setColor(Color.GRAY);
-        g.fillRect(5,5,45,45);
         g.drawImage(shovelImage,5,5,45,45, null);
     }
 }
