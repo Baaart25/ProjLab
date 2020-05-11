@@ -148,7 +148,7 @@ public class MainWindow extends JFrame {
     }
 
     /**
-     *
+     * //TODO pályát még nem generál
      * @author Dani
      * @param actionEvent ignored
      */

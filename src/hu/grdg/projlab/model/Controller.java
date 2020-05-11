@@ -49,7 +49,10 @@ public class Controller {
 
 
 
-    public void startGame(){ }
+    public void startGame(){
+        init();
+        //TODO folytatni
+    }
 
     /**
      * Létrehoz a felhasználótól megkérdezett számú játékost
