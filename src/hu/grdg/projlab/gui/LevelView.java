@@ -4,6 +4,7 @@ import hu.grdg.projlab.model.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class LevelView extends JPanel {
@@ -83,7 +84,7 @@ public class LevelView extends JPanel {
 
                 this.add(tw);
             }
-        }
+        }*/
 
 
     }
