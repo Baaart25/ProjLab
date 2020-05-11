@@ -1,9 +1,11 @@
 package hu.grdg.projlab.model;
 
 import hu.grdg.projlab.gui.ItemRenderer;
+import hu.grdg.projlab.gui.render.TentRenderer;
 
 //Ez nincs a doksiban xD
 public class Tent extends Item {
+    private static TentRenderer renderer = new TentRenderer();
     private int life;
 
     /**
@@ -25,7 +27,7 @@ public class Tent extends Item {
 
     @Override
     public ItemRenderer getRenderer() {
-        return null;
+        return renderer;
     }
 
     /**Csökkenti eggyel a sátor élettartamát

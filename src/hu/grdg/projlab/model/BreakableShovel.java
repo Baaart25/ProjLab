@@ -1,9 +1,20 @@
 package hu.grdg.projlab.model;
 
+import hu.grdg.projlab.gui.ItemRenderer;
+import hu.grdg.projlab.gui.render.BreakableShovelRenderer;
+import hu.grdg.projlab.gui.render.ShovelRenderer;
+
 /**
  * A Shovel item that breaks after a specified amount of usage
  */
 public class BreakableShovel extends Shovel{
+    private BreakableShovelRenderer renderer = new BreakableShovelRenderer();
+
+    @Override
+    public ItemRenderer getRenderer() {
+        return renderer;
+    }
+
     private int useCount;
 
     public BreakableShovel(){

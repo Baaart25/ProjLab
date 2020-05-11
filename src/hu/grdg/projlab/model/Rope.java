@@ -1,9 +1,10 @@
 package hu.grdg.projlab.model;
 
 import hu.grdg.projlab.gui.ItemRenderer;
+import hu.grdg.projlab.gui.render.RopeRenderer;
 
 public class Rope extends Item{
-
+    private static RopeRenderer renderer = new RopeRenderer();
     /**
      * Saves the players from the surrounding tiles
      * @return true if it saved someone
@@ -15,6 +16,6 @@ public class Rope extends Item{
 
     @Override
     public ItemRenderer getRenderer() {
-        return null;
+        return renderer;
     }
 }
