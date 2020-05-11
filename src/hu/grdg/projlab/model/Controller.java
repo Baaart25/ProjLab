@@ -52,25 +52,28 @@ public class Controller {
     public void startGame(){ }
 
     /**
-     * Létrehoz a paraméterként kapott darabszámú játékost
+     * Létrehoz a felhasználótól megkérdezett számú játékost
+     * //TODO ki kéne hogy tudjon lépni az ember a számválasztás közben is
      * @author Dani
      */
-    void generatePlayers() {
-        /*JFrame frame = new JFrame("InputDialog");
+    public void generatePlayers() {
+        JFrame frame = new JFrame("InputDialog");
 
-        int n = JOptionPane.showConfirmDialog(
-                frame, "Add meg a játékosok számát?",
-                "Játékosok száma",
-                JOptionPane.YES_OPTION);
-        if (n == JOptionPane.YES_OPTION) {
-
+        boolean formatOk = false;
+        int count = 0;
+        String response;
+        String message = "Add meg a játékosok számát!";
+        while (!formatOk || count < 3) {
+            response = JOptionPane.showInputDialog(frame, message, "");
+            try {
+                count = Integer.parseInt(response);
+                formatOk = true;
+                message = "A játékosok számának minimum 3-nak kell lennie!\nAdd meg a játékosok számát!";
+            } catch(NumberFormatException e) {
+                formatOk = false;
+                message = "Kérlek számot adj meg!\nAdd meg a játékosok számát!";
+            }
         }
-
-        String response = JOptionPane.showInputDialog(frame, "Add meg a játékosok számát?", "");
-        if ((response != null) && (response.length() > 0)) {
-
-        }*/
-
     }
 
     /**
