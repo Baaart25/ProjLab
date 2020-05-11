@@ -69,19 +69,30 @@ public class TileView extends JPanel {
             iglooRenderer.draw((Graphics2D) g, true);
         }
 
+        //Pleas do not touch
+        //IDK why its working
         ArrayList<Entity> entities = tile.getEntities();
-        double gap = (2 * Math.PI) / entities.size();
+        int count = (int) Math.ceil(Math.sqrt(entities.size()));
         for(int i = 0; i < entities.size(); i++) {
-            double phi = gap * i;
-            double xd = Math.cos(phi);
-            double yd = Math.sin(phi);
+            int yd = (int) ((i - 1) / count);
+            int xd = i - (yd*count) - 1;
 
-            int xOffset = (int) (25 + (xd * 25));
-            int yOffset = (int) (25 + (yd * 25));
+            int gap = (int) (40 / count);
+
+
+            int xOffset = xd * gap;
+            int yOffset = yd * gap;
+
+            xOffset = clamp(xOffset, 5, 50);
+            yOffset = clamp(yOffset, 0, 50);
 
             Entity e = entities.get(i);
             e.getRenderer().draw((Graphics2D) g, false, xOffset, yOffset);
         }
 
+    }
+
+    private static int clamp(int num, int min, int max) {
+        return num > max ? max : num < min ? min : num;
     }
 }
