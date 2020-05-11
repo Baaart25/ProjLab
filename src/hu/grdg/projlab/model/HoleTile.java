@@ -2,10 +2,12 @@ package hu.grdg.projlab.model;
 
 import hu.grdg.projlab.Proto;
 import hu.grdg.projlab.ProtoIO;
+import hu.grdg.projlab.gui.TileRenderer;
+import hu.grdg.projlab.gui.render.TileRendererImpl;
 
 public class HoleTile extends Tile{
 
-
+    private static TileRenderer renderer = new TileRendererImpl(true);
     /**
      * Scans the limit of the tile
      * @return 0
@@ -48,5 +50,10 @@ public class HoleTile extends Tile{
     @Override
     public boolean buildIgloo() {
         return false;
+    }
+
+    @Override
+    public TileRenderer getRenderer() {
+        return renderer;
     }
 }

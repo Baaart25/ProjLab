@@ -2,6 +2,7 @@ package hu.grdg.projlab.model;
 
 import hu.grdg.projlab.Proto;
 import hu.grdg.projlab.ProtoIO;
+import hu.grdg.projlab.gui.TileRenderer;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -193,6 +194,12 @@ public abstract class Tile {
     public void removeTent(){
         hasTent=false;
     }
+
+    /**
+     * Returns the associated tile renderer for this tile
+     * @return The renderer
+     */
+    public abstract TileRenderer getRenderer();
 
 }
 
