@@ -22,10 +22,10 @@ public class MainWindow extends JFrame {
     private Controller controller;
     private DataView dataView;
 
-    public MainWindow()  {
+    public MainWindow(Controller c)  {
         super("Jégmező - GRDG | v1.0");
-
         setLAF();
+        this.controller = c;
     }
 
     //NOT IN DOCS

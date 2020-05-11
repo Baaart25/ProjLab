@@ -26,7 +26,7 @@ public class LevelView extends JPanel {
         int xOffset = (getWidth() - (tileXCount * 50)) / 2;
         int yOffset = (getHeight() - (tileYCount * 50)) / 2;
 
-        setBackground(new Color(0x4487d2));
+        setBackground(new Color(0x4487D2));
 
         //Gen tiles
         for(int x = 0; x < tileXCount; x++) {
@@ -45,6 +45,7 @@ public class LevelView extends JPanel {
 
                 if(x % 2 == 0 && y % 2 == 0)
                     tile.setFrozenItem(new RocketPart(null, 1 + (y % 3)));
+
                 TileView tw = new TileView(tile);
                 tw.setSize(50,50);
                 tw.setBounds(xOffset + x * 50, yOffset + y * 50, 50,50);
