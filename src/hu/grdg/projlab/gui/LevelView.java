@@ -2,6 +2,7 @@ package hu.grdg.projlab.gui;
 
 import hu.grdg.projlab.model.Controller;
 import hu.grdg.projlab.model.IceTile;
+import hu.grdg.projlab.model.RocketPart;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +32,10 @@ public class LevelView extends JPanel {
         //Gen tiles
         for(int x = 0; x < tileXCount; x++) {
             for(int y = 0; y < tileYCount; y++) {
-                TileView tw = new TileView(new IceTile());
+                IceTile tile = new IceTile();
+                if(x % 2 == 0 && y % 2 == 0)
+                    tile.setFrozenItem(new RocketPart(null, 1 + (y % 3)));
+                TileView tw = new TileView(tile);
                 tw.setSize(50,50);
                 tw.setBounds(xOffset + x * 50, yOffset + y * 50, 50,50);
 

@@ -25,8 +25,6 @@ public class RocketPartRenderer implements ItemRenderer {
     //TODO
     @Override
     public void draw(Graphics2D g, boolean isTile) {
-        g.setColor(Color.WHITE);
-        g.fillRect(5,5,45,45);
         g.drawImage(rocketPartImage,5,5,45,45, null);
     }
 }

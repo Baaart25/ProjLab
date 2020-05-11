@@ -22,8 +22,6 @@ public class DivingSuitRenderer implements ItemRenderer {
 
     @Override
     public void draw(Graphics2D g, boolean isTile) {
-        g.setColor(Color.WHITE);
-        g.fillRect(5,5,45,45);
         g.drawImage(divingSuitImage,5,5,45,45, null);
     }
 }

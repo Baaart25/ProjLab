@@ -32,8 +32,6 @@ public class BreakableShovelRenderer implements ItemRenderer {
     //TODO
     @Override
     public void draw(Graphics2D g, boolean isTile) {
-        g.setColor(Color.WHITE);
-        g.fillRect(5,5,45,45);
         int number = 3-breakableShovel.getUseCount();
         if(number == 3)
             g.drawImage(breakableShovel3Image,5,5,45,45, null);
