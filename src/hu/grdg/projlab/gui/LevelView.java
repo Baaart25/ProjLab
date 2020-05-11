@@ -1,6 +1,7 @@
 package hu.grdg.projlab.gui;
 
 import hu.grdg.projlab.model.Controller;
+import hu.grdg.projlab.model.IceTile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,12 +26,12 @@ public class LevelView extends JPanel {
         int xOffset = (getWidth() - (tileXCount * 50)) / 2;
         int yOffset = (getHeight() - (tileYCount * 50)) / 2;
 
-        setBackground(Color.cyan);
+        setBackground(new Color(0x4487d2));
 
         //Gen tiles
         for(int x = 0; x < tileXCount; x++) {
             for(int y = 0; y < tileYCount; y++) {
-                TileView tw = new TileView();
+                TileView tw = new TileView(new IceTile());
                 tw.setSize(50,50);
                 tw.setBounds(xOffset + x * 50, yOffset + y * 50, 50,50);
 

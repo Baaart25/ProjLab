@@ -1,8 +1,14 @@
 package hu.grdg.projlab.model;
 
 import hu.grdg.projlab.ProtoIO;
+import hu.grdg.projlab.gui.ItemRenderer;
+import hu.grdg.projlab.gui.TileRenderer;
+import hu.grdg.projlab.gui.render.TileRendererImpl;
 
 public class IceTile extends Tile{
+
+    private static TileRenderer renderer = new TileRendererImpl(false);
+
 
     /**
      * Scans the limit of the Tile
@@ -18,5 +24,10 @@ public class IceTile extends Tile{
     public void acceptEntity(Entity entity) {
         super.acceptEntity(entity);
         ProtoIO.output(ProtoIO.OutputMessages.STEP_OUT_TILE);
+    }
+
+    @Override
+    public TileRenderer getRenderer() {
+        return renderer;
     }
 }
