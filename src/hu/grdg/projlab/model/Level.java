@@ -62,10 +62,17 @@ public class Level {
                 if(i>0) {
                     n1 = tiles.get(j * w + i - 1);
                     if (n1.scanLimit() == 0) hole = false;
+                    if(j>0){
+                        if(tiles.get((j-1)*w+i-1).scanLimit()==0) hole=false;
+                    }
+
                 }
                 if(j>0) {
                     n2 = tiles.get((j - 1) * w + i);
                     if (n2.scanLimit() == 0) hole = false;
+                    if(i<w-1){
+                        if(tiles.get((j-1)*w + i + 1).scanLimit()==0) hole = false;
+                    }
                 }
                 t = genTile(hole);
                 if(n1!=null) {
@@ -164,7 +171,7 @@ public class Level {
      * @author Dorina
      */
     private Tile genTile(boolean hole) {
-        double pIce = 0.5, pUnstable, pHole = 0.25 ;
+        double pIce = 0.6, pUnstable, pHole = 0.20;
         if(!hole){
             pHole = 0;
         }
