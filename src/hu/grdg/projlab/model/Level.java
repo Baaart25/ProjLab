@@ -26,7 +26,7 @@ public class Level {
      * @param s
      */
     void setSize(int s) {
-        size = size;
+        size = s;
     }
 
     /**
