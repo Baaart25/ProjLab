@@ -58,13 +58,13 @@ public class Controller {
      * @author Dani
      */
     public void generatePlayers() {
-        JFrame frame = new JFrame("InputDialog");
+
         boolean formatOk = false;
         int count = 0;
         String response;
         String message = "Add meg a játékosok számát!";
         while (!formatOk || count < 3) {
-            response = JOptionPane.showInputDialog(frame, message, "");
+            response = JOptionPane.showInputDialog(null, message, "");
             try {
                 count = Integer.parseInt(response);
                 formatOk = true;
@@ -77,7 +77,7 @@ public class Controller {
         for(int i = 0; i < count; i++) {
             Object[] options = { "Eszkimo", "Kutató"};
 
-            int result = JOptionPane.showOptionDialog(frame, (i+1) + ". játékos karaktere:", "Karakterválasztás",
+            int result = JOptionPane.showOptionDialog(null, (i+1) + ". játékos karaktere:", "Karakterválasztás",
                     JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
                     null, options, null);
             if(result == JOptionPane.YES_OPTION) { //Eszkimo
