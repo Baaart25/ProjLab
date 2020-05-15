@@ -14,9 +14,10 @@ public class PolarBear extends Entity{
     @Override
     public boolean move(int direction) {
         Tile stepTile = currentTile.getNeighbour(direction);
+        if(stepTile==null) return false;
         currentTile.removeEntity(this);
-
         stepTile.acceptEntity(this);
+        System.out.println("aa");
         stepTile.bearAttack();
         return true;
     }

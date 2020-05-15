@@ -2,6 +2,7 @@ package hu.grdg.projlab.model;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class PolarBearStep implements TurnBasedEvent{
     private ArrayList<PolarBear> bears = new ArrayList<>();
@@ -30,8 +31,9 @@ public class PolarBearStep implements TurnBasedEvent{
     @Override
     public void doEvent(Level lvl, boolean fullTurn) {
         if(fullTurn){
+            System.out.println(bears.size());
             for (PolarBear bear: bears) {
-                bear.move(new Random().nextInt(3));
+                while(!bear.move(ThreadLocalRandom.current().nextInt(0,4))){}
             }
         }
     }
