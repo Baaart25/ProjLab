@@ -73,8 +73,8 @@ public class TileView extends JPanel {
         ArrayList<Entity> entities = tile.getEntities();
         int count = (int) Math.ceil(Math.sqrt(entities.size()));
         for(int i = 0; i < entities.size(); i++) {
-            int yd = (i - 1) / count;
-            int xd = i - (yd*count) - 1;
+            int yd = Math.floorDiv(i, count);
+            int xd = i - (yd * count);
 
             int gap = 40 / count;
 
@@ -89,6 +89,7 @@ public class TileView extends JPanel {
         }
 
     }
+
 
     private static int clamp(int num, int min, int max) {
         return num > max ? max : num < min ? min : num;
