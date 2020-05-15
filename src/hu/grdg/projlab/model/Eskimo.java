@@ -20,7 +20,8 @@ public class Eskimo extends Player{
      * @author Geri
      */
     public boolean specialAbility(){
-
+        if(isInWater)
+            return false;
         boolean succesfulness = getCurrentTile().buildIgloo();
         if(succesfulness){
             ProtoIO.output(ProtoIO.OutputMessages.SPECAB_OUT_ESKIMO);

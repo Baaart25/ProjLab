@@ -25,6 +25,8 @@ public class Scientist extends Player{
      */
     @Override
     public boolean specialAbility() {
+        if(isInWater)
+            return false;
         String[] options = new String[]{"North","East","South","West"};
         int res = JOptionPane.showOptionDialog(null, "Choose direction", "Input", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
         System.out.println(res);

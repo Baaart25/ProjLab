@@ -11,7 +11,7 @@ public abstract class Player extends Entity{
     private ArrayList<Item> inventory;
     private Controller controller;
     private int currentTemp;
-    private boolean isInWater;
+    protected boolean isInWater;
     private boolean active = false;
 
 
@@ -76,8 +76,6 @@ public abstract class Player extends Entity{
         this.currentTemp = currentTemp;
     }
 
-    //----------WARNING-------------
-    //IMPLEMENTATION HAS TO PRINT THE OUTPUT MESSAGE
     public abstract boolean specialAbility();
 
     /**
