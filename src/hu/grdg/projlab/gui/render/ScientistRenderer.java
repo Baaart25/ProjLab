@@ -1,6 +1,7 @@
 package hu.grdg.projlab.gui.render;
 
 import hu.grdg.projlab.gui.EntityRenderer;
+import hu.grdg.projlab.model.Scientist;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -9,12 +10,14 @@ import java.io.File;
 import java.io.IOException;
 
 public class ScientistRenderer implements EntityRenderer {
+    private final Scientist player;
     private BufferedImage scientistImage;
     private BufferedImage scientistSelectedImage;
     private BufferedImage scientistOnHoleImage;
     private BufferedImage scientistOnHoleSelectedImage;
 
-    public ScientistRenderer() {
+    public ScientistRenderer(Scientist player) {
+        this.player = player;
         try {
             this.scientistImage = ImageIO.read(new File("img/Scientist.png"));
             this.scientistSelectedImage = ImageIO.read(new File("img/ScientistSelected.png"));
@@ -38,12 +41,12 @@ public class ScientistRenderer implements EntityRenderer {
     @Override
     public void draw(Graphics2D g, boolean isActive, int xOffset, int yOffset, boolean isInWater) {
         if (isInWater)
-            if (isActive) {
+            if (player.isActive()) {
                 g.drawImage(scientistOnHoleSelectedImage, xOffset, yOffset, 25, 25, null);
             } else {
                 g.drawImage(scientistOnHoleImage, xOffset, yOffset, 25, 25, null);
             }
-        else if (isActive) {
+        else if (player.isActive()) {
             g.drawImage(scientistSelectedImage, xOffset, yOffset, 25, 25, null);
         } else {
             g.drawImage(scientistImage, xOffset, yOffset, 25, 25, null);

@@ -54,16 +54,16 @@ public class TileView extends JPanel {
             tile.getFrozenItem().getRenderer().draw(g2, true);
 
             if(tile.getFrozenItem().isFrozen()) {
-                System.out.println("Draw ice");
+                //System.out.println("Draw ice");
                 g.drawImage(imgIceLayer, 0,0,50,50, null);
             }
         }
 
-        /*
+
         if(tile.getSnowLayers() > 0) {
             g.drawImage(imgSnowLayer, 0,0,50,50, null);
         }
-        */
+
 
 
         if(tile.hasTent()) {

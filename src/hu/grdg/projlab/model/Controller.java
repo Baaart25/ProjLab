@@ -86,6 +86,7 @@ public class Controller {
             for(int i = 0; i < players.size(); i++) {
                 System.out.printf("Player %d's turn\n", i);
                 JOptionPane.showMessageDialog(null, String.format("Player %d's turn\n", i),"Player turn",JOptionPane.INFORMATION_MESSAGE);
+                players.get(i).setActive(true);
                 for (Consumer<Player> nextPlayerEventListener : nextPlayerEventListeners) {
                     nextPlayerEventListener.accept(players.get(i));
                 }
@@ -99,6 +100,7 @@ public class Controller {
                     System.err.println("Player loop wait interrupted");
                     System.exit(-1);
                 }
+                players.get(i).setActive(false);
 
                 //Run env events between players
                 for (TurnBasedEvent event : events) {

@@ -1,6 +1,7 @@
 package hu.grdg.projlab.gui.render;
 
 import hu.grdg.projlab.gui.EntityRenderer;
+import hu.grdg.projlab.model.Eskimo;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -9,15 +10,15 @@ import java.io.File;
 import java.io.IOException;
 
 public class EskimoRenderer implements EntityRenderer {
+    private Eskimo player;
     private BufferedImage eskimoImage;
     private BufferedImage eskimoSelectedImage;
     private BufferedImage eskimoOnHoleImage;
     private BufferedImage eskimoOnHoleSelectedImage;
 
-    /**
-     * Loads the images for Eskimo
-     */
-    public EskimoRenderer(){
+
+    public EskimoRenderer(Eskimo eskimo) {
+        this.player = eskimo;
         try {
             this.eskimoImage = ImageIO.read(new File("img/Eskimo.png"));
             this.eskimoSelectedImage = ImageIO.read(new File("img/EskimoSelected.png"));
@@ -40,12 +41,12 @@ public class EskimoRenderer implements EntityRenderer {
     @Override
     public void draw(Graphics2D g, boolean isActive, int xOffset, int yOffset, boolean isInWater){
         if (isInWater)
-            if (isActive) {
+            if (player.isActive()) {
                 g.drawImage(eskimoOnHoleSelectedImage, xOffset, yOffset, 25, 25, null);
             } else {
                 g.drawImage(eskimoOnHoleImage, xOffset, yOffset, 25, 25, null);
             }
-        else if (isActive) {
+        else if (player.isActive()) {
             g.drawImage(eskimoSelectedImage, xOffset, yOffset, 25, 25, null);
         } else {
             g.drawImage(eskimoImage, xOffset, yOffset, 25, 25, null);

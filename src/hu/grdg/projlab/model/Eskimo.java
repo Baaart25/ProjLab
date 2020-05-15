@@ -5,7 +5,7 @@ import hu.grdg.projlab.gui.EntityRenderer;
 import hu.grdg.projlab.gui.render.EskimoRenderer;
 
 public class Eskimo extends Player{
-    private EntityRenderer renderer = new EskimoRenderer();
+    private EntityRenderer renderer = new EskimoRenderer(this);
     /**
      * Sets the maximum temperature in player's constructor
      * @author Geri

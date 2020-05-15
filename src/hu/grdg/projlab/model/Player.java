@@ -12,6 +12,7 @@ public abstract class Player extends Entity{
     private Controller controller;
     private int currentTemp;
     private boolean isInWater;
+    private boolean active = false;
 
 
     /**
@@ -54,6 +55,16 @@ public abstract class Player extends Entity{
     public int addItem(Item item) {
         inventory.add(item);
         return inventory.size();
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean a) {
+        this.active = a;
+        //Trigger tile redraw
+        currentTile.updateEvent();
     }
 
     //----------------NOT IN DOC-----------

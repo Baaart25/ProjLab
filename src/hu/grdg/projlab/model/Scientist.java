@@ -4,9 +4,11 @@ import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.gui.EntityRenderer;
 import hu.grdg.projlab.gui.render.ScientistRenderer;
 
+import javax.swing.*;
+
 public class Scientist extends Player{
 
-    private static EntityRenderer renderer = new ScientistRenderer();
+    private EntityRenderer renderer = new ScientistRenderer(this);
 
     /**
      * Sets the maximum temperature in player's constructor
@@ -23,10 +25,19 @@ public class Scientist extends Player{
      */
     @Override
     public boolean specialAbility() {
-        Tile t = currentTile.getNeighbour(Direction.direction);
-        int limit = t.scanLimit();
-        ProtoIO.outputf(ProtoIO.OutputMessages.SPECAB_OUT_SCI, limit);
-        return true;
+        String[] options = new String[]{"North","East","South","West"};
+        int res = JOptionPane.showOptionDialog(null, "Choose direction", "Input", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        System.out.println(res);
+        Tile t = currentTile.getNeighbour(res);
+        if(t != null) {
+            int limit = t.scanLimit();
+            //ProtoIO.outputf(ProtoIO.OutputMessages.SPECAB_OUT_SCI, limit);
+            String limits = limit == -1 ? "Unlimited" : String.valueOf(limit);
+            JOptionPane.showMessageDialog(null, String.format("The limit of the tile is: %s",limits));
+            return true;
+        }
+        return false;
+
     }
 
     @Override

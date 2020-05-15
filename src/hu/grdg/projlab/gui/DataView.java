@@ -12,6 +12,7 @@ public class DataView extends JPanel {
     private final JButton unfreezeButton;
     private final JButton pickupButton;
     private final JButton skipButton;
+    private final JButton digButton;
     private Controller controller;
 
     private JButton upButton;
@@ -93,9 +94,11 @@ public class DataView extends JPanel {
         bpanel.add(pickupButton);
         this.add(bpanel);
 
+        digButton = new JButton("DIG");
+        this.add(digButton);
+
         skipButton = new JButton("Pass");
         this.add(skipButton);
-
         //Item view
         list = new JList<Item>();
         list.setModel(new DefaultListModel<>());
@@ -112,15 +115,20 @@ public class DataView extends JPanel {
                 return;
             int index = listSelectionEvent.getFirstIndex();
             Item item = list.getModel().getElementAt(index);
-
-            System.out.println("Item used: " + item.toString());
-            //TODO fix it
-            item.useItem();
-            list.setSelectedIndex(-1);
+            if(workCheck()) {
+                System.out.println("Item used: " + item.toString());
+                //TODO fix it
+                boolean succ = item.useItem();
+                list.setSelectedIndex(-1);
+                reloadInfo();
+                workDone(succ);
+            }
 
         });
 
         inventoryScrollPane = new JScrollPane(list);
+        inventoryScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+
 
         JPanel invPanel = new JPanel();
         invPanel.setLayout(new BoxLayout(invPanel, BoxLayout.X_AXIS));
@@ -141,11 +149,12 @@ public class DataView extends JPanel {
             playerRemActions--;
         }
 
-        updateWorkLabel();
+        reloadInfo();
 
         if(playerRemActions == 0) {
             this.onPlayerTurnEnd.run();
         }
+        updateUI();
     }
 
     private void setupActions() {
@@ -208,13 +217,30 @@ public class DataView extends JPanel {
         skipButton.addActionListener(e -> {
             this.onPlayerTurnEnd.run();
         });
+
+        digButton.addActionListener(e -> {
+            if(workCheck()) {
+                boolean succ = currentPlayer.getCurrentTile().removeSnowLayer(1);
+                workDone(succ);
+            }
+        });
+
+        specButton.addActionListener(e -> {
+            if(workCheck()) {
+                boolean succ = currentPlayer.specialAbility();
+                workDone(succ);
+            }
+        });
+
+
     }
 
     private void reloadInfo() {
         //Inventory
-        DefaultListModel<Item> model = (DefaultListModel<Item>) list.getModel();
-        //model.clear();
-        //model.addAll(currentPlayer.getInventory());
+        DefaultListModel<Item> model = new DefaultListModel<>();
+        model.clear();
+        model.addAll(currentPlayer.getInventory());
+        list.setModel(model);
 
         this.healthLabel.setText(String.valueOf(currentPlayer.getTemp()));
         updateWorkLabel();
