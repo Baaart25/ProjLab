@@ -21,6 +21,7 @@ public class Tent extends Item {
         boolean res = tile.buildTent();
         if(res) {
             RemoveTent.getInstance().addTent(this);
+            owner.getInventory().remove(this);
         }
         return res;
     }

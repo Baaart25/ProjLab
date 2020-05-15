@@ -48,6 +48,7 @@ public class SnowStorm implements TurnBasedEvent{
      * @author Barrow099
      */
     public void doStorm(Tile tile, int amount) {
+        System.out.println("DOING STORMY THINGS to " +  tile.toString());
         tile.addSnowLayer(amount);
         tile.stormDamage();
     }

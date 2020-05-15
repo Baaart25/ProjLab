@@ -180,6 +180,12 @@ public class Controller {
         level = new Level(this);
         generatePlayers();
         level.generateLevel(players);
+
+        //Actually init events because they dont work without it xD
+        events.add(new SnowStorm());
+        events.add(new PolarBearStep());
+        events.add(new RemoveTent());
+
     }
 
     /**

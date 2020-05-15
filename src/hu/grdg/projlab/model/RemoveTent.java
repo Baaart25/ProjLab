@@ -17,7 +17,7 @@ public class RemoveTent implements TurnBasedEvent{
      * @param fullTurn akkor true, ha egy teljes kör telt le (ehhez lényegtelen)
      */
     public void doEvent(Level lvl, boolean fullTurn) {
-        for (Tent tent : tents) {
+        for (Tent tent : new ArrayList<>(tents)) {
             tent.decreaseLife();
         }
     }

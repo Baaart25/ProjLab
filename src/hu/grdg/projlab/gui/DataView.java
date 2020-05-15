@@ -111,17 +111,30 @@ public class DataView extends JPanel {
         list.setVisibleRowCount(1);
 
         list.addListSelectionListener(listSelectionEvent -> {
-            if(listSelectionEvent.getFirstIndex() < 0)
-                return;
-            int index = listSelectionEvent.getFirstIndex();
-            Item item = list.getModel().getElementAt(index);
-            if(workCheck()) {
-                System.out.println("Item used: " + item.toString());
-                //TODO fix it
-                boolean succ = item.useItem();
-                list.setSelectedIndex(-1);
-                reloadInfo();
-                workDone(succ);
+            try {
+                if (listSelectionEvent.getFirstIndex() < 0)
+                    return;
+                int index = listSelectionEvent.getFirstIndex();
+                Item item = list.getModel().getElementAt(index);
+                if (workCheck()) {
+                    System.out.println("Item used: " + item.toString());
+                    //TODO fix it
+                    boolean succ = item.useItem();
+                    list.setSelectedIndex(-1);
+
+                    //Very bad hack to ensure no concurrent modifs
+                    new Thread(() -> {
+                        try {
+                            Thread.sleep(10);
+                            DataView.this.reloadInfo();
+                        } catch (InterruptedException ignored) {
+                        }
+                    }).start();
+
+                    workDone(succ);
+                }
+            } catch (Exception ignored) {
+                //IDK why but it is pretty dangerous
             }
 
         });
@@ -236,11 +249,18 @@ public class DataView extends JPanel {
     }
 
     private void reloadInfo() {
-        //Inventory
-        DefaultListModel<Item> model = new DefaultListModel<>();
-        model.clear();
-        model.addAll(currentPlayer.getInventory());
-        list.setModel(model);
+        try {
+            list.setSelectedIndex(-1);
+            //Inventory
+            DefaultListModel<Item> model = new DefaultListModel<>();
+            for (Item item : currentPlayer.getInventory()) {
+                model.addElement(item);
+            }
+
+            list.setModel(model);
+        }catch (Exception ignored) {
+            //IDK WHY
+        }
 
         this.healthLabel.setText(String.valueOf(currentPlayer.getTemp()));
         updateWorkLabel();

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class PolarBearStep implements TurnBasedEvent{
-    private ArrayList<PolarBear> bears;
+    private ArrayList<PolarBear> bears = new ArrayList<>();
     private static PolarBearStep instance;
 
 
