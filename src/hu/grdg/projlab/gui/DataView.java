@@ -3,12 +3,12 @@ package hu.grdg.projlab.gui;
 import hu.grdg.projlab.model.*;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class DataView extends JPanel {
     private final JScrollPane inventoryScrollPane;
     private final JList<Item> list;
+    private final Runnable onPlayerTurnEnd;
     private Controller controller;
 
     private JButton upButton;
@@ -20,10 +20,16 @@ public class DataView extends JPanel {
     private JLabel healthLabel;
     private JLabel workLabel;
 
+    private Player currentPlayer = null;
+    private int playerRemActions = 4;
+
     public DataView(Controller controller) {
         super();
 
         this.controller = controller;
+
+        this.controller.addOnNextPlayerListner(this::nextPlayer);
+        this.onPlayerTurnEnd = this.controller::playerTurnEndedHandler;
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -78,9 +84,8 @@ public class DataView extends JPanel {
 
 
         //Item view
-        list = new JList<Item>(new Item[]{new RocketPart(null,1), new RocketPart(null,2),
-                new RocketPart(null,3), new Rope(), new Tent(),
-                new Food(), new DivingSuit(), new BreakableShovel(), new Shovel()});
+        list = new JList<Item>();
+        list.setModel(new DefaultListModel<>());
 
         list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
         list.setCellRenderer(new ItemViewCellRenderer());
@@ -108,7 +113,61 @@ public class DataView extends JPanel {
         invPanel.setLayout(new BoxLayout(invPanel, BoxLayout.X_AXIS));
         invPanel.setMaximumSize(new Dimension(180,85));
         invPanel.add(inventoryScrollPane);
-        this.add(invPanel);
+        //this.add(invPanel);
+
+        setupActions();
+    }
+
+    private boolean workCheck() {
+
+        return currentPlayer != null && playerRemActions > 0;
+    }
+
+    private void workDone(boolean success) {
+        if(success) {
+            playerRemActions--;
+        }
+
+        updateWorkLabel();
+    }
+
+    private void setupActions() {
+        //Move north
+        upButton.addActionListener(e -> {
+            if(workCheck()) {
+                boolean res = currentPlayer.move(0);
+                workDone(res);
+            }
+        });
+
+        downButton.addActionListener(e -> {
+            if(workCheck()) {
+                boolean res = currentPlayer.move(2);
+                workDone(res);
+            }
+        });
+    }
+
+    private void reloadInfo() {
+        //Inventory
+        DefaultListModel<Item> model = (DefaultListModel<Item>) list.getModel();
+        model.clear();
+        model.addAll(currentPlayer.getInventory());
+
+        this.healthLabel.setText(String.valueOf(currentPlayer.getTemp()));
+        updateWorkLabel();
+    }
+
+    private void updateWorkLabel() {
+        this.workLabel.setText(String.valueOf(playerRemActions));
+    }
+
+
+    private void nextPlayer(Player p) {
+        playerRemActions = 4;
+        this.currentPlayer = p;
+
+        reloadInfo();
     }
 
     private class ItemViewCellRenderer extends ItemView implements ListCellRenderer<Item> {
