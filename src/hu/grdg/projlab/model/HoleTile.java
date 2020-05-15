@@ -5,6 +5,8 @@ import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.gui.TileRenderer;
 import hu.grdg.projlab.gui.render.TileRendererImpl;
 
+import javax.swing.*;
+
 public class HoleTile extends Tile{
 
     private static TileRenderer renderer = new TileRendererImpl(true);
@@ -30,6 +32,7 @@ public class HoleTile extends Tile{
         ProtoIO.output(ProtoIO.OutputMessages.STEP_OUT_HOLE);
         entity.setCurrentTile(this);
         updateEvent();
+        JOptionPane.showMessageDialog(null, "You fell in a hole","OOPS", JOptionPane.WARNING_MESSAGE);
     }
 
     /**

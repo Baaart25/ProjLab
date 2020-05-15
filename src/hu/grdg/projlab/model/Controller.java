@@ -59,6 +59,9 @@ public class Controller {
 
         if(win) {
             ProtoIO.output("Item used. Game ended with a win.");
+            JOptionPane.showMessageDialog(null, "YOU WIN","GAME ENDED", JOptionPane.INFORMATION_MESSAGE);
+        }else {
+            JOptionPane.showMessageDialog(null, "YOU LOSE","GAME ENDED", JOptionPane.INFORMATION_MESSAGE);
         }
         //TODO Add graceful shutdown
         System.exit(0);
@@ -82,7 +85,7 @@ public class Controller {
         while(true) {
             for(int i = 0; i < players.size(); i++) {
                 System.out.printf("Player %d's turn\n", i);
-
+                JOptionPane.showMessageDialog(null, String.format("Player %d's turn\n", i),"Player turn",JOptionPane.INFORMATION_MESSAGE);
                 for (Consumer<Player> nextPlayerEventListener : nextPlayerEventListeners) {
                     nextPlayerEventListener.accept(players.get(i));
                 }

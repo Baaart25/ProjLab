@@ -11,6 +11,7 @@ public class DataView extends JPanel {
     private final Runnable onPlayerTurnEnd;
     private final JButton unfreezeButton;
     private final JButton pickupButton;
+    private final JButton skipButton;
     private Controller controller;
 
     private JButton upButton;
@@ -91,6 +92,9 @@ public class DataView extends JPanel {
         bpanel.add(unfreezeButton);
         bpanel.add(pickupButton);
         this.add(bpanel);
+
+        skipButton = new JButton("Pass");
+        this.add(skipButton);
 
         //Item view
         list = new JList<Item>();
@@ -192,11 +196,17 @@ public class DataView extends JPanel {
                 Item frozenItem = currentPlayer.getCurrentTile().getFrozenItem();
                 if(frozenItem != null) {
                     boolean res = frozenItem.pickedUp(currentPlayer);
+                    if(res)
+                        currentPlayer.getCurrentTile().setFrozenItem(null);
                     workDone(res);
 
                     currentPlayer.getCurrentTile().updateEvent();
                 }
             }
+        });
+
+        skipButton.addActionListener(e -> {
+            this.onPlayerTurnEnd.run();
         });
     }
 

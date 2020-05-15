@@ -91,6 +91,11 @@ public abstract class Tile {
             updateEvent();
             return true;
         }
+        if(item == null) {
+            frozenItem = null;
+            updateEvent();
+            return true;
+        }
         return false;
     }
 
