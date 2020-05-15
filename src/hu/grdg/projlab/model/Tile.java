@@ -163,11 +163,7 @@ public abstract class Tile {
     public void bearAttack(){
         if(!hasIgloo){
             for (Entity e: entities) {
-                //FIXME Fix with custom method in entity
-                if(e instanceof Player) {
-                    ProtoIO.output(ProtoIO.OutputMessages.STEP_BEAR_EAT);
                     e.die();
-                }
             }
         }
     }
