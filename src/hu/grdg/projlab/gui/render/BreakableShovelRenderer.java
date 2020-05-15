@@ -47,7 +47,7 @@ public class BreakableShovelRenderer implements ItemRenderer {
         if(number == 3)
             img = breakableShovel3Image;
         else if(number == 2)
-            img = breakableShovel3Image;
+            img = breakableShovel2Image;
         else if(number == 1)
             img = breakableShovel1Image;
         else
