@@ -26,6 +26,15 @@ public class ScientistRenderer implements EntityRenderer {
         }
     }
 
+
+    /**
+     * Draw the Scientist to the given g Grpahics
+     * @param g
+     * @param isActive true if the Scientist active
+     * @param xOffset offset int direction x
+     * @param yOffset offset int direction y
+     * @param isInWater true if the Scientist is in water
+     */
     @Override
     public void draw(Graphics2D g, boolean isActive, int xOffset, int yOffset, boolean isInWater) {
         if (isInWater)
