@@ -11,6 +11,7 @@ public class Level {
     private ArrayList<Tile> tiles = new ArrayList<>();
     private ArrayList<RocketPart> rocketParts;
     private Controller controller;
+    private static int size = 10;
 
     /**
      * Konstruktor, paraméterként kapott controllert beállítja
@@ -24,12 +25,21 @@ public class Level {
     }
 
     /**
+     * Beállítha a size értéket
+     * @author Dani
+     * @param s
+     */
+    void setSize(int s) {
+        size = size;
+    }
+
+    /**
      * Legenerálja a levelt
      * @author Dani
      * @param players
      */
     public void generateLevel(ArrayList<Player> players) {
-        Tile startTile = genTiles(10, 10);
+        Tile startTile = genTiles();
         genItems();
         placePlayers(players, startTile);
     }
@@ -43,35 +53,38 @@ public class Level {
         return tiles;
     }
 
+    /**
+     * Visszatér a RocketPart-okkal
+     * @return rocketparts
+     * @author Dani
+     */
     public ArrayList<RocketPart> getRocketParts() {
         return rocketParts;
     }
 
     /**
      *Generate the tiles of the level
-     * @param w the width of the table
-     * @param h the height of the table
      * @return the IceTile where the players begin the game
      * @author Dorina
      */
-    private Tile genTiles(int w, int h) {
-        for(int j = 0; j < w; j++){
-            for(int i = 0; i < h; i++){
+    private Tile genTiles() {
+        for(int j = 0; j < size; j++){
+            for(int i = 0; i < size; i++){
                 boolean hole = true;
                 Tile n1=null,n2=null,t;
                 if(i>0) {
-                    n1 = tiles.get(j * w + i - 1);
+                    n1 = tiles.get(j * size + i - 1);
                     if (n1.scanLimit() == 0) hole = false;
                     if(j>0){
-                        if(tiles.get((j-1)*w+i-1).scanLimit()==0) hole=false;
+                        if(tiles.get((j-1)*size+i-1).scanLimit()==0) hole=false;
                     }
 
                 }
                 if(j>0) {
-                    n2 = tiles.get((j - 1) * w + i);
+                    n2 = tiles.get((j - 1) * size + i);
                     if (n2.scanLimit() == 0) hole = false;
-                    if(i<w-1){
-                        if(tiles.get((j-1)*w + i + 1).scanLimit()==0) hole = false;
+                    if(i<size-1){
+                        if(tiles.get((j-1)*size + i + 1).scanLimit()==0) hole = false;
                     }
                 }
                 t = genTile(hole);
@@ -156,10 +169,10 @@ public class Level {
     private Tile placeItem(Item item) {
         Tile tile;
         do {
-            int x = ThreadLocalRandom.current().nextInt(0, 10); //sor
-            int y = ThreadLocalRandom.current().nextInt(0, 10); //oszlop
+            int x = ThreadLocalRandom.current().nextInt(0, size); //sor
+            int y = ThreadLocalRandom.current().nextInt(0, size); //oszlop
             tile = tiles.get(x + y * 10);
-        } while(tile.setFrozenItem(item));
+        } while(!tile.setFrozenItem(item));
 
         return tile;
     }
@@ -186,7 +199,5 @@ public class Level {
             tile = new HoleTile();
         }
         return tile;
-
     }
-
 }
