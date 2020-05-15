@@ -40,7 +40,7 @@ public class RemoveTent implements TurnBasedEvent{
      */
     void addTent(Tent tent) {
         singleton.tents.add(tent);
-        tent.setLife(3); //FIXME: meg kéne kapnia a controller-től a játékosok számát!
+        tent.setLife(Controller.getNumOfPlayers());
     }
 
     /**

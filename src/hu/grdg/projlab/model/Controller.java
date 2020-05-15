@@ -15,6 +15,17 @@ public class Controller {
     private Level level;
     private ArrayList<Player> players;
     ArrayList<RocketPart> rocketParts;
+    private static int numberOfPlayers;
+
+
+    /**
+     * Returns the number of players
+     * @return numOfPlayers attribute
+     * @author Dorina
+     */
+    public static int getNumOfPlayers(){
+        return numberOfPlayers;
+    }
 
     private Object playerLock = new Object();
 
@@ -133,6 +144,7 @@ public class Controller {
             response = JOptionPane.showInputDialog(null, message, "");
             try {
                 count = Integer.parseInt(response);
+                numberOfPlayers = count;
                 formatOk = true;
                 message = "A játékosok számának minimum 3-nak kell lennie!\nAdd meg a játékosok számát!";
             } catch(NumberFormatException e) {
