@@ -67,6 +67,7 @@ public class PolarBear extends Entity{
      */
     @Override
     public EntityRenderer getRenderer() {
+        System.out.println("AAAAA2");
         return renderer;
     }
 }

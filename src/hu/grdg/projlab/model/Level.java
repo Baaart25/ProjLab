@@ -46,6 +46,7 @@ public class Level {
         PolarBear bear = new PolarBear();
         int x = ThreadLocalRandom.current().nextInt(1,10), y = ThreadLocalRandom.current().nextInt(1,10);
         bear.setCurrentTile(tiles.get(y*size+x));
+        tiles.get(y*size+x).acceptEntity(bear);
         PolarBearStep.getInstance().addPolarBear(bear);
     }
 
