@@ -154,6 +154,15 @@ public abstract class Player extends Entity{
      */
     @Override
     public void die() {
+
+        //TODO REMOVE
+        try {
+            throw new RuntimeException("JEE");
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDIE);
         controller.endGame(false);
     }
