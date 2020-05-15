@@ -61,7 +61,17 @@ public abstract class Player extends Entity{
         return active;
     }
 
+
+    private boolean wasInWater;
     public void setActive(boolean a) {
+        if(wasInWater && !a)
+            die();
+
+        if(!a)
+            wasInWater = isInWater;
+
+
+
         this.active = a;
         //Trigger tile redraw
         currentTile.updateEvent();
@@ -162,6 +172,7 @@ public abstract class Player extends Entity{
     public boolean surviveWater(){
         if(isInWater) {
             isInWater = false;
+            wasInWater = false;
             return true;
         }
         return false;

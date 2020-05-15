@@ -29,6 +29,7 @@ public class HoleTile extends Tile{
     public void acceptEntity(Entity entity) {
         super.acceptEntity(entity);
         entity.fallInWater();
+        removeSnowLayer(getSnowLayers());
         ProtoIO.output(ProtoIO.OutputMessages.STEP_OUT_HOLE);
         entity.setCurrentTile(this);
         updateEvent();
