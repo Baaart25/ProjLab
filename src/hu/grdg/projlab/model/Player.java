@@ -145,6 +145,7 @@ public abstract class Player extends Entity{
         currentTemp -= i;
         ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDAMAGE);
         if(currentTemp<=0) die();
+        JOptionPane.showMessageDialog(null,"Player damaged","Oops", JOptionPane.WARNING_MESSAGE);
     }
 
     /**
