@@ -1,8 +1,10 @@
 package hu.grdg.projlab.model;
 
 import hu.grdg.projlab.gui.EntityRenderer;
+import hu.grdg.projlab.gui.render.PolarBearRenderer;
 
 public class PolarBear extends Entity{
+    private PolarBearRenderer renderer = new PolarBearRenderer();
 
     /**
      * Steps in given direction
@@ -58,9 +60,13 @@ public class PolarBear extends Entity{
         return false;
     }
 
-    //FIXME
+    /**
+     * Returns the renderer of the polarbear
+     * @return the renderer
+     * @author Dorina
+     */
     @Override
     public EntityRenderer getRenderer() {
-        return null;
+        return renderer;
     }
 }
