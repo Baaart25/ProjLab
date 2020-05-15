@@ -65,6 +65,9 @@ public abstract class Player extends Entity{
 
     private boolean wasInWater = false;
     public void setActive(boolean a) {
+        if(active == a)
+            return;
+
         if(wasInWater && !a && isInWater)
             die();
 
