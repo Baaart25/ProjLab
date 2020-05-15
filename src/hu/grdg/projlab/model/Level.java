@@ -190,7 +190,7 @@ public class Level {
         if(rnd<pIce){
             tile = new IceTile();
         }else if(rnd<pIce+pUnstable){
-            tile = new UnstableIceTile(ThreadLocalRandom.current().nextInt(4));
+            tile = new UnstableIceTile(ThreadLocalRandom.current().nextInt(1,6));
         }else {
             tile = new HoleTile();
         }
