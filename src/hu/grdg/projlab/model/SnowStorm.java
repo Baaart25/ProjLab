@@ -38,7 +38,6 @@ public class SnowStorm implements TurnBasedEvent{
                 }
             }
         }
-
     }
 
     //FIXME Fuckin not in docs
