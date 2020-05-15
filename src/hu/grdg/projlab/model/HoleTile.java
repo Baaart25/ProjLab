@@ -33,7 +33,6 @@ public class HoleTile extends Tile{
         ProtoIO.output(ProtoIO.OutputMessages.STEP_OUT_HOLE);
         entity.setCurrentTile(this);
         updateEvent();
-        JOptionPane.showMessageDialog(null, "You fell in a hole","OOPS", JOptionPane.WARNING_MESSAGE);
     }
 
     /**

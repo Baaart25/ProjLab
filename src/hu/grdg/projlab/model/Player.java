@@ -2,6 +2,7 @@ package hu.grdg.projlab.model;
 
 import hu.grdg.projlab.ProtoIO;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -163,6 +164,7 @@ public abstract class Player extends Entity{
     @Override
     public void fallInWater() {
         isInWater = true;
+        JOptionPane.showMessageDialog(null, "You fell in a hole","OOPS", JOptionPane.WARNING_MESSAGE);
     }
 
     /**
