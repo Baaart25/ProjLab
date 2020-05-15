@@ -120,6 +120,7 @@ public class DataView extends JPanel {
                     System.out.println("Item used: " + item.toString());
                     //TODO fix it
                     boolean succ = item.useItem();
+                    currentPlayer.getCurrentTile().updateEvent();
                     list.setSelectedIndex(-1);
 
                     //Very bad hack to ensure no concurrent modifs
