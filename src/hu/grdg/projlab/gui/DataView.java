@@ -129,6 +129,10 @@ public class DataView extends JPanel {
         }
 
         updateWorkLabel();
+
+        if(playerRemActions == 0) {
+            this.onPlayerTurnEnd.run();
+        }
     }
 
     private void setupActions() {
@@ -143,6 +147,20 @@ public class DataView extends JPanel {
         downButton.addActionListener(e -> {
             if(workCheck()) {
                 boolean res = currentPlayer.move(2);
+                workDone(res);
+            }
+        });
+
+        leftButton.addActionListener(e -> {
+            if(workCheck()) {
+                boolean res = currentPlayer.move(3);
+                workDone(res);
+            }
+        });
+
+        rightButton.addActionListener(e -> {
+            if(workCheck()) {
+                boolean res = currentPlayer.move(1);
                 workDone(res);
             }
         });
