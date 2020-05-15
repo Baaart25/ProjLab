@@ -14,7 +14,7 @@ public abstract class Item {
     //TODO Add to docs
     //FIXME
     public boolean isFrozen() {
-        return false;
+        return isFrozen;
     }
 
     /**

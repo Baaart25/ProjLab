@@ -9,6 +9,8 @@ public class DataView extends JPanel {
     private final JScrollPane inventoryScrollPane;
     private final JList<Item> list;
     private final Runnable onPlayerTurnEnd;
+    private final JButton unfreezeButton;
+    private final JButton pickupButton;
     private Controller controller;
 
     private JButton upButton;
@@ -82,6 +84,13 @@ public class DataView extends JPanel {
         this.add(centerRow);
         this.add(downRow);
 
+        unfreezeButton = new JButton("Unfreeze");
+        pickupButton = new JButton("Pickup");
+        JPanel bpanel = new JPanel();
+        bpanel.setLayout(new BoxLayout(bpanel, BoxLayout.X_AXIS));
+        bpanel.add(unfreezeButton);
+        bpanel.add(pickupButton);
+        this.add(bpanel);
 
         //Item view
         list = new JList<Item>();
@@ -162,6 +171,31 @@ public class DataView extends JPanel {
             if(workCheck()) {
                 boolean res = currentPlayer.move(1);
                 workDone(res);
+            }
+        });
+
+        unfreezeButton.addActionListener(e -> {
+            if(workCheck()) {
+                Item frozenItem = currentPlayer.getCurrentTile().getFrozenItem();
+                if(frozenItem != null) {
+                    boolean res = frozenItem.unfreeze();
+                    workDone(res);
+
+                    //Stupid hack to update tile
+                    currentPlayer.getCurrentTile().updateEvent();
+                }
+            }
+        });
+
+        pickupButton.addActionListener(e -> {
+            if(workCheck()) {
+                Item frozenItem = currentPlayer.getCurrentTile().getFrozenItem();
+                if(frozenItem != null) {
+                    boolean res = frozenItem.pickedUp(currentPlayer);
+                    workDone(res);
+
+                    currentPlayer.getCurrentTile().updateEvent();
+                }
             }
         });
     }

@@ -19,10 +19,12 @@ public class TileView extends JPanel {
     private static BufferedImage imgSnowLayer;
     private static TentRenderer tentRenderer = new TentRenderer();
     private static IglooRenderer iglooRenderer = new IglooRenderer();
+    private static BufferedImage imgIceLayer;
 
     static {
         try {
             imgSnowLayer = ImageIO.read(new File("img/TileWithSnow.png"));
+            imgIceLayer = ImageIO.read(new File("img/IceLayer.png"));
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
@@ -50,15 +52,12 @@ public class TileView extends JPanel {
 
         if(tile.getFrozenItem() != null) {
             tile.getFrozenItem().getRenderer().draw(g2, true);
-        }
 
-        //FIXME Uncomment if asset is done
-        /*
-        if(tile.getFrozenItem().isFrozen()) {
-            g.drawImage(imgIceLayer, 0,0,50,50, null);
+            if(tile.getFrozenItem().isFrozen()) {
+                System.out.println("Draw ice");
+                g.drawImage(imgIceLayer, 0,0,50,50, null);
+            }
         }
-        */
-
 
         /*
         if(tile.getSnowLayers() > 0) {

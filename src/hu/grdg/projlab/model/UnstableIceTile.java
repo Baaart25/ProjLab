@@ -28,6 +28,7 @@ public class UnstableIceTile extends IceTile{
         super.acceptEntity(entity);
         if(entities.size()>limit) {
             //ProtoIO.output(ProtoIO.OutputMessages.STEP_OUT_UNSTABLE_DIE);
+            System.out.printf("Unstable tile die: %d\n", limit);
             entity.die();
         }
         else{
