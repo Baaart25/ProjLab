@@ -26,10 +26,18 @@ public class TileRendererImpl implements TileRenderer {
         }
     }
 
+    /**
+     * Sets the attribute isHole to the given param
+     * @param isHole
+     */
     public TileRendererImpl(boolean isHole) {
         this.isHole = isHole;
     }
 
+    /**
+     * Draw Tile to the given g Graphics
+     * @param g the Graphics
+     */
     @Override
     public void draw(Graphics2D g) {
         if(isHole)

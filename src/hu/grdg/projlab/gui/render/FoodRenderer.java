@@ -11,6 +11,9 @@ import java.io.IOException;
 public class FoodRenderer implements ItemRenderer {
     private BufferedImage foodImage;
 
+    /**
+     * Loads the image for food
+     */
     public FoodRenderer() {
         try {
             this.foodImage = ImageIO.read(new File("img/Food.png"));
@@ -23,8 +26,8 @@ public class FoodRenderer implements ItemRenderer {
     /**
      * Kirajzoltatja g-re a képet
      * ha Tile-ra kell rajzolni, akkor kisebbet rajzol
-     * @param g
-     * @param isTile
+     * @param g Canvas for drawing
+     * @param isTile True if its being drawn to tile
      */
     @Override
     public void draw(Graphics2D g, boolean isTile) {
