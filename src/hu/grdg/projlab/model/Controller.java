@@ -16,6 +16,8 @@ public class Controller {
     private ArrayList<Player> players;
     ArrayList<RocketPart> rocketParts;
 
+    private Object playerLock = new Object();
+
     //Event listeners
     private ArrayList<Runnable> gameStartEventListeners = new ArrayList<>();
     private ArrayList<Consumer<Player>> nextPlayerEventListeners = new ArrayList<>();
@@ -74,6 +76,41 @@ public class Controller {
         //Call event listeners
         for (Runnable gameStartEventListener : this.gameStartEventListeners) {
             gameStartEventListener.run();
+        }
+
+        while(true) {
+            for(int i = 0; i < players.size(); i++) {
+                System.out.printf("Player %d's turn\n", i);
+
+                for (Consumer<Player> nextPlayerEventListener : nextPlayerEventListeners) {
+                    nextPlayerEventListener.accept(players.get(i));
+                }
+
+                //Wait until player return
+                try {
+                    synchronized (playerLock) {
+                        playerLock.wait();
+                    }
+                } catch (InterruptedException e) {
+                    System.err.println("Player loop wait interrupted");
+                    System.exit(-1);
+                }
+
+                //Run env events between players
+                for (TurnBasedEvent event : events) {
+                    event.doEvent(this.level, false);
+                }
+            }
+            //Run env events after full circle
+            for (TurnBasedEvent event : events) {
+                event.doEvent(this.level, true);
+            }
+        }
+    }
+
+    public void playerTurnEndedHandler() {
+        synchronized (playerLock) {
+            playerLock.notifyAll();
         }
     }
 

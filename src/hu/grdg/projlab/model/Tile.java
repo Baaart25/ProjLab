@@ -3,6 +3,7 @@ package hu.grdg.projlab.model;
 import hu.grdg.projlab.Proto;
 import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.gui.TileRenderer;
+import hu.grdg.projlab.gui.TileView;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,6 +17,7 @@ public abstract class Tile {
     private Item frozenItem;
     private HashMap<Integer,Tile> neighbours;
     protected ArrayList<Entity> entities;
+    private ArrayList<Runnable> tileUpdateListeners = new ArrayList<>();
 
     public Tile(){
         neighbours= new HashMap<Integer, Tile>();
@@ -62,6 +64,7 @@ public abstract class Tile {
     public boolean removeSnowLayer(int amount) {
         if(snowLayers==0) return false;
         snowLayers = (snowLayers<=amount) ? 0 : (snowLayers-amount);
+        updateEvent();
         return true;
     }
 
@@ -74,6 +77,7 @@ public abstract class Tile {
     public void acceptEntity(Entity entity) {
         entity.setCurrentTile(this);
         entities.add(entity);
+        updateEvent();
     }
 
     /**
@@ -84,6 +88,7 @@ public abstract class Tile {
     public boolean setFrozenItem(Item item) {
         if(frozenItem==null){
             frozenItem = item;
+            updateEvent();
             return true;
         }
         return false;
@@ -96,6 +101,7 @@ public abstract class Tile {
      */
     public void addSnowLayer(int amount) {
         snowLayers += amount;
+        updateEvent();
     }
 
     /**
@@ -105,6 +111,7 @@ public abstract class Tile {
      */
     public void removeEntity(Entity entity) {
         entities.remove(entity);
+        updateEvent();
     }
 
     /**
@@ -115,6 +122,7 @@ public abstract class Tile {
     public boolean buildIgloo(){
         if(hasIgloo) return false;
         hasIgloo=true;
+        updateEvent();
         return true;
     }
 
@@ -126,7 +134,9 @@ public abstract class Tile {
      */
     public boolean pickupItem(Player player){
         if(snowLayers>0 || frozenItem==null) return false;
+        updateEvent();
         return frozenItem.pickedUp(player);
+
     }
 
     /**
@@ -215,6 +225,16 @@ public abstract class Tile {
 
     public boolean hasTent() {
         return hasTent;
+    }
+
+    public void addOnUpdateListener(Runnable listener) {
+        tileUpdateListeners.add(listener);
+    }
+
+    public void updateEvent() {
+        for (Runnable tileUpdateListener : this.tileUpdateListeners) {
+            tileUpdateListener.run();
+        }
     }
 }
 

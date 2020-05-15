@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
-import java.io.IOException;
 
 public class MainWindow extends JFrame {
     private JMenuBar mainMenuBar;
@@ -132,7 +131,7 @@ public class MainWindow extends JFrame {
         menuItemAbout.addActionListener(this::showAbout);
         menuItemHelp.addActionListener(this::showHelp);
 
-        menuItemNewGame.addActionListener(this::newGame);
+        menuItemNewGame.addActionListener(this::startGameAsync);
         menuItemExit.addActionListener(this::showExitConfirm);
 
         menuGame.add(menuItemNewGame);
@@ -148,12 +147,13 @@ public class MainWindow extends JFrame {
     }
 
     /**
-     * //TODO pályát még nem generál
      * @author Dani
      * @param actionEvent ignored
      */
-    private void newGame(ActionEvent actionEvent) {
-        controller.startGame();
+    private void startGameAsync(ActionEvent actionEvent) {
+        Thread gameThread = new Thread(controller::startGame);
+        gameThread.setName("Game main loop");
+        gameThread.start();
     }
 
     /**

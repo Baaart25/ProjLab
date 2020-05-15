@@ -105,11 +105,14 @@ public abstract class Player extends Entity{
      * @author Dorina
      */
     @Override
-    public void move(int direction) {
-        if(isInWater) return;
+    public boolean move(int direction) {
+        if(isInWater) return false;
         Tile newTile = currentTile.getNeighbour(direction);
+        if(newTile == null)
+            return false;
         currentTile.removeEntity(this);
         newTile.acceptEntity(this);
+        return true;
     }
 
     /**
@@ -173,5 +176,7 @@ public abstract class Player extends Entity{
     }
 
 
-
+    public int getTemp() {
+        return currentTemp;
+    }
 }

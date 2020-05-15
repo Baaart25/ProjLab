@@ -14,7 +14,7 @@ public abstract class Entity {
         return currentTile;
     }
 
-    public abstract void move(int direction);
+    public abstract boolean move(int direction);
 
     public abstract void damage(int i);
 
