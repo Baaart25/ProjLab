@@ -95,6 +95,10 @@ public class Controller {
 
         while(true) {
             for(int i = 0; i < players.size(); i++) {
+                for (Player player : players) {
+                    player.setActive(false);
+                }
+
                 System.out.printf("Player %d's turn\n", i);
                 JOptionPane.showMessageDialog(null, String.format("Player %d's turn\n", i),"Player turn",JOptionPane.INFORMATION_MESSAGE);
                 players.get(i).setActive(true);
@@ -187,9 +191,6 @@ public class Controller {
         level = new Level(this);
         generatePlayers();
         level.generateLevel(players);
-
-
-
     }
 
     /**
