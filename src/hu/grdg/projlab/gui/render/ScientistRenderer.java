@@ -28,12 +28,12 @@ public class ScientistRenderer implements EntityRenderer {
 
 
     /**
-     * Draw the Scientist to the given g Grpahics
-     * @param g
-     * @param isActive true if the Scientist active
-     * @param xOffset offset int direction x
-     * @param yOffset offset int direction y
-     * @param isInWater true if the Scientist is in water
+     * Draws the Eskimo based on its state
+     * @param g Canvas for drawing
+     * @param isActive True if this is the selected player
+     * @param xOffset X position of the picture
+     * @param yOffset Y position of the picture
+     * @param isInWater True if the eskimo is in water
      */
     @Override
     public void draw(Graphics2D g, boolean isActive, int xOffset, int yOffset, boolean isInWater) {
