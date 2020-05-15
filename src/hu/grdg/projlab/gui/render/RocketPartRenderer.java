@@ -12,6 +12,10 @@ public class RocketPartRenderer implements ItemRenderer {
     private int partType;
     private BufferedImage rocketPartImage;
 
+    /**
+     * Betölti a rakéta képét a típusa alapján
+     * @param _partType A rakéta típusa
+     */
     public RocketPartRenderer(int _partType) {
         partType = _partType;
         try {
@@ -25,8 +29,8 @@ public class RocketPartRenderer implements ItemRenderer {
     /**
      * Kirajzoltatja g-re a képet
      * ha Tile-ra kell rajzolni, akkor kisebbet rajzol
-     * @param g
-     * @param isTile
+     * @param g A kirajzolás helye
+     * @param isTile Mezőre kell-e rajzolni
      */
     @Override
     public void draw(Graphics2D g, boolean isTile) {
