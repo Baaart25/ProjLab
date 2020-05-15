@@ -14,6 +14,9 @@ public class EskimoRenderer implements EntityRenderer {
     private BufferedImage eskimoOnHoleImage;
     private BufferedImage eskimoOnHoleSelectedImage;
 
+    /**
+     * Loads the images for Eskimo
+     */
     public EskimoRenderer(){
         try {
             this.eskimoImage = ImageIO.read(new File("img/Eskimo.png"));
@@ -26,6 +29,14 @@ public class EskimoRenderer implements EntityRenderer {
         }
     }
 
+    /**
+     * Draws the Eskimo based on its state
+     * @param g Canvas for drawing
+     * @param isActive True if this is the selected player
+     * @param xOffset X position of the picture
+     * @param yOffset Y position of the picture
+     * @param isInWater True if the eskimo is in water
+     */
     @Override
     public void draw(Graphics2D g, boolean isActive, int xOffset, int yOffset, boolean isInWater){
         if (isInWater)
