@@ -14,6 +14,9 @@ public class LevelView extends JPanel {
         super();
 
         this.controller = c;
+        controller.addOnGameStartListener(() -> {
+            this.regenTileMap();
+        });
         setSize(600, 525);
 
         //Absolute positioning

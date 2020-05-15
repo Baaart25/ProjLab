@@ -4,6 +4,7 @@ import hu.grdg.projlab.ProtoIO;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 /**
  * The controller controls the whole game. It creates the map, the players, the events.
@@ -15,10 +16,24 @@ public class Controller {
     private ArrayList<Player> players;
     ArrayList<RocketPart> rocketParts;
 
+    //Event listeners
+    private ArrayList<Runnable> gameStartEventListeners = new ArrayList<>();
+    private ArrayList<Consumer<Player>> nextPlayerEventListeners = new ArrayList<>();
+
     public Controller(){
         events = new ArrayList<TurnBasedEvent>();
         players = new ArrayList<Player>();
         rocketParts = new ArrayList<RocketPart>();
+    }
+
+
+    //Event listeners
+    public void addOnGameStartListener(Runnable listner) {
+        this.gameStartEventListeners.add(listner);
+    }
+
+    public void addOnNextPlayerListner(Consumer<Player> listener) {
+        this.nextPlayerEventListeners.add(listener);
     }
 
     /**TODO: lehet kikéne az ilyeneket törölni
@@ -50,6 +65,12 @@ public class Controller {
 
 
     public void startGame() {
+        this.init();
+
+        //Call event listeners
+        for (Runnable gameStartEventListener : this.gameStartEventListeners) {
+            gameStartEventListener.run();
+        }
     }
 
     /**
