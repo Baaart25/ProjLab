@@ -19,18 +19,24 @@ public class LevelView extends JPanel {
         //Absolute positioning
         setLayout(null);
 
-        //TODO Repalce with level data
-        int tileXCount = 10;
-        int tileYCount = 10;
+        setBackground(new Color(0x4487D2));
 
-        controller.init();
+        if(controller.getLevel() == null)
+            return;
+
+        regenTileMap();
+    }
+
+    private void regenTileMap() {
         ArrayList<Tile> tiles = controller.getLevel().getTiles();
+        int tileXCount = (int) Math.sqrt(tiles.size());
+        int tileYCount = (int) Math.sqrt(tiles.size());
 
         //Calculate the offset to center the tile map
         int xOffset = (getWidth() - (tileXCount * 50)) / 2;
         int yOffset = (getHeight() - (tileYCount * 50)) / 2;
 
-        setBackground(new Color(0x4487D2));
+
 
         //Gen tiles
         for(int x = 0; x < tileXCount; x++) {
@@ -51,41 +57,13 @@ public class LevelView extends JPanel {
                 if(x % 2 == 0 && y % 2 == 0)
                     */
                 //tiles.get(y + x * 10).setFrozenItem(new RocketPart(null, 1));
-                TileView tw = new TileView(tiles.get(y + x * 10));
+                TileView tw = new TileView(tiles.get(y + x * tileXCount));
                 tw.setSize(50,50);
                 tw.setBounds(xOffset + x * 50, yOffset + y * 50, 50,50);
 
                 this.add(tw);
             }
         }
-
-        //Ez anno működött és nem mertem kitörölni xD (Dani)
-        /*for(int x = 0; x < tileXCount; x++) {
-            for(int y = 0; y < tileYCount; y++) {
-
-                IceTile tile = new IceTile();
-                tile.addSnowLayer(ThreadLocalRandom.current().nextInt(0,2));
-
-                for(int i = 0; i < y;i++) {
-                    tile.acceptEntity(i % 2 == 0 ? new Eskimo(null) : new Scientist(null));
-                }
-
-                if(ThreadLocalRandom.current().nextBoolean())
-                    tile.buildIgloo();
-                if(ThreadLocalRandom.current().nextBoolean())
-                    tile.buildTent();
-
-                if(x % 2 == 0 && y % 2 == 0)
-                    tile.setFrozenItem(new RocketPart(null, 1 + (y % 3)));
-
-                TileView tw = new TileView(tile);
-                tw.setSize(50,50);
-                tw.setBounds(xOffset + x * 50, yOffset + y * 50, 50,50);
-
-                this.add(tw);
-            }
-        }*/
-
 
     }
 
