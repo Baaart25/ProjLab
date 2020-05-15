@@ -44,10 +44,10 @@ public class LevelView extends JPanel {
 
 
         //Gen tiles
-        for(int x = 0; x < tileXCount; x++) {
-            for(int y = 0; y < tileYCount; y++) {
+        for(int y = 0; y < tileYCount; y++) {
+            for(int x = 0; x < tileXCount; x++) {
 
-                Tile tile = tiles.get(y + x * tileXCount);
+                Tile tile = tiles.get(y * tileYCount + x);
                 TileView tw = new TileView(tile);
                 tw.setSize(50,50);
                 tw.setBounds(xOffset + x * 50, yOffset + y * 50, 50,50);
