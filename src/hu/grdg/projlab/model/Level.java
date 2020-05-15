@@ -68,9 +68,6 @@ public class Level {
             for(int i = 0; i < size; i++){
                 boolean hole = true;
                 Tile n1=null,n2=null,t;
-                if(i==0 && j ==0){
-                    t = new IceTile();
-                }
                 if(i>0) {
                     n1 = tiles.get(j * size + i - 1);
                     if (n1.scanLimit() == 0) hole = false;
@@ -86,7 +83,11 @@ public class Level {
                         if(tiles.get((j-1)*size + i + 1).scanLimit()==0) hole = false;
                     }
                 }
-                t = genTile(hole);
+                if(i==0 && j ==0){
+                    t = new IceTile();
+                }else {
+                    t = genTile(hole);
+                }
                 if(n1!=null) {
                     t.setNeighbour(n1, 3);
                     n1.setNeighbour(t, 1);
