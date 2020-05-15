@@ -110,7 +110,6 @@ public class Level {
             Item item = new Food();
             placeItem(item);
         }
-        System.out.println();
         //Rope
         for(int i = 0; i < 5; i++) {
             Item item = new Rope();
@@ -170,7 +169,6 @@ public class Level {
             y = ThreadLocalRandom.current().nextInt(0, size); //oszlop
             tile = tiles.get(x + y * 10);
         } while(!tile.setFrozenItem(item));
-        System.out.println(x + " " + y);
         return tile;
     }
 
