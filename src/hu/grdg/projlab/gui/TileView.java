@@ -36,6 +36,9 @@ public class TileView extends JPanel {
             throw new RuntimeException("DO NOT USE FUCKIN NULLS");
 
         this.tile = tile;
+        this.tile.addOnUpdateListener(() -> {
+            this.repaint();
+        });
     }
 
     @Override

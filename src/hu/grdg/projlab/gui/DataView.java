@@ -113,7 +113,7 @@ public class DataView extends JPanel {
         invPanel.setLayout(new BoxLayout(invPanel, BoxLayout.X_AXIS));
         invPanel.setMaximumSize(new Dimension(180,85));
         invPanel.add(inventoryScrollPane);
-        //this.add(invPanel);
+        this.add(invPanel);
 
         setupActions();
     }
@@ -151,8 +151,8 @@ public class DataView extends JPanel {
     private void reloadInfo() {
         //Inventory
         DefaultListModel<Item> model = (DefaultListModel<Item>) list.getModel();
-        model.clear();
-        model.addAll(currentPlayer.getInventory());
+        //model.clear();
+        //model.addAll(currentPlayer.getInventory());
 
         this.healthLabel.setText(String.valueOf(currentPlayer.getTemp()));
         updateWorkLabel();

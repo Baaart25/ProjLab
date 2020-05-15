@@ -21,12 +21,6 @@ public class IceTile extends Tile{
     }
 
     @Override
-    public void acceptEntity(Entity entity) {
-        super.acceptEntity(entity);
-        ProtoIO.output(ProtoIO.OutputMessages.STEP_OUT_TILE);
-    }
-
-    @Override
     public TileRenderer getRenderer() {
         return renderer;
     }

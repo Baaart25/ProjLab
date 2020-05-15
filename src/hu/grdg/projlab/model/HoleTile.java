@@ -29,6 +29,7 @@ public class HoleTile extends Tile{
         entity.fallInWater();
         ProtoIO.output(ProtoIO.OutputMessages.STEP_OUT_HOLE);
         entity.setCurrentTile(this);
+        updateEvent();
     }
 
     /**
