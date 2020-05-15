@@ -4,6 +4,8 @@ import hu.grdg.projlab.model.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class DataView extends JPanel {
     private final JScrollPane inventoryScrollPane;
@@ -110,12 +112,64 @@ public class DataView extends JPanel {
         list.setFixedCellWidth(50);
         list.setVisibleRowCount(1);
 
-        list.addListSelectionListener(listSelectionEvent -> {
+        list.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //Only left clicks
+                if(e.getButton() == MouseEvent.BUTTON1) {
+                    Point p = e.getPoint();
+                    int loc = list.locationToIndex(p);
+
+                    Item item = list.getModel().getElementAt(loc);
+
+                    if (workCheck()) {
+                        System.out.println("Item used: " + item.toString());
+                        //TODO fix it
+                        boolean succ = item.useItem();
+                        currentPlayer.getCurrentTile().updateEvent();
+
+                        //Very bad hack to ensure no concurrent modifs
+                        new Thread(() -> {
+                            try {
+                                Thread.sleep(10);
+                                DataView.this.reloadInfo();
+                            } catch (InterruptedException ignored) {
+                            }
+                        }).start();
+
+                        workDone(succ);
+                    }
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                //DONT CARE
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                //DONT CARE
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        /*list.addListSelectionListener(listSelectionEvent -> {
             try {
                 if (listSelectionEvent.getFirstIndex() < 0)
                     return;
                 int index = listSelectionEvent.getFirstIndex();
                 Item item = list.getModel().getElementAt(index);
+                list.setSelectedIndex(-1);
                 if (workCheck()) {
                     System.out.println("Item used: " + item.toString());
                     //TODO fix it
@@ -138,7 +192,7 @@ public class DataView extends JPanel {
                 //IDK why but it is pretty dangerous
             }
 
-        });
+        });*/
 
         inventoryScrollPane = new JScrollPane(list);
         inventoryScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
