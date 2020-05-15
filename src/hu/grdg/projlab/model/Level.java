@@ -1,14 +1,10 @@
 package hu.grdg.projlab.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Level {
-    private ArrayList<Tile> tiles = new ArrayList<>();
+    private ArrayList<Tile> tiles;
     private ArrayList<RocketPart> rocketParts;
     private Controller controller;
     private static int size = 10;
