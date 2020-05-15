@@ -11,6 +11,9 @@ import java.io.IOException;
 public class IglooRenderer implements ItemRenderer {
     private BufferedImage iglooImage;
 
+    /**
+     * Loads the image for igloo
+     */
     public IglooRenderer() {
         try {
             this.iglooImage = ImageIO.read(new File("img/Igloo.png"));
@@ -19,6 +22,12 @@ public class IglooRenderer implements ItemRenderer {
             System.exit(-1);
         }
     }
+
+    /**
+     * Kirajzolja a képet
+     * @param g Ahova rajzolja
+     * @param isTile Mezőre kell-e rajzolni
+     */
     @Override
     public void draw(Graphics2D g, boolean isTile) {
         if(!isTile)
