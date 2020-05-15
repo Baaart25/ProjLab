@@ -5,7 +5,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Level {
     private ArrayList<Tile> tiles;
-    private ArrayList<RocketPart> rocketParts;
     private Controller controller;
     private static int size = 10;
 
@@ -17,7 +16,6 @@ public class Level {
     Level(Controller c) {
         controller = c;
         tiles = new ArrayList<Tile>();
-        rocketParts = new ArrayList<RocketPart>();
     }
 
     /**
@@ -54,9 +52,9 @@ public class Level {
      * @return rocketparts
      * @author Dani
      */
-    public ArrayList<RocketPart> getRocketParts() {
-        return rocketParts;
-    }
+    //public ArrayList<RocketPart> getRocketParts() {
+    //    return rocketParts;
+    //}
 
     /**
      *Generate the tiles of the level
@@ -113,7 +111,6 @@ public class Level {
             Item item = new Food();
             placeItem(item);
         }
-        System.out.println();
         //Rope
         for(int i = 0; i < 5; i++) {
             Item item = new Rope();
@@ -144,7 +141,7 @@ public class Level {
         for(int i = 0; i < 3; i++) {
             RocketPart item = new RocketPart(controller, i + 1);
             placeItem(item);
-            rocketParts.add(item);
+            controller.addRocketPart(item);
         }
     }
 
@@ -173,7 +170,6 @@ public class Level {
             y = ThreadLocalRandom.current().nextInt(0, size); //oszlop
             tile = tiles.get(x + y * 10);
         } while(!tile.setFrozenItem(item));
-        System.out.println(x + " " + y);
         return tile;
     }
 
@@ -194,7 +190,7 @@ public class Level {
         if(rnd<pIce){
             tile = new IceTile();
         }else if(rnd<pIce+pUnstable){
-            tile = new UnstableIceTile(ThreadLocalRandom.current().nextInt(4));
+            tile = new UnstableIceTile(ThreadLocalRandom.current().nextInt(1,6));
         }else {
             tile = new HoleTile();
         }

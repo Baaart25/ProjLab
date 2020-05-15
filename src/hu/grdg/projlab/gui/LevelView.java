@@ -58,6 +58,10 @@ public class LevelView extends JPanel {
         this.repaint();
         this.invalidate();
         this.repaint();
+
+
+
+
     }
 
     @Override
