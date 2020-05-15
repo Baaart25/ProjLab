@@ -15,6 +15,7 @@ public class LevelView extends JPanel {
 
         this.controller = c;
         controller.addOnGameStartListener(() -> {
+            System.out.println("ASDASD");
             this.regenTileMap();
         });
         setSize(600, 525);
@@ -31,6 +32,7 @@ public class LevelView extends JPanel {
     }
 
     private void regenTileMap() {
+        this.removeAll();
         ArrayList<Tile> tiles = controller.getLevel().getTiles();
         int tileXCount = (int) Math.sqrt(tiles.size());
         int tileYCount = (int) Math.sqrt(tiles.size());
@@ -45,29 +47,22 @@ public class LevelView extends JPanel {
         for(int x = 0; x < tileXCount; x++) {
             for(int y = 0; y < tileYCount; y++) {
 
-                /*IceTile tile = new IceTile();
-                tile.addSnowLayer(ThreadLocalRandom.current().nextInt(0,2));
-
-                for(int i = 0; i < y;i++) {
-                    tile.acceptEntity(i % 2 == 0 ? new Eskimo(null) : new Scientist(null));
-                }
-
-                if(ThreadLocalRandom.current().nextBoolean())
-                    tile.buildIgloo();
-                if(ThreadLocalRandom.current().nextBoolean())
-                    tile.buildTent();
-
-                if(x % 2 == 0 && y % 2 == 0)
-                    */
-                //tiles.get(y + x * 10).setFrozenItem(new RocketPart(null, 1));
-                TileView tw = new TileView(tiles.get(y + x * tileXCount));
+                Tile tile = tiles.get(y + x * tileXCount);
+                TileView tw = new TileView(tile);
                 tw.setSize(50,50);
                 tw.setBounds(xOffset + x * 50, yOffset + y * 50, 50,50);
 
                 this.add(tw);
             }
         }
-
+        this.repaint();
+        this.invalidate();
+        this.repaint();
     }
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        System.out.println("LOL");
+    }
 }

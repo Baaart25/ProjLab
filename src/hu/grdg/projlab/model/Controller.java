@@ -62,9 +62,13 @@ public class Controller {
         System.exit(0);
     }
 
+    private void reset() {
+        this.players.clear();
 
+    }
 
     public void startGame() {
+        this.reset();
         this.init();
 
         //Call event listeners
