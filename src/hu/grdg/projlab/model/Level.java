@@ -168,12 +168,13 @@ public class Level {
      */
     private Tile placeItem(Item item) {
         Tile tile;
+        int x, y;
         do {
-            int x = ThreadLocalRandom.current().nextInt(0, size); //sor
-            int y = ThreadLocalRandom.current().nextInt(0, size); //oszlop
+            x = ThreadLocalRandom.current().nextInt(0, size); //sor
+            y = ThreadLocalRandom.current().nextInt(0, size); //oszlop
             tile = tiles.get(x + y * 10);
         } while(!tile.setFrozenItem(item));
-
+        System.out.println(x + " " + y);
         return tile;
     }
 
