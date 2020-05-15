@@ -28,8 +28,6 @@ public class RemoveTent implements TurnBasedEvent{
      * @author Dani
      */
     public static RemoveTent getInstance() {
-        if (singleton == null)
-            singleton = new RemoveTent();
         return singleton;
     }
 

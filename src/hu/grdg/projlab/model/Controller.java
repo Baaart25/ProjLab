@@ -177,14 +177,18 @@ public class Controller {
      * @author Dani
      */
     public void init() {
-        level = new Level(this);
-        generatePlayers();
-        level.generateLevel(players);
+        System.out.println("INIT called");
 
         //Actually init events because they dont work without it xD
         events.add(new SnowStorm());
         events.add(new PolarBearStep());
         events.add(new RemoveTent());
+
+        level = new Level(this);
+        generatePlayers();
+        level.generateLevel(players);
+
+
 
     }
 

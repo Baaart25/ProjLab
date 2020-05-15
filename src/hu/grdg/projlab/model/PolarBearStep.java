@@ -42,9 +42,6 @@ public class PolarBearStep implements TurnBasedEvent{
      * @author Dorina
      */
     public static PolarBearStep getInstance() {
-        if(instance==null){
-            new PolarBearStep();
-        }
         return instance;
     }
 }
