@@ -69,7 +69,8 @@ public class Controller {
 
     }
 
-    public void startGame() {
+    public void startGame(){
+
         this.reset();
         this.init();
 

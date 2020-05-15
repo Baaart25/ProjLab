@@ -13,8 +13,6 @@ public class RocketPart extends Item{
         partType = _partType;
         renderer = new RocketPartRenderer(partType);
         controller = c;
-        //FIXME
-        //c.addRocketPart(this);
     }
 
     public boolean useItem(){

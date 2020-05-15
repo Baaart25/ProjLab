@@ -143,7 +143,6 @@ public class MainWindow extends JFrame {
         mainMenuBar.add(menuGame);
         mainMenuBar.add(menuHelp);
         setJMenuBar(mainMenuBar);
-
     }
 
     /**

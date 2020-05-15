@@ -5,7 +5,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Level {
     private ArrayList<Tile> tiles;
-    private ArrayList<RocketPart> rocketParts;
     private Controller controller;
     private static int size = 10;
 
@@ -17,7 +16,6 @@ public class Level {
     Level(Controller c) {
         controller = c;
         tiles = new ArrayList<Tile>();
-        rocketParts = new ArrayList<RocketPart>();
     }
 
     /**
@@ -54,9 +52,9 @@ public class Level {
      * @return rocketparts
      * @author Dani
      */
-    public ArrayList<RocketPart> getRocketParts() {
-        return rocketParts;
-    }
+    //public ArrayList<RocketPart> getRocketParts() {
+    //    return rocketParts;
+    //}
 
     /**
      *Generate the tiles of the level
@@ -143,7 +141,7 @@ public class Level {
         for(int i = 0; i < 3; i++) {
             RocketPart item = new RocketPart(controller, i + 1);
             placeItem(item);
-            rocketParts.add(item);
+            controller.addRocketPart(item);
         }
     }
 
