@@ -10,6 +10,10 @@ import hu.grdg.projlab.gui.render.ShovelRenderer;
 public class BreakableShovel extends Shovel{
     private BreakableShovelRenderer renderer = new BreakableShovelRenderer(this);
 
+    /**
+     * Returns the renderer of the BrokenShovel
+     * @return renderer attribute
+     */
     @Override
     public ItemRenderer getRenderer() {
         return renderer;
@@ -37,6 +41,11 @@ public class BreakableShovel extends Shovel{
     }
 
     //TODO add to document
+
+    /**
+     * Returns how many times have the shovel been used
+     * @return useCount attribute
+     */
     public int getUseCount(){
         return useCount;
     }

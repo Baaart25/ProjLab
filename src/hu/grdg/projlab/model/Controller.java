@@ -66,6 +66,11 @@ public class Controller {
     }
 
     //FIXME
+
+    /**
+     * Ends the game
+     * @param win true if the players won the game, false if they lost it
+     */
     public void endGame(boolean win){
 
         if(win) {
@@ -78,11 +83,16 @@ public class Controller {
         System.exit(0);
     }
 
+    /**
+     * reset (delete) the players
+     */
     private void reset() {
         this.players.clear();
-
     }
 
+    /**
+     * Starts the game, handle the rounds
+     */
     public void startGame(){
 
         this.reset();
@@ -219,6 +229,10 @@ public class Controller {
         return players.size();
     }
 
+    /**
+     * Returns the level of the game
+     * @return level attribute
+     */
     public Level getLevel() {
         return level;
     }
