@@ -34,7 +34,6 @@ public class SnowStorm implements TurnBasedEvent{
         }
     }
 
-    //FIXME Fuckin not in docs
     /**
      * Do the storm on the tile. It adds the snow and damages the players.
      * @param tile Target tile

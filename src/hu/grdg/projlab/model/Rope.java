@@ -14,6 +14,10 @@ public class Rope extends Item{
         return owner.savingPlayers();
     }
 
+    /**
+     * Returns the renderer of the Rope
+     * @return renderer attribute
+     */
     @Override
     public ItemRenderer getRenderer() {
         return renderer;

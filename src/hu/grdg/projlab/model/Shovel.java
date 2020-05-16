@@ -16,6 +16,10 @@ public class Shovel extends Item {
         return t.removeSnowLayer(2);
     }
 
+    /**
+     * Returns the renderer of the Shovel
+     * @return renderer attribute
+     */
     @Override
     public ItemRenderer getRenderer() {
         return renderer;

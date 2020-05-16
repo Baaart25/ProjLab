@@ -7,13 +7,6 @@ public abstract class Item {
     protected boolean isFrozen = true;
     protected Player owner;
 
-
-
-    //----------WARNING-------------
-    //NOT IN DOCS
-    //TODO Add to docs
-    //FIXME
-
     /**
      * Return if the Item is frozen
      * @return true if the Item is frozen
@@ -68,9 +61,6 @@ public abstract class Item {
         return owner;
     }
 
-    //---------------WARNING-----------------
-    //NOT IN DOCS
-    //TODO Add docs
     /**
      * Sets the isFrozen property. Used for saved game loading
      * @param isForzen The new state
@@ -79,7 +69,6 @@ public abstract class Item {
         this.isFrozen = isForzen;
     }
 
-    //----------NOT IN FUCKIN DOCS-----------------
     /**
      * Sets the owner of the item
      * @param player The new owner

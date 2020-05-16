@@ -82,7 +82,6 @@ public abstract class Player extends Entity{
         currentTile.updateEvent();
     }
 
-    //----------------NOT IN DOC-----------
     /**
      * Sets the current temp
      * @param currentTemp The current temp

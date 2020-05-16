@@ -3,7 +3,6 @@ package hu.grdg.projlab.model;
 import hu.grdg.projlab.gui.ItemRenderer;
 import hu.grdg.projlab.gui.render.TentRenderer;
 
-//Ez nincs a doksiban xD
 public class Tent extends Item {
     private static TentRenderer renderer = new TentRenderer();
     private int life;
@@ -26,6 +25,10 @@ public class Tent extends Item {
         return res;
     }
 
+    /**
+     *Returns the renderer of the Tent
+     * @return renderer attribute
+     */
     @Override
     public ItemRenderer getRenderer() {
         return renderer;
@@ -44,8 +47,7 @@ public class Tent extends Item {
         }
     }
 
-    /**EZ MÉG NEM SZEREPELT DOKSIBAN!
-     * Beállítja a paraméterként kapott értékre a sátor élettartamát
+    /** Beállítja a paraméterként kapott értékre a sátor élettartamát
      * @param life
      * @author Dani
      */

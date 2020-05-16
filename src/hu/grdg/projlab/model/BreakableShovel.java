@@ -40,8 +40,6 @@ public class BreakableShovel extends Shovel{
         return false;
     }
 
-    //TODO add to document
-
     /**
      * Returns how many times have the shovel been used
      * @return useCount attribute

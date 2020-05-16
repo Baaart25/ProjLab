@@ -74,7 +74,6 @@ public abstract class Tile {
      * @param entity the Entity who steps on the Tile
      * @author Dorina
      */
-    //--------THE TILE HAVE TO PRINT THE STEP_OUT_MESSAGE BASED ON TILE----------
     public void acceptEntity(Entity entity) {
         entity.setCurrentTile(this);
         entities.add(entity);
@@ -172,7 +171,7 @@ public abstract class Tile {
     public abstract int scanLimit();
 
     /**
-     *
+     *Return the entitites
      * @return the entities on the Tile
      * @author Dorina
      */
@@ -181,6 +180,7 @@ public abstract class Tile {
     }
 
     /**
+     * Return the neighbours of the Tile
      * @return all the neighbours
      * @author Dorina
      */
@@ -221,10 +221,20 @@ public abstract class Tile {
         return snowLayers;
     }
 
+    /**
+     * Return if the Tile has an igloo
+     * @return true if Tile has igloo
+     * @author Dorina
+     */
     public boolean hasIgloo() {
         return hasIgloo;
     }
 
+    /**
+     * Return if the Tile has a Tent
+     * @return true if Tile has tent
+     * @author Dorina
+     */
     public boolean hasTent() {
         return hasTent;
     }

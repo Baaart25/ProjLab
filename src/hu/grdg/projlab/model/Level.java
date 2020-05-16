@@ -41,6 +41,7 @@ public class Level {
 
     /**
      * Create a PolarBear and place it somewhere
+     * @author Dorina
      */
     private void createPolarBears(){
         PolarBear bear = new PolarBear();

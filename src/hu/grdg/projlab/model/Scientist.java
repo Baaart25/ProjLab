@@ -42,6 +42,10 @@ public class Scientist extends Player{
 
     }
 
+    /**
+     * Returns the renderer of the Scientist
+     * @return renderer attribute
+     */
     @Override
     public EntityRenderer getRenderer() {
         return renderer;
