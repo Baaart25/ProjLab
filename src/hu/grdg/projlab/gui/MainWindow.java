@@ -32,8 +32,11 @@ public class MainWindow extends JFrame {
         this.controller = c;
     }
 
-    //NOT IN DOCS
-    //Sets the look and feel
+
+    /**
+     * Sets the look and feel
+     * @author Barrow099
+     */
     private void setLAF() {
         try {
             for (UIManager.LookAndFeelInfo installedLookAndFeel : UIManager.getInstalledLookAndFeels()) {
@@ -49,6 +52,10 @@ public class MainWindow extends JFrame {
         }
     }
 
+    /**
+     * Creates the views
+     * @author Barrow099
+     */
     public void create() {
         createMenus();
         createLevelView();
@@ -105,6 +112,10 @@ public class MainWindow extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Creates the DataView of the game
+     * @author Barrow099
+     */
     private void createDataView() {
         dataView = new DataView(controller);
         dataView.setBounds(600,0,200,540);
@@ -112,6 +123,10 @@ public class MainWindow extends JFrame {
         this.add(dataView);
     }
 
+    /**
+     * Creates the LevelView of the game
+     * @author Barrow099
+     */
     private void createLevelView() {
 
         levelView = new LevelView(controller);
@@ -120,6 +135,10 @@ public class MainWindow extends JFrame {
         this.add(levelView);
     }
 
+    /**
+     * Creates the menus of the game
+     * @author Barrow099
+     */
     private void createMenus() {
         mainMenuBar = new JMenuBar();
 
@@ -230,6 +249,7 @@ public class MainWindow extends JFrame {
     /**
      * Asks if the user really want to close the application
      * @param actionEvent ignored
+     * @author Barrow099
      */
     private void showExitConfirm(ActionEvent actionEvent) {
         int res = JOptionPane.showConfirmDialog(this,"Biztosan kilép?","Kilépés",JOptionPane.YES_NO_OPTION);
@@ -243,6 +263,7 @@ public class MainWindow extends JFrame {
     /**
      * Shows help
      * @param actionEvent ignored
+     * @author Barrow099
      */
     private void showHelp(ActionEvent actionEvent) {
         if(Desktop.isDesktopSupported()) {
@@ -259,6 +280,7 @@ public class MainWindow extends JFrame {
     /**
      * Shows the about dialog
      * @param actionEvent ignored
+     * @author Barrow099
      */
     private void showAbout(ActionEvent actionEvent) {
         String message = "Mit jelent a GRDG?\n\n" +
