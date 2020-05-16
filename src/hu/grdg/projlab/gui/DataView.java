@@ -216,8 +216,11 @@ public class DataView extends JPanel {
     private void workDone(boolean success) {
 
         //Disable work count for debug purposes
-        if(DebugSettings.DEBUG_UNLIMITED_WORK)
+        if(DebugSettings.DEBUG_UNLIMITED_WORK) {
+            reloadInfo();
+            updateUI();
             return;
+        }
 
 
         if(success) {
