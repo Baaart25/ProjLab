@@ -1,5 +1,6 @@
 package hu.grdg.projlab.gui;
 
+import hu.grdg.projlab.debug.DebugSettings;
 import hu.grdg.projlab.model.*;
 
 import javax.swing.*;
@@ -213,6 +214,12 @@ public class DataView extends JPanel {
     }
 
     private void workDone(boolean success) {
+
+        //Disable work count for debug purposes
+        if(DebugSettings.DEBUG_UNLIMITED_WORK)
+            return;
+
+
         if(success) {
             playerRemActions--;
         }

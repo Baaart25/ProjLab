@@ -1,5 +1,6 @@
 package hu.grdg.projlab.gui;
 
+import hu.grdg.projlab.debug.DebugSettings;
 import hu.grdg.projlab.gui.render.IglooRenderer;
 import hu.grdg.projlab.gui.render.TentRenderer;
 import hu.grdg.projlab.model.Entity;
@@ -50,18 +51,32 @@ public class TileView extends JPanel {
         Graphics2D g2 = (Graphics2D) g;
         tile.getRenderer().draw(g2);
 
-        if(tile.getFrozenItem() != null) {
-            tile.getFrozenItem().getRenderer().draw(g2, true);
-
-            if(tile.getFrozenItem().isFrozen()) {
-                //System.out.println("Draw ice");
-                g.drawImage(imgIceLayer, 0,0,50,50, null);
+        if(DebugSettings.DEBUG_SHOW_ALL_ITEMS) {
+            if(tile.getSnowLayers() > 0) {
+                g.drawImage(imgSnowLayer, 0,0,50,50, null);
             }
-        }
 
+            if(tile.getFrozenItem() != null) {
+                tile.getFrozenItem().getRenderer().draw(g2, true);
 
-        if(tile.getSnowLayers() > 0) {
-            g.drawImage(imgSnowLayer, 0,0,50,50, null);
+                if(tile.getFrozenItem().isFrozen()) {
+                    //System.out.println("Draw ice");
+                    g.drawImage(imgIceLayer, 0,0,50,50, null);
+                }
+            }
+        } else {
+            if (tile.getFrozenItem() != null) {
+                tile.getFrozenItem().getRenderer().draw(g2, true);
+
+                if (tile.getFrozenItem().isFrozen()) {
+                    //System.out.println("Draw ice");
+                    g.drawImage(imgIceLayer, 0, 0, 50, 50, null);
+                }
+            }
+
+            if (tile.getSnowLayers() > 0) {
+                g.drawImage(imgSnowLayer, 0, 0, 50, 50, null);
+            }
         }
 
 
@@ -92,6 +107,19 @@ public class TileView extends JPanel {
 
             Entity e = entities.get(i);
             e.getRenderer().draw((Graphics2D) g, false, xOffset, yOffset, tile.scanLimit() == 0);
+        }
+
+        //DEBUG DRAW
+        if(DebugSettings.DEBUG_DRAW) {
+            String text = "T";
+            if(tile.scanLimit() == 0) {
+                text = "H";
+            }else if(tile.scanLimit() > 0) {
+                text = String.valueOf(tile.scanLimit());
+            }
+
+            g.setColor(Color.black);
+            g.drawString(text,35,40);
         }
 
     }

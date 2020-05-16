@@ -1,6 +1,7 @@
 package hu.grdg.projlab.model;
 
 import hu.grdg.projlab.ProtoIO;
+import hu.grdg.projlab.debug.DebugSettings;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -176,6 +177,11 @@ public abstract class Player extends Entity{
      */
     @Override
     public void fallInWater() {
+
+        //Disable water damage for debug purposes
+        if(DebugSettings.DEBUG_NO_WATER_DAMAGE)
+            return;
+
         isInWater = true;
         JOptionPane.showMessageDialog(null, "You fell in a hole","OOPS", JOptionPane.WARNING_MESSAGE);
     }

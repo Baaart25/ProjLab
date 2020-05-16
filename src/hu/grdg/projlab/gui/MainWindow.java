@@ -1,8 +1,11 @@
 package hu.grdg.projlab.gui;
 
+import hu.grdg.projlab.debug.DebugSettings;
 import hu.grdg.projlab.model.Controller;
 
 import javax.swing.*;
+import javax.swing.event.MenuKeyEvent;
+import javax.swing.event.MenuKeyListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
@@ -20,6 +23,8 @@ public class MainWindow extends JFrame {
     private LevelView levelView;
     private Controller controller;
     private DataView dataView;
+
+    private boolean debugShiftPressed = false;
 
     public MainWindow(Controller c)  {
         super("Jégmező - GRDG | v1.0");
@@ -127,6 +132,30 @@ public class MainWindow extends JFrame {
         menuItemHelp = new JMenuItem("Help");
         menuItemAbout = new JMenuItem("Rólunk");
 
+
+        //Debug mode code
+        menuItemNewGame.addMenuKeyListener(new MenuKeyListener() {
+            @Override
+            public void menuKeyTyped(MenuKeyEvent e) {
+
+            }
+
+            @Override
+            public void menuKeyPressed(MenuKeyEvent e) {
+                if(e.isShiftDown()) {
+                    MainWindow.this.debugShiftPressed = true;
+                }
+
+            }
+
+            @Override
+            public void menuKeyReleased(MenuKeyEvent e) {
+                if(!e.isShiftDown()) {
+                    MainWindow.this.debugShiftPressed = false;
+                }
+            }
+        });
+
         //Setup trivial menu actions
         menuItemAbout.addActionListener(this::showAbout);
         menuItemHelp.addActionListener(this::showHelp);
@@ -150,9 +179,52 @@ public class MainWindow extends JFrame {
      * @param actionEvent ignored
      */
     private void startGameAsync(ActionEvent actionEvent) {
-        Thread gameThread = new Thread(controller::startGame);
-        gameThread.setName("Game main loop");
-        gameThread.start();
+
+        if(debugShiftPressed) {
+            debugShiftPressed = false;
+            JOptionPane.showMessageDialog(this, "Debug mode activated");
+            JMenu debugMenu = new JMenu("DEBUG");
+
+            JMenuItem newLevelItem = new JMenuItem("Regen level");
+            newLevelItem.setEnabled(false);
+
+            JMenuItem debugDrawItem = new JCheckBoxMenuItem("Show debug info on tiles");
+            debugDrawItem.addActionListener(e -> {
+                DebugSettings.DEBUG_DRAW = debugDrawItem.isSelected();
+                MainWindow.this.repaint();
+            });
+
+            JMenuItem debugWorkItem = new JCheckBoxMenuItem("Unlimited works");
+            debugWorkItem.addActionListener(e -> {
+                DebugSettings.DEBUG_UNLIMITED_WORK = debugWorkItem.isSelected();
+            });
+
+            JMenuItem debugNoWater = new JCheckBoxMenuItem("Disable water damage");
+            debugNoWater.addActionListener(e -> {
+                DebugSettings.DEBUG_NO_WATER_DAMAGE = debugNoWater.isSelected();
+            });
+
+            JMenuItem debugShowAllItem = new JCheckBoxMenuItem("Show all items");
+            debugShowAllItem.addActionListener(e -> {
+                DebugSettings.DEBUG_SHOW_ALL_ITEMS = debugShowAllItem.isSelected();
+                MainWindow.this.repaint();
+            });
+
+
+
+            debugMenu.add(newLevelItem);
+            debugMenu.add(debugDrawItem);
+            debugMenu.add(debugWorkItem);
+            debugMenu.add(debugNoWater);
+            debugMenu.add(debugShowAllItem);
+
+
+            this.mainMenuBar.add(debugMenu);
+        }else {
+            Thread gameThread = new Thread(controller::startGame);
+            gameThread.setName("Game main loop");
+            gameThread.start();
+        }
     }
 
     /**
@@ -166,6 +238,7 @@ public class MainWindow extends JFrame {
             System.exit(0);
         }
     }
+
 
     /**
      * Shows help

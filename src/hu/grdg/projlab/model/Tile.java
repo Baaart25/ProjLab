@@ -2,6 +2,7 @@ package hu.grdg.projlab.model;
 
 import hu.grdg.projlab.Proto;
 import hu.grdg.projlab.ProtoIO;
+import hu.grdg.projlab.debug.DebugSettings;
 import hu.grdg.projlab.gui.TileRenderer;
 import hu.grdg.projlab.gui.TileView;
 
@@ -50,7 +51,7 @@ public abstract class Tile {
      * @author Dorina
      */
     public Item getFrozenItem() {
-        if(snowLayers == 0)
+        if(snowLayers == 0 || DebugSettings.DEBUG_SHOW_ALL_ITEMS)
             return frozenItem;
         return null;
     }
