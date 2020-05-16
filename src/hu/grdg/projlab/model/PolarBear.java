@@ -17,7 +17,6 @@ public class PolarBear extends Entity{
         if(stepTile==null) return false;
         currentTile.removeEntity(this);
         stepTile.acceptEntity(this);
-        System.out.println("aa");
         stepTile.bearAttack();
         return true;
     }
@@ -68,7 +67,6 @@ public class PolarBear extends Entity{
      */
     @Override
     public EntityRenderer getRenderer() {
-        System.out.println("AAAAA2");
         return renderer;
     }
 }

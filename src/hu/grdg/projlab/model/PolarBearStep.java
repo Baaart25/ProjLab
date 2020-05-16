@@ -31,7 +31,6 @@ public class PolarBearStep implements TurnBasedEvent{
     @Override
     public void doEvent(Level lvl, boolean fullTurn) {
         if(fullTurn){
-            System.out.println(bears.size());
             for (PolarBear bear: bears) {
                 while(!bear.move(ThreadLocalRandom.current().nextInt(0,4))){}
             }

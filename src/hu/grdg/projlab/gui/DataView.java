@@ -26,6 +26,7 @@ public class DataView extends JPanel {
 
     private JLabel healthLabel;
     private JLabel workLabel;
+    private JLabel playerLabel;
 
     private Player currentPlayer = null;
     private int playerRemActions = 4;
@@ -41,6 +42,15 @@ public class DataView extends JPanel {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         //Setup the view
+        JLabel ply= new JLabel("Player type: ");
+
+        playerLabel = new JLabel("");
+        JPanel plyPanel = new JPanel();
+        plyPanel.setLayout(new BoxLayout(plyPanel, BoxLayout.X_AXIS));
+        plyPanel.add(ply);
+        plyPanel.add(playerLabel);
+        this.add(plyPanel);
+
         JLabel hlth = new JLabel("Testhő: ");
         healthLabel = new JLabel("3");
         JPanel hthPanel = new JPanel();
@@ -328,9 +338,19 @@ public class DataView extends JPanel {
         }
 
         this.healthLabel.setText(String.valueOf(currentPlayer.getTemp()));
+        String text="";
+        if(currentPlayer!=null) {
+            if (currentPlayer.getMaxTemp() == 5) text = "Eszkimó";
+            else text = "Kutató";
+        }
+        this.playerLabel.setText(text);
         updateWorkLabel();
     }
 
+    /**
+     * Updates the label of remaining works
+     * @author Barrow099
+     */
     private void updateWorkLabel() {
         this.workLabel.setText(String.valueOf(playerRemActions));
     }

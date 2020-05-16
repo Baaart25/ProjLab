@@ -218,8 +218,19 @@ public abstract class Player extends Entity{
     /**
      * Returns the temperature of the Player
      * @return currentTemp attribute
+     * @author Dorina
      */
     public int getTemp() {
         return currentTemp;
     }
+
+    /**
+     * Returns the maximum temperature of the player
+     * @return maxTemp attribute
+     * @author Dorina
+     */
+    public int getMaxTemp(){
+        return maxTemp;
+    }
+
 }
