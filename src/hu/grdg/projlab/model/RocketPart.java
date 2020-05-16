@@ -15,10 +15,18 @@ public class RocketPart extends Item{
         controller = c;
     }
 
+    /**
+     * Call the checkWin function if the players have won
+     * @return true if the players won
+     */
     public boolean useItem(){
         return controller.checkWin();
     }
 
+    /**
+     * Returns the renderer of the RocketPart
+     * @return renderer attribute
+     */
     @Override
     public ItemRenderer getRenderer() {
         return renderer;

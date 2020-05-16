@@ -13,6 +13,11 @@ public abstract class Item {
     //NOT IN DOCS
     //TODO Add to docs
     //FIXME
+
+    /**
+     * Return if the Item is frozen
+     * @return true if the Item is frozen
+     */
     public boolean isFrozen() {
         return isFrozen;
     }

@@ -20,6 +20,10 @@ public class IceTile extends Tile{
         return -1;
     }
 
+    /**
+     * Returns the renderer of the IceTile
+     * @return renderer attribute
+     */
     @Override
     public TileRenderer getRenderer() {
         return renderer;

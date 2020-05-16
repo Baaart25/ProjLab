@@ -30,6 +30,10 @@ public class Eskimo extends Player{
         return false;
     }
 
+    /**
+     * Returns the renderer of the Eskimo
+     * @return renderer attribute
+     */
     @Override
     public EntityRenderer getRenderer() {
         return renderer;

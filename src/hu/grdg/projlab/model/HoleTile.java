@@ -56,6 +56,10 @@ public class HoleTile extends Tile{
         return false;
     }
 
+    /**
+     * Returns the renderer of the HoleTile
+     * @return renderer attribute
+     */
     @Override
     public TileRenderer getRenderer() {
         return renderer;

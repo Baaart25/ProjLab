@@ -15,6 +15,10 @@ public class DivingSuit extends Item{
         return owner.surviveWater();
     }
 
+    /**
+     * Returns the renderer of the DivingSuit
+     * @return renderer attribute
+     */
     @Override
     public ItemRenderer getRenderer() {
         return renderer;

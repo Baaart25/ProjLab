@@ -15,6 +15,10 @@ public class Food extends Item{
         return owner.eat(this);
     }
 
+    /**
+     * Returns the renderer of the Food
+     * @return renderer attribute
+     */
     @Override
     public ItemRenderer getRenderer() {
         return renderer;

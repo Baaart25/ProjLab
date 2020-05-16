@@ -216,7 +216,10 @@ public abstract class Player extends Entity{
         return false;
     }
 
-
+    /**
+     * Returns the temperature of the Player
+     * @return currentTemp attribute
+     */
     public int getTemp() {
         return currentTemp;
     }
