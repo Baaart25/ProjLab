@@ -218,7 +218,7 @@ public class MainWindow extends JFrame {
                 DebugSettings.DEBUG_UNLIMITED_WORK = debugWorkItem.isSelected();
             });
 
-            JMenuItem debugNoWater = new JCheckBoxMenuItem("Disable water damage");
+            JMenuItem debugNoWater = new JCheckBoxMenuItem("Disable tile damage (Hole, Unstable)");
             debugNoWater.addActionListener(e -> {
                 DebugSettings.DEBUG_NO_WATER_DAMAGE = debugNoWater.isSelected();
             });
