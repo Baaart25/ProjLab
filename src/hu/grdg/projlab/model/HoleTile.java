@@ -7,8 +7,12 @@ import hu.grdg.projlab.gui.render.TileRendererImpl;
 
 import javax.swing.*;
 
+/**
+ * Olyan tile, ami a rálépő entityket vízbe teszi
+ * Tileból származik
+ */
 public class HoleTile extends Tile{
-
+    //tárolja a hozzátartozó renderert
     private static TileRenderer renderer = new TileRendererImpl(true);
     /**
      * Scans the limit of the tile
