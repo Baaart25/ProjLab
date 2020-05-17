@@ -11,12 +11,16 @@ import java.util.function.Consumer;
  * It schedules the turns, events. It checks the win and lose conditions.
  */
 public class Controller {
+    //eventek tárolására
     private ArrayList<TurnBasedEvent> events;
+    //level tárolása
     private Level level;
+    //playerek tárolása
     private ArrayList<Player> players;
+    //rocketpartok tárolása
     ArrayList<RocketPart> rocketParts;
+    //tudni kell hány db játékos van
     private static int numberOfPlayers;
-
 
     /**
      * Returns the number of players
@@ -39,7 +43,6 @@ public class Controller {
         rocketParts = new ArrayList<RocketPart>();
     }
 
-
     //Event listeners
     public void addOnGameStartListener(Runnable listner) {
         this.gameStartEventListeners.add(listner);
@@ -49,23 +52,13 @@ public class Controller {
         this.nextPlayerEventListeners.add(listener);
     }
 
-    /**TODO: lehet kikéne az ilyeneket törölni
-     * Proto használta csak!
-     * @param p
-     */
-    public void addPlayer(Player p){
-        players.add(p);
-    }
-
-    /**TODO: lehet kikéne az ilyeneket törölni
+    /**
      * Proto használta csak!
      * @param rp
      */
     public void addRocketPart(RocketPart rp){
         rocketParts.add(rp);
     }
-
-    //FIXME
 
     /**
      * Ends the game
@@ -218,15 +211,6 @@ public class Controller {
         }
         endGame(true);
         return true;
-    }
-
-    /**
-     * Returns the number of players in the game
-     * @return the number of players
-     * @author Dorina
-     */
-    public int getPlayerCount(){
-        return players.size();
     }
 
     /**
