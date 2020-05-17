@@ -184,8 +184,6 @@ public class Controller {
      * @author Dani
      */
     public void init() {
-        System.out.println("INIT called");
-
         //Actually init events because they dont work without it xD
         events.add(new SnowStorm());
         events.add(new PolarBearStep());
