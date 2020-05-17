@@ -99,7 +99,6 @@ public class Controller {
                     player.setActive(false);
                 }
 
-                System.out.printf("Player %d's turn\n", i);
                 JOptionPane.showMessageDialog(null, String.format("Player %d's turn\n", i),"Player turn",JOptionPane.INFORMATION_MESSAGE);
                 players.get(i).setActive(true);
                 for (Consumer<Player> nextPlayerEventListener : nextPlayerEventListeners) {
