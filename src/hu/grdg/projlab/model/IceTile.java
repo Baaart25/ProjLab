@@ -5,8 +5,12 @@ import hu.grdg.projlab.gui.ItemRenderer;
 import hu.grdg.projlab.gui.TileRenderer;
 import hu.grdg.projlab.gui.render.TileRendererImpl;
 
+/**
+ * Olyan Tile, ami végtelen entity-t bír el
+ * Tileból származik
+ */
 public class IceTile extends Tile{
-
+    //tárolja a hozzátartozó renderert
     private static TileRenderer renderer = new TileRendererImpl(false);
 
 
