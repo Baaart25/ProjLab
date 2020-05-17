@@ -4,7 +4,11 @@ import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.gui.EntityRenderer;
 import hu.grdg.projlab.gui.render.EskimoRenderer;
 
+/**
+ * Eskimo osztály, playerből származik
+ */
 public class Eskimo extends Player{
+    //tárolja a hozzátartozó renderert
     private EntityRenderer renderer = new EskimoRenderer(this);
     /**
      * Sets the maximum temperature in player's constructor
