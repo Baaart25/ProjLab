@@ -8,12 +8,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Olyan Entity, amit a felhasználó tud irányítani
+ */
 public abstract class Player extends Entity{
+    //tárolja a max életét
     protected int maxTemp;
+    //tárolja a felvett item-eket
     private ArrayList<Item> inventory;
+    //ismeri a controllert
     private Controller controller;
+    //tárolja az aktuális életét
     private int currentTemp;
+    //tudja, hogy vízben van-e vagy nem
     protected boolean isInWater;
+    //tudja, hogy ő-e a soron levő játékos vagy nem
     private boolean active = false;
 
 
@@ -29,10 +38,6 @@ public abstract class Player extends Entity{
         isInWater = false;
         this.controller = controller;
     }
-
-    //----------------WARNING-----------------
-    //NOT IN DOCS
-    //TODO Fix the doc
 
     /**
      * Returns the Entity's inventory
@@ -74,8 +79,6 @@ public abstract class Player extends Entity{
 
         if(!a)
             wasInWater = isInWater;
-
-
 
         this.active = a;
         //Trigger tile redraw
@@ -157,14 +160,12 @@ public abstract class Player extends Entity{
      */
     @Override
     public void die() {
-
         //TODO REMOVE
         try {
             throw new RuntimeException("JEE");
         }catch (Exception e) {
             e.printStackTrace();
         }
-
 
         ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDIE);
         controller.endGame(false);
@@ -176,7 +177,6 @@ public abstract class Player extends Entity{
      */
     @Override
     public void fallInWater() {
-
         //Disable water damage for debug purposes
         if(DebugSettings.DEBUG_NO_WATER_DAMAGE)
             return;
@@ -197,7 +197,6 @@ public abstract class Player extends Entity{
         }
         return false;
     }
-
 
     /**
      * Save the entity from drowning
