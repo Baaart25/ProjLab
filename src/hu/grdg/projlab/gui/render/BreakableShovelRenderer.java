@@ -9,11 +9,19 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * BreakableShovelhez tartozó renderer
+ */
 public class BreakableShovelRenderer implements ItemRenderer {
+    //kép tárolása
     private BreakableShovel breakableShovel;
+    //kép1 tárolása
     private BufferedImage breakableShovel1Image;
+    //kép2 tárolása
     private BufferedImage breakableShovel2Image;
+    //kép3 tárolása
     private BufferedImage breakableShovel3Image;
+    //kép tárolása
     private BufferedImage brokenShovelImage;
 
     /**

@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class FoodRenderer implements ItemRenderer {
+    //kép tárolása
     private BufferedImage foodImage;
 
     /**

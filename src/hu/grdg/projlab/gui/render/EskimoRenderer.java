@@ -16,7 +16,10 @@ public class EskimoRenderer implements EntityRenderer {
     private BufferedImage eskimoOnHoleImage;
     private BufferedImage eskimoOnHoleSelectedImage;
 
-
+    /**
+     * ctor, beolvassa a megfelelő képeket
+     * @param eskimo
+     */
     public EskimoRenderer(Eskimo eskimo) {
         this.player = eskimo;
         try {

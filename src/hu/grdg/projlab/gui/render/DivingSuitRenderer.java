@@ -8,7 +8,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * DivingSuithoz tartozó renderer
+ */
 public class DivingSuitRenderer implements ItemRenderer {
+    //kép tárolása
     private BufferedImage divingSuitImage;
 
     /**
