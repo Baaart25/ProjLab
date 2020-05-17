@@ -60,7 +60,6 @@ public class TileView extends JPanel {
                 tile.getFrozenItem().getRenderer().draw(g2, true);
 
                 if(tile.getFrozenItem().isFrozen()) {
-                    //System.out.println("Draw ice");
                     g.drawImage(imgIceLayer, 0,0,50,50, null);
                 }
             }
@@ -69,7 +68,6 @@ public class TileView extends JPanel {
                 tile.getFrozenItem().getRenderer().draw(g2, true);
 
                 if (tile.getFrozenItem().isFrozen()) {
-                    //System.out.println("Draw ice");
                     g.drawImage(imgIceLayer, 0, 0, 50, 50, null);
                 }
             }
