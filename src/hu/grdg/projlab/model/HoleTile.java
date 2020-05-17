@@ -1,11 +1,7 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.Proto;
-import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.gui.TileRenderer;
 import hu.grdg.projlab.gui.render.TileRendererImpl;
-
-import javax.swing.*;
 
 /**
  * Olyan tile, ami a rálépő entityket vízbe teszi
@@ -34,7 +30,6 @@ public class HoleTile extends Tile{
         super.acceptEntity(entity);
         entity.fallInWater();
         removeSnowLayer(getSnowLayers());
-        ProtoIO.output(ProtoIO.OutputMessages.STEP_OUT_HOLE);
         entity.setCurrentTile(this);
         updateEvent();
     }

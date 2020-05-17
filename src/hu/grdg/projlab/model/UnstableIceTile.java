@@ -1,6 +1,5 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.debug.DebugSettings;
 
 public class UnstableIceTile extends IceTile{
@@ -28,12 +27,8 @@ public class UnstableIceTile extends IceTile{
     public void acceptEntity(Entity entity) {
         super.acceptEntity(entity);
         if(entities.size()>limit && !DebugSettings.DEBUG_NO_WATER_DAMAGE) {
-            //ProtoIO.output(ProtoIO.OutputMessages.STEP_OUT_UNSTABLE_DIE);
             System.out.printf("Unstable tile die: %d\n", limit);
             entity.die();
-        }
-        else{
-            ProtoIO.output(ProtoIO.OutputMessages.STEP_OUT_TILE);
         }
     }
 

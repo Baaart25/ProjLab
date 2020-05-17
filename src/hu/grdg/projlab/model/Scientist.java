@@ -1,6 +1,5 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.gui.EntityRenderer;
 import hu.grdg.projlab.gui.render.ScientistRenderer;
 

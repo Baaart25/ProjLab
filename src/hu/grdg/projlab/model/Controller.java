@@ -1,7 +1,5 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.ProtoIO;
-
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.function.Consumer;
@@ -67,7 +65,6 @@ public class Controller {
     public void endGame(boolean win){
 
         if(win) {
-            ProtoIO.output("Item used. Game ended with a win.");
             JOptionPane.showMessageDialog(null, "YOU WIN","GAME ENDED", JOptionPane.INFORMATION_MESSAGE);
         }else {
             JOptionPane.showMessageDialog(null, "YOU LOSE","GAME ENDED", JOptionPane.INFORMATION_MESSAGE);

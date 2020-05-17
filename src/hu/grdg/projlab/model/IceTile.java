@@ -1,7 +1,5 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.ProtoIO;
-import hu.grdg.projlab.gui.ItemRenderer;
 import hu.grdg.projlab.gui.TileRenderer;
 import hu.grdg.projlab.gui.render.TileRendererImpl;
 

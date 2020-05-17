@@ -1,6 +1,5 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.debug.DebugSettings;
 
 import javax.swing.*;
@@ -149,7 +148,6 @@ public abstract class Player extends Entity{
     @Override
     public void damage(int i) {
         currentTemp -= i;
-        ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDAMAGE);
         JOptionPane.showMessageDialog(null,"Player damaged","Oops", JOptionPane.WARNING_MESSAGE);
         if(currentTemp<=0) die();
     }
@@ -166,8 +164,6 @@ public abstract class Player extends Entity{
         }catch (Exception e) {
             e.printStackTrace();
         }
-
-        ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDIE);
         controller.endGame(false);
     }
 
