@@ -3,8 +3,13 @@ package hu.grdg.projlab.model;
 import hu.grdg.projlab.gui.EntityRenderer;
 import hu.grdg.projlab.gui.ItemRenderer;
 
+/**
+ * Absztrakt osztály, a player-ek tudják őket tárolni és használni
+ */
 public abstract class Item {
+    //ismeri, hogy be van e fagyva vagy nem
     protected boolean isFrozen = true;
+    //ismeri a tulajdonosát
     protected Player owner;
 
     /**
@@ -25,10 +30,8 @@ public abstract class Item {
         if(isFrozen){
             return false;
         }
-
         owner = byPlayer;
         byPlayer.addItem(this);
-
         return true;
     }
 
@@ -59,22 +62,6 @@ public abstract class Item {
      */
     public Player getOwner(){
         return owner;
-    }
-
-    /**
-     * Sets the isFrozen property. Used for saved game loading
-     * @param isForzen The new state
-     */
-    public void setIsFrozen(boolean isForzen) {
-        this.isFrozen = isForzen;
-    }
-
-    /**
-     * Sets the owner of the item
-     * @param player The new owner
-     */
-    public void setFuckinOwner(Player player) {
-        this.owner = player;
     }
 
     /**
