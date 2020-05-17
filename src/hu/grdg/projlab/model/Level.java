@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Level {
+    //tárolja a mezőket amelyeket legenerál
     private ArrayList<Tile> tiles;
+    //ismeri a controllert
     private Controller controller;
     private static int size = 10;
 
@@ -16,15 +18,6 @@ public class Level {
     Level(Controller c) {
         controller = c;
         tiles = new ArrayList<Tile>();
-    }
-
-    /**
-     * Beállítha a size értéket
-     * @author Dani
-     * @param s
-     */
-    void setSize(int s) {
-        size = s;
     }
 
     /**
@@ -59,16 +52,6 @@ public class Level {
     public ArrayList<Tile> getTiles() {
         return tiles;
     }
-
-    /**
-     * Visszatér a RocketPart-okkal
-     * @return rocketparts
-     * @author Dani
-     */
-    //FIXME delete this
-    //public ArrayList<RocketPart> getRocketParts() {
-    //    return rocketParts;
-    //}
 
     /**
      *Generate the tiles of the level
