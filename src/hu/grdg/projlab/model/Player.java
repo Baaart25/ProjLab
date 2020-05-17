@@ -47,11 +47,6 @@ public abstract class Player extends Entity{
         return inventory;
     }
 
-    //----------------WARNING----------------
-    //CHANGED ARG FROM VOID TO INT
-    //@returns The index of the added item
-    //TODO Fix doc
-
     /**
      * Add new item to the inventory
      * @param item new Item
@@ -63,12 +58,23 @@ public abstract class Player extends Entity{
         return inventory.size();
     }
 
+    /**
+     * Returns if the Player is the active player
+     * @return true of the player is active
+     * @author Barrow099
+     */
     public boolean isActive() {
         return active;
     }
 
 
     private boolean wasInWater = false;
+
+    /**
+     * Sets the active attribute to the given value
+     * @param a active value
+     * @author Barrow099
+     */
     public void setActive(boolean a) {
         if(active == a)
             return;
