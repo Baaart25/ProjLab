@@ -134,7 +134,6 @@ public class DataView extends JPanel {
                     Item item = list.getModel().getElementAt(loc);
 
                     if (workCheck()) {
-                        System.out.println("Item used: " + item.toString());
                         //TODO fix it
                         boolean succ = item.useItem();
                         currentPlayer.getCurrentTile().updateEvent();
@@ -173,37 +172,6 @@ public class DataView extends JPanel {
 
             }
         });
-
-        /*list.addListSelectionListener(listSelectionEvent -> {
-            try {
-                if (listSelectionEvent.getFirstIndex() < 0)
-                    return;
-                int index = listSelectionEvent.getFirstIndex();
-                Item item = list.getModel().getElementAt(index);
-                list.setSelectedIndex(-1);
-                if (workCheck()) {
-                    System.out.println("Item used: " + item.toString());
-                    //TODO fix it
-                    boolean succ = item.useItem();
-                    currentPlayer.getCurrentTile().updateEvent();
-                    list.setSelectedIndex(-1);
-
-                    //Very bad hack to ensure no concurrent modifs
-                    new Thread(() -> {
-                        try {
-                            Thread.sleep(10);
-                            DataView.this.reloadInfo();
-                        } catch (InterruptedException ignored) {
-                        }
-                    }).start();
-
-                    workDone(succ);
-                }
-            } catch (Exception ignored) {
-                //IDK why but it is pretty dangerous
-            }
-
-        });*/
 
         inventoryScrollPane = new JScrollPane(list);
         inventoryScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);

@@ -15,7 +15,6 @@ public class LevelView extends JPanel {
 
         this.controller = c;
         controller.addOnGameStartListener(() -> {
-            System.out.println("ASDASD");
             this.regenTileMap();
         });
         setSize(600, 525);
@@ -41,8 +40,6 @@ public class LevelView extends JPanel {
         int xOffset = (getWidth() - (tileXCount * 50)) / 2;
         int yOffset = (getHeight() - (tileYCount * 50)) / 2;
 
-
-
         //Gen tiles
         for(int y = 0; y < tileYCount; y++) {
             for(int x = 0; x < tileXCount; x++) {
@@ -58,15 +55,10 @@ public class LevelView extends JPanel {
         this.repaint();
         this.invalidate();
         this.repaint();
-
-
-
-
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        System.out.println("LOL");
     }
 }

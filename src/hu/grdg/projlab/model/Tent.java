@@ -39,7 +39,6 @@ public class Tent extends Item {
      */
     public void decreaseLife() {
         life--;
-        System.out.println(life + "life");
         if(life == 0) {
             Tile tile = owner.getCurrentTile();
             tile.removeTent();
