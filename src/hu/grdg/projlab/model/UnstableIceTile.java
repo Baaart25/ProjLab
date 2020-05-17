@@ -27,7 +27,6 @@ public class UnstableIceTile extends IceTile{
     public void acceptEntity(Entity entity) {
         super.acceptEntity(entity);
         if(entities.size()>limit && !DebugSettings.DEBUG_NO_WATER_DAMAGE) {
-            System.out.printf("Unstable tile die: %d\n", limit);
             entity.die();
         }
     }

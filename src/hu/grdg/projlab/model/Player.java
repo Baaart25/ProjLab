@@ -164,12 +164,6 @@ public abstract class Player extends Entity{
      */
     @Override
     public void die() {
-        //TODO REMOVE
-        try {
-            throw new RuntimeException("JEE");
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
         controller.endGame(false);
     }
 
